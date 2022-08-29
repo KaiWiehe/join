@@ -1,0 +1,199 @@
+:root {
+    --bgPrimary: rgb(32, 49, 146);
+    --bgSecondary: rgba(243, 241, 251, 0.665);
+    --fontColorWhite: white;
+    --fontColorBlue: rgb(35, 38, 176);
+    --border: rgba(225, 224, 224, 0.462);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.1rem;
+}
+
+html {
+    height: 100vh;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    width: 100vw;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hide {
+    display: none !important;
+}
+
+
+/* ################################################################ */
+
+.contentContainer {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+}
+
+
+/* ##############################Left############################## */
+
+.left {
+    background: var(--bgPrimary);
+    width: 20%;
+    border-radius: 1.5rem 0 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.left .top img {
+    margin: 2rem 0 2rem 0;
+    transition: all 125ms ease-in-out;
+}
+
+.left .top img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.left .top ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--fontColorWhite);
+}
+
+.left .top ul li {
+    padding: 0.5rem 0.5rem 0.5rem 3rem;
+    border-left: 0.5rem solid transparent;
+    transition: all 125ms ease-in-out;
+}
+
+.left .top ul li:hover {
+    cursor: pointer;
+    border-left: 0.75rem solid var(--fontColorWhite);
+    transform: scale(1.05);
+}
+
+.left .userImg {
+    margin: 0 0 2rem 0;
+}
+
+.left .userImg img {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+
+
+/* #############################Right############################## */
+
+.right {
+    width: 80%;
+    border-radius: 0 1.5rem 1.5rem 0;
+    border: 0.25rem solid var(--border);
+    border-left: 0;
+}
+
+
+/* #############################Board############################## */
+
+.board {
+    display: flex;
+    justify-content: space-around;
+    margin: 2rem 2rem 2rem 2rem;
+    height: calc(100% - 4rem);
+}
+
+.board div {
+    height: calc(100% - 1rem);
+    text-align: center;
+}
+
+.board div span {
+    font-weight: bold;
+}
+
+.board div div {
+    background: var(--bgSecondary);
+    height: calc(100% - 1rem);
+    width: 8rem;
+    margin: 1rem 0 0 0;
+}
+
+
+/* #############################Backlog############################## */
+
+.backlog {
+    max-height: calc(100% - 4rem);
+    margin: 0 0 2rem 0;
+}
+
+.backlog h1 {
+    margin: 2rem 0 2rem 2rem;
+}
+
+.backlog table {
+    margin: 0 0.5rem 0 0.5rem;
+    border-collapse: collapse;
+}
+
+.backlog th {
+    min-width: 8rem;
+    padding: 0 0.5rem 0.75rem 0.5rem;
+    text-align: left;
+    color: var(--fontColorBlue);
+    position: sticky;
+    top: 0;
+    background: var(--fontColorWhite);
+}
+
+.table {
+    overflow-y: scroll;
+    max-height: 34rem;
+}
+
+.backlog tbody td {
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.backlog tbody tr {
+    background: var(--bgSecondary);
+    border-bottom: 0.5rem solid white;
+    border-radius: 1rem;
+}
+
+.backlog tbody tr td:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.backlog tbody tr td img {
+    border-radius: 100%;
+    width: 2rem;
+    height: 2rem;
+    object-fit: cover;
+    margin: 0 0.5rem 0 0;
+}
+
+
+/* ################################################################ */
