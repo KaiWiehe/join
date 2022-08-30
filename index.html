@@ -31,25 +31,32 @@
             <div class="userImg center"><img src="img/profileImg.jpg" alt=""></div>
         </div>
         <div class="right">
-            <div class="board hide">
-                <div>
+            <div class="board ">
+                <div class="category">
                     <span>TO DO</span>
-                    <div></div>
+                    <div class="cardContainer">
+                        <div class="card">
+                            <h3>test 1</h3>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, minus.</p>
+                            <button class="button cardButton">Back</button>
+                            <button class="button cardButton">Next</button>
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div class="category">
                     <span>IN PROGRESS</span>
-                    <div></div>
+                    <div class="cardContainer"></div>
                 </div>
-                <div>
+                <div class="category">
                     <span>TESTING</span>
-                    <div></div>
+                    <div class="cardContainer"></div>
                 </div>
-                <div>
+                <div class="category">
                     <span>DONE</span>
-                    <div></div>
+                    <div class="cardContainer"></div>
                 </div>
             </div>
-            <div class="backlog">
+            <div class="backlog hide">
                 <h1>Backlog</h1>
                 <div class="table">
                     <table>
@@ -124,6 +131,56 @@
                         </tbody>
                     </table>
                 </div>
+            </div>
+            <div class="addTask hide">
+                <h1>Add Task</h1>
+                <form>
+                    <div class="flex formRow">
+                        <div class="collum formCullum">
+                            <h2>Title</h2>
+                            <input class="inputField" type="text" placeholder="Titel">
+                        </div>
+                        <div class="collum formCullum">
+                            <h2>Date</h2>
+                            <input class="inputField" type="date">
+                        </div>
+                    </div>
+                    <div class="flex formRow">
+                        <div class="collum formCullum">
+                            <h2>Category</h2>
+                            <select class="inputField">
+                            <option value="">Managment</option>
+                            <option value="">Keine ahnung</option>
+                            <option value="">noch irgendwas</option>
+                        </select>
+                        </div>
+                        <div class="collum formCullum">
+                            <h2>Urgency</h2>
+                            <select class="inputField">
+                            <option value="">HIGH</option>
+                            <option value="">MIDDLE</option>
+                            <option value="">LOW</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="flex formRow">
+                        <div class="cullum formCullum">
+                            <h2>Description</h2>
+                            <textarea class="descriptionArea" placeholder="Description"></textarea>
+                        </div>
+                        <div class="cullum formCullum">
+                            <h2>ASSIGNED TO</h2>
+                            <button class="button">Cancel</button>
+                            <button class="button">Create Task</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="help hide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis soluta veniam, eos suscipit labore praesentium placeat unde eveniet odit incidunt quam perferendis facilis quos delectus commodi maiores tenetur sapiente!</p>
+            </div>
+            <div class="aboutUs hide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae culpa quidem quaerat deserunt atque delectus qui odio eos reiciendis!</p>
             </div>
         </div>
     </div>

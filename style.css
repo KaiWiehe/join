@@ -1,9 +1,10 @@
 :root {
     --bgPrimary: rgb(32, 49, 146);
-    --bgSecondary: rgba(243, 241, 251, 0.665);
+    --bgSecondary: rgba(237, 234, 249, 0.575);
     --fontColorWhite: white;
     --fontColorBlue: rgb(35, 38, 176);
     --border: rgba(225, 224, 224, 0.462);
+    --darkGrey: rgba(74, 74, 74, 0.661);
 }
 
 * {
@@ -40,6 +41,29 @@ img {
 
 .hide {
     display: none !important;
+}
+
+.collum {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex {
+    display: flex;
+}
+
+.button {
+    color: var(--fontColorWhite);
+    background: linear-gradient(164deg, rgba(160, 196, 255, 1) 0%, rgba(53, 80, 198, 1) 60%);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    border: 0;
+    transition: all 125ms ease-in-out;
+}
+
+.button:hover {
+    background: linear-gradient(164deg, rgba(160, 196, 255, 1) 35%, rgba(53, 80, 198, 1) 78%);
+    transform: scale(1.05);
 }
 
 
@@ -124,20 +148,37 @@ img {
     height: calc(100% - 4rem);
 }
 
-.board div {
+.category {
     height: calc(100% - 1rem);
     text-align: center;
 }
 
 .board div span {
     font-weight: bold;
+    font-size: 1.25rem;
 }
 
-.board div div {
+.cardContainer {
     background: var(--bgSecondary);
     height: calc(100% - 1rem);
-    width: 8rem;
+    min-width: 10rem;
+    max-width: 15rem;
     margin: 1rem 0 0 0;
+}
+
+.card {
+    background: var(--darkGrey);
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.card p {
+    padding: 0.5rem 0 0.5rem 0;
+    color: var(--bgSecondary);
+}
+
+.cardButton {
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 
@@ -194,6 +235,78 @@ img {
     object-fit: cover;
     margin: 0 0.5rem 0 0;
 }
+
+
+/* #############################AddTask############################## */
+
+.addTask {
+    height: calc(100% - 4rem);
+    margin: 0 0 2rem 0;
+}
+
+.addTask h1 {
+    margin: 2rem 0 2rem 2rem;
+}
+
+.addTask form {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    background: var(--bgSecondary);
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.addTask h2 {
+    color: var(--fontColorBlue);
+    margin: 0 0 1rem 0;
+}
+
+.formRow {
+    justify-content: space-between;
+    margin: 0 0 2rem 0;
+}
+
+.formCullum {
+    width: 20rem;
+}
+
+.descriptionArea {
+    width: 20rem;
+    height: 10rem;
+    resize: none;
+    padding: 1rem 0 0 1rem;
+    font-size: 1.25rem;
+}
+
+.inputField {
+    height: 3rem;
+    padding: 0 0 0 1rem;
+    font-size: 1.25rem;
+}
+
+
+/* 
+.addTask input,
+.addTask textarea {
+    width: 20rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    padding: 0 0 0 1rem;
+}
+
+.addTask select {
+    width: 21rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    padding: 0 0 0 1rem;
+}
+
+.descriptionArea {
+    min-height: 10rem;
+    resize: none;
+    padding: 1rem !important;
+} */
 
 
 /* ################################################################ */
