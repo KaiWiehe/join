@@ -7,181 +7,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kai's Join</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/backlog.css">
+    <link rel="stylesheet" href="css/addTask.css">
+
     <script src="script.js"></script>
+    <script src="js/include.js"></script>
 </head>
 
-<body>
+<body onload="init()">
 
-    <div class="contentContainer">
-        <div class="left">
-            <div class="top">
-                <div class="center">
-                    <img src="img/joinlogo.png" alt="Join Logo">
-                </div>
-                <ul>
-                    <li>Board</li>
-                    <li>Backlog</li>
-                    <li>Add Task</li>
-                    <li>Help</li>
-                    <li>About US</li>
-                </ul>
+    <div class="left" w3-include-html="includes/menu.html"></div>
+
+    <div class="right">
+
+        <div id="summary">
+            <div class="summaryHeader flex center">
+                <h1>Summary</h1>
+                <span class="borderLeftBlue">Everything in a nutshell!</span>
             </div>
-            <div class="userImg center"><img src="img/profileImg.jpg" alt=""></div>
+            <div class="flex">
+                <div class="cube collum center">
+                    <span class="cubeNumber">5</span>
+                    <span>Tasks in Board</span>
+                </div>
+                <div class="cube collum center">
+                    <span class="cubeNumber">2</span>
+                    <span>Tasks in progress</span>
+                </div>
+                <div class="cube collum center">
+                    <span class="cubeNumber">2</span>
+                    <span>Awaiting feedback</span>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="cube rectangle center">
+                    <div class="collum">
+                        <span class="cubeNumber">1</span>
+                        <span>Urgent</span>
+                    </div>
+                    <div class="collum borderLeftGrey">
+                        <span class="summaryDate">October 16, 2022</span>
+                        <span class="summaryDeadline">Upcomming Deadline</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="goodMorning">Good morning, <br><b>Kai Wiehe</b></div>
+                </div>
+            </div>
+            <div class="flex">
+                <div class="cube rectangle2 collum center">
+                    <span class="cubeNumber">1</span>
+                    <span>To-do</span>
+                </div>
+                <div class="cube rectangle2 collum center">
+                    <span class="cubeNumber">1</span>
+                    <span>Done</span>
+                </div>
+            </div>
         </div>
-        <div class="right">
-            <div class="board ">
-                <div class="category">
-                    <span>TO DO</span>
-                    <div class="cardContainer">
-                        <div class="card">
-                            <h3>test 1</h3>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis, minus.</p>
-                            <button class="button cardButton">Back</button>
-                            <button class="button cardButton">Next</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="category">
-                    <span>IN PROGRESS</span>
-                    <div class="cardContainer"></div>
-                </div>
-                <div class="category">
-                    <span>TESTING</span>
-                    <div class="cardContainer"></div>
-                </div>
-                <div class="category">
-                    <span>DONE</span>
-                    <div class="cardContainer"></div>
-                </div>
-            </div>
-            <div class="backlog hide">
-                <h1>Backlog</h1>
-                <div class="table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ASSIGNED TO</th>
-                                <th>CATEGORY</th>
-                                <th>DETAILS</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/profileImg.jpg" alt="Profile Img"> Kai</td>
-                                <td>Marketing</td>
-                                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, obcaecati.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="addTask hide">
-                <h1>Add Task</h1>
-                <form>
-                    <div class="flex formRow">
-                        <div class="collum formCullum">
-                            <h2>Title</h2>
-                            <input class="inputField" type="text" placeholder="Titel">
-                        </div>
-                        <div class="collum formCullum">
-                            <h2>Date</h2>
-                            <input class="inputField" type="date">
-                        </div>
-                    </div>
-                    <div class="flex formRow">
-                        <div class="collum formCullum">
-                            <h2>Category</h2>
-                            <select class="inputField">
-                            <option value="">Managment</option>
-                            <option value="">Keine ahnung</option>
-                            <option value="">noch irgendwas</option>
-                        </select>
-                        </div>
-                        <div class="collum formCullum">
-                            <h2>Urgency</h2>
-                            <select class="inputField">
-                            <option value="">HIGH</option>
-                            <option value="">MIDDLE</option>
-                            <option value="">LOW</option>
-                        </select>
-                        </div>
-                    </div>
-                    <div class="flex formRow">
-                        <div class="cullum formCullum">
-                            <h2>Description</h2>
-                            <textarea class="descriptionArea" placeholder="Description"></textarea>
-                        </div>
-                        <div class="cullum formCullum">
-                            <h2>ASSIGNED TO</h2>
-                            <button class="button">Cancel</button>
-                            <button class="button">Create Task</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="help hide">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis soluta veniam, eos suscipit labore praesentium placeat unde eveniet odit incidunt quam perferendis facilis quos delectus commodi maiores tenetur sapiente!</p>
-            </div>
-            <div class="aboutUs hide">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae culpa quidem quaerat deserunt atque delectus qui odio eos reiciendis!</p>
-            </div>
+
+        <div id="board" class="board hide" w3-include-html="includes/board.html"></div>
+        <div id="backlog" class="backlog hide" w3-include-html="includes/backlog.html">
+        </div>
+        <div id="addTask" class="addTask hide">
+            <h1>Add Task</h1>
+            <div w3-include-html="includes/addTask.html"></div>
+        </div>
+        <div id="help" class="help hide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis soluta veniam, eos suscipit labore praesentium placeat unde eveniet odit incidunt quam perferendis facilis quos delectus commodi maiores tenetur sapiente!</p>
+        </div>
+        <div id="aboutUs" class="aboutUs hide">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae culpa quidem quaerat deserunt atque delectus qui odio eos reiciendis!</p>
         </div>
     </div>
 

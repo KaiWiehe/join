@@ -1,0 +1,48 @@
+<form onsubmit="createTask(); return false;">
+    <div class="flex formRow">
+        <div class=" formCullum">
+            <h2>Title</h2>
+            <input required id="titelInputField" class="inputField" type="text" placeholder="Choose a Titel">
+        </div>
+        <div class="collum formCullum">
+            <h2>Date</h2>
+            <input required id="dateInputField" class="inputField" type="date">
+        </div>
+    </div>
+    <div class="flex formRow">
+        <div class=" formCullum">
+            <h2>Category</h2>
+            <select required id="categorySelect" class="inputField">
+                <option value="" disabled selected hidden>Choose a Category</option>
+                <option value="Managment">Managment</option>
+                <option value="noch irgendwas">noch irgendwas</option>
+                            </select>
+        </div>
+        <div class=" formCullum">
+            <h2>Urgency</h2>
+            <select required id="urgencySelect" class="inputField">
+                            <option value="" disabled selected hidden>Choose the Urgency</option>
+                            <option value="HIGH">HIGH</option>
+                            <option value="MIDDLE">MIDDLE</option>
+                            <option value="LOW">LOW</option>
+                        </select>
+        </div>
+    </div>
+    <div class="flex formRow">
+        <div class=" formCullum">
+            <h2>Description</h2>
+            <textarea minlength="4" required id="descriptionInputField" class="descriptionArea" placeholder="Enter a Description..."></textarea>
+        </div>
+        <div class="collum formCullum assignedTo">
+            <h2>ASSIGNED TO</h2>
+            <select required id="assignedToSelect" class="inputField">
+                                <option value="" disabled selected hidden>Choose a Name</option>
+                                <option value="Kai">Kai</option>
+                                <option value="Caro">Caro</option>
+                                <option value="Paul">Paul</option>
+                            </select>
+            <button class="button">Cancel</button>
+            <button type="submit" class="button">Create Task</button>
+        </div>
+    </div>
+</form>

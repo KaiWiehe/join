@@ -1,0 +1,53 @@
+/* ##############################Menu############################## */
+
+.left {
+    background: var(--leftGrey);
+    width: 20%;
+    /* border-radius: 1.5rem 0 0 1.5rem; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.left .top img {
+    margin: 2rem 0 2rem 0;
+    transition: all 125ms ease-in-out;
+}
+
+.left .top img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.left .top ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--fontColorWhite);
+}
+
+.left .top ul li {
+    padding: 0.5rem 0.5rem 0.5rem 3rem;
+    border-left: 0.5rem solid transparent;
+    transition: all 125ms ease-in-out;
+    color: var(--white);
+}
+
+.left .top ul li:hover {
+    cursor: pointer;
+    border-left: 0.75rem solid var(--white);
+    transform: scale(1.05);
+}
+
+.left .userImg {
+    margin: 0 0 2rem 0;
+}
+
+.left .userImg img {
+    border-radius: 100%;
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
