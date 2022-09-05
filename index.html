@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/addTask.css">
 
     <script src="script.js"></script>
+    <script src="js/switchCategorys.js"></script>
     <script src="js/include.js"></script>
 </head>
 
@@ -32,15 +33,15 @@
             </div>
             <div class="flex">
                 <div class="cube collum center">
-                    <span class="cubeNumber">5</span>
+                    <span class="cubeNumber" id="tasksInBoard">5</span>
                     <span>Tasks in Board</span>
                 </div>
                 <div class="cube collum center">
-                    <span class="cubeNumber">2</span>
+                    <span class="cubeNumber" id="tasksInProgress">2</span>
                     <span>Tasks in progress</span>
                 </div>
                 <div class="cube collum center">
-                    <span class="cubeNumber">2</span>
+                    <span class="cubeNumber" id="awaitingFeedbackSummary">2</span>
                     <span>Awaiting feedback</span>
                 </div>
             </div>
@@ -61,11 +62,11 @@
             </div>
             <div class="flex">
                 <div class="cube rectangle2 collum center">
-                    <span class="cubeNumber">1</span>
+                    <span class="cubeNumber" id="tasksSummary">1</span>
                     <span>To-do</span>
                 </div>
                 <div class="cube rectangle2 collum center">
-                    <span class="cubeNumber">1</span>
+                    <span class="cubeNumber" id="doneSummary">1</span>
                     <span>Done</span>
                 </div>
             </div>
