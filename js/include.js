@@ -1,8 +1,3 @@
-//async function init() {
-//    await includeHTML();
-//    //document.getElementById('headline').innerHTML = 'Herzlich Willkommen!';
-//}
-
 /** Fügt die ausgelagerten HTML Dateien zu der Seite hinzu */
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]'); // Suche nach allem was dieses Atribut hat

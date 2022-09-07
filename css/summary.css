@@ -74,4 +74,5 @@
 
 .rectangle2 {
     width: calc(15rem + 2rem);
+    margin: 0 0 0 4rem;
 }

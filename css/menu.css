@@ -11,8 +11,9 @@
 }
 
 .left .top img {
-    margin: 2rem 0 2rem 0;
+    margin: 4rem 0 4rem 0;
     transition: all 125ms ease-in-out;
+    width: 5rem;
 }
 
 .left .top img:hover {
@@ -45,7 +46,7 @@
     margin: 0 0 2rem 0;
 }
 
-.left .userImg img {
+.userImg img {
     border-radius: 100%;
     width: 5rem;
     height: 5rem;

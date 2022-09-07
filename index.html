@@ -17,7 +17,11 @@
 
     <script src="script.js"></script>
     <script src="js/switchCategorys.js"></script>
+    <script src="js/createTask.js"></script>
+    <script src="js/boardButtons.js"></script>
+    <script src="js/helpFunctions.js"></script>
     <script src="js/include.js"></script>
+    <!-- <script src="./js/mini_backend.js"></script> -->
 </head>
 
 <body onload="init()">
@@ -25,65 +29,21 @@
     <div class="left" w3-include-html="includes/menu.html"></div>
 
     <div class="right">
-
-        <div id="summary">
-            <div class="summaryHeader flex center">
-                <h1>Summary</h1>
-                <span class="borderLeftBlue">Everything in a nutshell!</span>
+        <header w3-include-html="includes/header.html"></header>
+        <div class="bottomRight">
+            <div id="summary" w3-include-html="includes/summary.html"></div>
+            <div id="board" class="boardContainer hide" w3-include-html="includes/board.html"></div>
+            <div id="backlog" class="backlog hide" w3-include-html="includes/backlog.html"></div>
+            <div id="addTask" class="addTask hide">
+                <h1>Add Task</h1>
+                <div w3-include-html="includes/addTask.html"></div>
             </div>
-            <div class="flex">
-                <div class="cube collum center">
-                    <span class="cubeNumber" id="tasksInBoard">5</span>
-                    <span>Tasks in Board</span>
-                </div>
-                <div class="cube collum center">
-                    <span class="cubeNumber" id="tasksInProgress">2</span>
-                    <span>Tasks in progress</span>
-                </div>
-                <div class="cube collum center">
-                    <span class="cubeNumber" id="awaitingFeedbackSummary">2</span>
-                    <span>Awaiting feedback</span>
-                </div>
+            <div id="help" class="help hide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis soluta veniam, eos suscipit labore praesentium placeat unde eveniet odit incidunt quam perferendis facilis quos delectus commodi maiores tenetur sapiente!</p>
             </div>
-            <div class="flex">
-                <div class="cube rectangle center">
-                    <div class="collum">
-                        <span class="cubeNumber">1</span>
-                        <span>Urgent</span>
-                    </div>
-                    <div class="collum borderLeftGrey">
-                        <span class="summaryDate">October 16, 2022</span>
-                        <span class="summaryDeadline">Upcomming Deadline</span>
-                    </div>
-                </div>
-                <div>
-                    <div class="goodMorning">Good morning, <br><b>Kai Wiehe</b></div>
-                </div>
+            <div id="aboutUs" class="aboutUs hide">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae culpa quidem quaerat deserunt atque delectus qui odio eos reiciendis!</p>
             </div>
-            <div class="flex">
-                <div class="cube rectangle2 collum center">
-                    <span class="cubeNumber" id="tasksSummary">1</span>
-                    <span>To-do</span>
-                </div>
-                <div class="cube rectangle2 collum center">
-                    <span class="cubeNumber" id="doneSummary">1</span>
-                    <span>Done</span>
-                </div>
-            </div>
-        </div>
-
-        <div id="board" class="board hide" w3-include-html="includes/board.html"></div>
-        <div id="backlog" class="backlog hide" w3-include-html="includes/backlog.html">
-        </div>
-        <div id="addTask" class="addTask hide">
-            <h1>Add Task</h1>
-            <div w3-include-html="includes/addTask.html"></div>
-        </div>
-        <div id="help" class="help hide">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis soluta veniam, eos suscipit labore praesentium placeat unde eveniet odit incidunt quam perferendis facilis quos delectus commodi maiores tenetur sapiente!</p>
-        </div>
-        <div id="aboutUs" class="aboutUs hide">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae culpa quidem quaerat deserunt atque delectus qui odio eos reiciendis!</p>
         </div>
     </div>
 

@@ -1,4 +1,5 @@
 [{
+    "id": "0",
     "titel": "Test 1",
     "description": "Test test test test test",
     "date": "08.09.1999",
@@ -6,5 +7,95 @@
     "AssignedTo": "Kai",
     "process": "inProgress",
     "category": "whatever",
-    "img": "../assets/img/profileImg.jpg"
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "1",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "2",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "3",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "4",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "5",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "6",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "7",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "8",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
+},{
+    "id": "9",
+    "titel": "Test 1",
+    "description": "Test test test test test",
+    "date": "08.09.1999",
+    "urgency": "High",
+    "AssignedTo": "Kai",
+    "process": "inProgress",
+    "category": "whatever",
+    "img": "assets/img/profileImg.jpg"
 }]

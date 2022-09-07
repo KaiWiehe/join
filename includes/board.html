@@ -1,16 +1,26 @@
-<div class="category">
-    <h2>TO DO</h2>
-    <div id="todo" class="cardContainer"></div>
+<div class="boardHeader">
+    <h1>Board</h1>
+    <div>
+        <input type="text" placeholder="Find Task">
+        <button>Add Task</button>
+    </div>
 </div>
-<div class="category">
-    <h2>IN PROGRESS</h2>
-    <div id="inProgress" class="cardContainer"></div>
-</div>
-<div class="category">
-    <h2>AWAITING FEEDBACK</h2>
-    <div id="awaitingFeedback" class="cardContainer"></div>
-</div>
-<div class="category">
-    <h2>DONE</h2>
-    <div id="done" class="cardContainer"></div>
+
+<div class="board">
+    <div class="category" ondrop="moveTo('todo')" ondragleave="removehighlightArea('todo')" ondragover="allowDrop(event), highlightArea('todo')">
+        <h2>TO DO</h2>
+        <div id="todo" class="cardContainer"></div>
+    </div>
+    <div class="category" ondrop="moveTo('inProgress')" ondragleave="removehighlightArea('inProgress')" ondragover="allowDrop(event), highlightArea('inProgress')">
+        <h2>IN PROGRESS</h2>
+        <div id="inProgress" class="cardContainer"></div>
+    </div>
+    <div class="category" ondrop="moveTo('awaitingFeedback')" ondragleave="removehighlightArea('awaitingFeedback')" ondragover="allowDrop(event), highlightArea('awaitingFeedback')">
+        <h2>AWAITING FEEDBACK</h2>
+        <div id="awaitingFeedback" class="cardContainer"></div>
+    </div>
+    <div class="category" ondrop="moveTo('done')" ondragleave="removehighlightArea('done')" ondragover="allowDrop(event), highlightArea('done')">
+        <h2>DONE</h2>
+        <div id="done" class="cardContainer"></div>
+    </div>
 </div>

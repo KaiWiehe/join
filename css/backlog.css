@@ -31,7 +31,7 @@
 
 .backlog tbody tr {
     background: var(--bgSecondary);
-    border-bottom: 0.5rem solid white;
+    border-bottom: 0.5rem solid var(--bgSecondaryLightGrey);
     border-radius: 1rem;
 }
 
