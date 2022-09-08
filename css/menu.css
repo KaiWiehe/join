@@ -10,13 +10,13 @@
     height: 100vh;
 }
 
-.left .top img {
+.joinlogo {
     margin: 4rem 0 4rem 0;
     transition: all 125ms ease-in-out;
     width: 5rem;
 }
 
-.left .top img:hover {
+.joinlogo:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
@@ -30,10 +30,12 @@
 }
 
 .left .top ul li {
-    padding: 0.5rem 0.5rem 0.5rem 3rem;
+    padding: 1rem 1rem 1rem 3rem;
     border-left: 0.5rem solid transparent;
     transition: all 125ms ease-in-out;
     color: var(--white);
+    display: flex;
+    align-items: center;
 }
 
 .left .top ul li:hover {
@@ -51,4 +53,15 @@
     width: 5rem;
     height: 5rem;
     object-fit: cover;
+}
+
+li img {
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.5rem 0 0;
+}
+
+.filterWhite {
+    filter: invert(90%);
+    transform: scale(1.2);
 }

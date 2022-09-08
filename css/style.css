@@ -55,17 +55,18 @@ img {
 .button {
     color: var(--white);
     background: var(--leftGrey);
-    padding: 1rem 2rem;
-    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
     border: 1px solid transparent;
     transition: all 125ms ease-in-out;
     cursor: pointer;
+    height: 2rem;
+    display: flex;
+    align-items: center;
 }
 
 .button:hover {
-    background: transparent;
-    color: black;
-    border: 1px solid black;
+    background: var(--bgPrimaryBlue);
 }
 
 h1 {
@@ -112,4 +113,14 @@ header div {
     border-radius: 100%;
     margin: 0 4rem 0 2rem;
     object-fit: cover;
+}
+
+.questionMark {
+    transition: all 125ms ease-in-out;
+    cursor: pointer;
+}
+
+.questionMark:hover {
+    transform: scale(1.1);
+    filter: invert(100%);
 }

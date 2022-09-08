@@ -31,6 +31,10 @@
     <div class="right">
         <header w3-include-html="includes/header.html"></header>
         <div class="bottomRight">
+            <div id="boardAddTask" class="boardAddTask hide">
+                <img src="assets/img/X.png" alt="X" class="closeButton" onclick="hideAddTask()">
+                <div w3-include-html="includes/addTask.html"></div>
+            </div>
             <div id="summary" w3-include-html="includes/summary.html"></div>
             <div id="board" class="boardContainer hide" w3-include-html="includes/board.html"></div>
             <div id="backlog" class="backlog hide" w3-include-html="includes/backlog.html"></div>

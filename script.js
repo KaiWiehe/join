@@ -74,3 +74,19 @@ function loadTasks() {
         changeColor(b, task);
     }
 }
+
+function showAddTask() {
+    let boardAddTask = document.getElementById('boardAddTask');
+    boardAddTask.classList.remove('hide');
+    boardAddTask.classList.add('slideIn');
+}
+
+function hideAddTask() {
+    let boardAddTask = document.getElementById('boardAddTask');
+    boardAddTask.classList.add('slideOut');
+    setTimeout(() => {
+        boardAddTask.classList.add('hide');
+        boardAddTask.classList.remove('slideIn');
+        boardAddTask.classList.remove('slideOut');
+    }, 225)
+}
