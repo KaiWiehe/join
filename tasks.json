@@ -1,32 +1,32 @@
 [{
     "id": "0",
-    "titel": "Test 1",
-    "description": "Test test test test test",
+    "titel": "Einkaufen",
+    "description": "Einkaufen gehen, Brot, Tee, Milch, Wasser, Honig usw...",
     "date": "08.09.1999",
-    "urgency": "High",
+    "urgency": "HIGH",
     "AssignedTo": "Kai",
-    "process": "inProgress",
-    "category": "whatever",
+    "process": "todo",
+    "category": "Marketing",
     "img": "assets/img/profileImg.jpg"
 },{
     "id": "1",
-    "titel": "Test 1",
-    "description": "Test test test test test",
+    "titel": "Spülen",
+    "description": "Spülmaschine ausräumen",
     "date": "08.09.1999",
-    "urgency": "High",
+    "urgency": "MIDDLE",
     "AssignedTo": "Kai",
     "process": "inProgress",
-    "category": "whatever",
+    "category": "Design",
     "img": "assets/img/profileImg.jpg"
 },{
     "id": "2",
-    "titel": "Test 1",
-    "description": "Test test test test test",
+    "titel": "Aufräumen",
+    "description": "Wohnzimmer, Esszimmer, Küche usw...",
     "date": "08.09.1999",
-    "urgency": "High",
-    "AssignedTo": "Kai",
-    "process": "inProgress",
-    "category": "whatever",
+    "urgency": "LOW",
+    "AssignedTo": "Caro",
+    "process": "awaitingFeedback",
+    "category": "Sales",
     "img": "assets/img/profileImg.jpg"
 },{
     "id": "3",
@@ -36,7 +36,7 @@
     "urgency": "High",
     "AssignedTo": "Kai",
     "process": "inProgress",
-    "category": "whatever",
+    "category": "Backoffice",
     "img": "assets/img/profileImg.jpg"
 },{
     "id": "4",
@@ -46,7 +46,7 @@
     "urgency": "High",
     "AssignedTo": "Kai",
     "process": "inProgress",
-    "category": "whatever",
+    "category": "Marketing",
     "img": "assets/img/profileImg.jpg"
 },{
     "id": "5",
@@ -56,7 +56,7 @@
     "urgency": "High",
     "AssignedTo": "Kai",
     "process": "inProgress",
-    "category": "whatever",
+    "category": "Media",
     "img": "assets/img/profileImg.jpg"
 },{
     "id": "6",

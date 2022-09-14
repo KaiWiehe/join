@@ -54,44 +54,54 @@ function loadBoard(task, i) {
     if (task["process"] === "todo") {
         todo.innerHTML += `
         <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+            <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
                 <p>${task["AssignedTo"]}</p>
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+                <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>
         </div>`;
     } else if (task["process"] === "inProgress") {
         inProgress.innerHTML += `
         <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+            <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
                 <p>${task["AssignedTo"]}</p>
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+                <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>
         </div>`;
     } else if (task["process"] === "awaitingFeedback") {
         awaitingFeedback.innerHTML += `
         <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+            <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
                 <p>${task["AssignedTo"]}</p>
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+                <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>
         </div>`;
     } else if (task["process"] === "done") {
         done.innerHTML += `
         <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+            <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
                 <p>${task["AssignedTo"]}</p>
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+                <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>
         </div>`;
     }
+    changeCategoryColor(task, i);
+    setUrgencyIcon(task, i);
 }
 
 /** Lädt das HTML Gerüßt */
@@ -115,6 +125,28 @@ function changeColor(i, task) {
     }
 }
 
+function changeCategoryColor(task, i) {
+    if (task["category"] === "Managment") {
+        let category = document.getElementById(`category${i}`);
+        category.style = "background: #bc935b;";
+    } else if (task["category"] === "Design") {
+        let category = document.getElementById(`category${i}`);
+        category.style = "background: orange;";
+    } else if (task["category"] === "Sales") {
+        let category = document.getElementById(`category${i}`);
+        category.style = "background: #e583e5;";
+    } else if (task["category"] === "Backoffice") {
+        let category = document.getElementById(`category${i}`);
+        category.style = "background: #68ffce;";
+    } else if (task["category"] === "Marketing") {
+        let category = document.getElementById(`category${i}`);
+        category.style = "background: blue;";
+    } else if (task["category"] === "Media") {
+        let category = document.getElementById(`category${i}`);
+        category.style = "background: #c1c100;";
+    }
+}
+
 function changeIMG() {
     let img;
     //setzt das passende bild zum namen ein
@@ -124,4 +156,15 @@ function changeIMG() {
         img = "assets/img/profileImg2.jpg";
     }
     return img;
+}
+
+function setUrgencyIcon(task, i) {
+    let urgencyIcon = document.getElementById(`urgencyIcon${i}`);
+    if (task["urgency"] === "HIGH") {
+        urgencyIcon.src = "assets/img/prioHigh.png";
+    } else if (task["urgency"] === "MIDDLE") {
+        urgencyIcon.src = "assets/img/prioMiddle.png";
+    } else if (task["urgency"] === "LOW") {
+        urgencyIcon.src = "assets/img/prioLow.png";
+    }
 }
