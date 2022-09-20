@@ -1,56 +1,10 @@
-<!DOCTYPE html>
-<html lang="de">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kai's Join</title>
-
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/summary.css">
-    <link rel="stylesheet" href="css/board.css">
-    <link rel="stylesheet" href="css/backlog.css">
-    <link rel="stylesheet" href="css/addTask.css">
-
-    <script src="script.js"></script>
-    <script src="js/switchCategorys.js"></script>
-    <script src="js/createTask.js"></script>
-    <script src="js/boardButtons.js"></script>
-    <script src="js/helpFunctions.js"></script>
-    <script src="js/include.js"></script>
-    <!-- <script src="./js/mini_backend.js"></script> -->
-</head>
-
-<body onload="init()">
-
-    <div class="left" w3-include-html="includes/menu.html"></div>
-
-    <div class="right">
-        <header w3-include-html="includes/header.html"></header>
-        <div class="bottomRight">
-            <div id="boardAddTask" class="boardAddTask hide">
-                <img src="assets/img/X.png" alt="X" class="closeButton" onclick="hideAddTask()">
-                <div w3-include-html="includes/addTask.html"></div>
-            </div>
-            <div id="summary" w3-include-html="includes/summary.html"></div>
-            <div id="board" class="boardContainer hide" w3-include-html="includes/board.html"></div>
-            <div id="backlog" class="backlog hide" w3-include-html="includes/backlog.html"></div>
-            <div id="addTask" class="addTask hide">
-                <h1>Add Task</h1>
-                <div w3-include-html="includes/addTask.html"></div>
-            </div>
-            <div id="help" class="help hide">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis soluta veniam, eos suscipit labore praesentium placeat unde eveniet odit incidunt quam perferendis facilis quos delectus commodi maiores tenetur sapiente!</p>
-            </div>
-            <div id="aboutUs" class="aboutUs hide">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, repudiandae culpa quidem quaerat deserunt atque delectus qui odio eos reiciendis!</p>
-            </div>
-        </div>
-    </div>
-
-</body>
-
-</html>
+tasks = []; users = []; async function init() { setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever'); await downloadFromServer(); users = JSON.parse(backend.getItem('users')) || []; await includeHTML(); await loadTaskJSON(); loadTasks();
+} async function initLogin() { await includeHTML(); await loadUserJSON(); loadMSG(); } /** Lädt die JSON herunter */ async function loadTaskJSON() { let resp = await fetch('./tasks.json'); if (resp.ok) { //all good tasks = await resp.json(); console.log(tasks);
+} else { //error alert("JSON not found 😒") console.error("JSON not found 😒") } } /** Fügt die Daten aus dem JSON in das Summary, in das Board und in das Backlog */ function loadTasks() { definesAllSummaryIds(); definesAllBoardIds(); definesAllBacklogIds();
+clearAllDivs(); /* ######################### Summary ######################### */ let todoSummaryCounter = 0; let tasksInProgressCounter = 0; let awaitingFeedbackCounter = 0; let doneSummaryCounter = 0; tasksInBoard.innerHTML = `${tasks.length}`; for
+(let a = 0; a
+< tasks.length; a++) { const task=t asks[a]; if (task[ "process"]==="todo" ) { todoSummaryCounter++ } if (task[ "process"]==="inProgress" ) { tasksInProgressCounter++ } if (task[ "process"]==="awaitingFeedback" ) { awaitingFeedbackCounter++
+    } if (task[ "process"]==="done" ) { doneSummaryCounter++ } } todoSummary.innerHTML=` ${todoSummaryCounter}`; tasksInProgress.innerHTML=` ${tasksInProgressCounter}`; awaitingFeedbackSummary.innerHTML=` ${awaitingFeedbackCounter}`; doneSummary.innerHTML=`
+    ${doneSummaryCounter}`; goodMorningName.innerHTML=a ctiveUser[ "name"]; /* ######################### Board ######################### */ for (let i=0 ; i < tasks.length; i++) { const task=t asks[i]; loadBoard(task, i); } /* ######################### Backlog
+    ######################### */ for (let b=0 ; b < tasks.length; b++) { const task=t asks[b]; loadBacklog(task, b); changeColor(b, task); } } function showAddTask() { let boardAddTask=d ocument.getElementById( 'boardAddTask'); boardAddTask.classList.remove(
+    'hide'); boardAddTask.classList.add( 'slideIn'); } function hideAddTask() { let boardAddTask=d ocument.getElementById( 'boardAddTask'); boardAddTask.classList.add( 'slideOut'); setTimeout(()=> { boardAddTask.classList.add('hide'); boardAddTask.classList.remove('slideIn'); boardAddTask.classList.remove('slideOut'); }, 225) }

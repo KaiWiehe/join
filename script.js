@@ -1,15 +1,25 @@
 tasks = [];
+users = [];
 
 async function init() {
+    setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
+    await downloadFromServer();
+    users = JSON.parse(backend.getItem('users')) || [];
+
+
     await includeHTML();
-    await loadJSON();
+    await loadTaskJSON();
     loadTasks();
-    //setURL('http://developerakademie.com/smallest_backend_ever');
-    //downloadFromServer();
+}
+
+async function initLogin() {
+    await includeHTML();
+    await loadUserJSON();
+    loadMSG();
 }
 
 /** Lädt die JSON herunter */
-async function loadJSON() {
+async function loadTaskJSON() {
     let resp = await fetch('./tasks.json');
     if (resp.ok) { //all good
         tasks = await resp.json();
@@ -57,6 +67,7 @@ function loadTasks() {
     tasksInProgress.innerHTML = `${tasksInProgressCounter}`;
     awaitingFeedbackSummary.innerHTML = `${awaitingFeedbackCounter}`;
     doneSummary.innerHTML = `${doneSummaryCounter}`;
+    goodMorningName.innerHTML = activeUser["name"];
 
     /* #########################   Board   ######################### */
 

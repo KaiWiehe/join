@@ -18,6 +18,7 @@ function definesAllSummaryIds() {
     let awaitingFeedbackSummary = document.getElementById('awaitingFeedbackSummary');
     let todoSummary = document.getElementById('todoSummary');
     let doneSummary = document.getElementById('doneSummary');
+    let goodMorningName = document.getElementById('goodMorningName');
 }
 
 /** Definiert alle ID's in der Board Karte */
