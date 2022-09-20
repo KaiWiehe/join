@@ -1,5 +1,3 @@
-activeUser = [];
-
 /** lädt die Users.json herunter */
 //async function loadUserJSON() {
 //    let resp = await fetch('./users.json');
@@ -13,18 +11,15 @@ activeUser = [];
 //}
 
 /** Überprüft den login, sind die eingegebenen werte richtig. wird ein user gefunden? */
-function login() {
+async function login() {
+    await backend.deleteItem('activeUser');
     let mail = document.getElementById('mail');
     let mailLow = mail.value.toLowerCase(); // damit die groß und kleinschreibung bei der E-Mail egal ist 
     let password = document.getElementById('password');
     let user = users.find(u => u.mail.toLowerCase() == mailLow && u.password == password.value); // duchsucht den array
     console.log(user);
-    debugger
     if (user) {
-        debugger
-        activeUser = user;
-        /* activeUser.push(user); */
-        console.log(activeUser);
+        await backend.setItem('activeUser', JSON.stringify(user)); //setzt den angemeldeten user
         console.log(`User gefunden`);
         window.location.href = `index.html?user=${user["name"]}`;
     } else {
@@ -51,8 +46,7 @@ function backToLogin() {
 }
 
 /** fügt einen User hinzu */
-function addUser() {
-    debugger
+async function addUser() {
     let registerName = document.getElementById('registerName');
     let registerMail = document.getElementById('registerMail');
     let registerPassword = document.getElementById('registerPassword');
@@ -64,6 +58,8 @@ function addUser() {
     registerPassword.value = '';
 
     console.log(users);
+    debugger
+    await backend.setItem('users', JSON.stringify(users));
 
     window.location.href = 'login.html?msg=You have successfully registered!'; //leitet wieder zur loginseite, aber mit nachricht
 }

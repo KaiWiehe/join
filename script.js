@@ -1,34 +1,42 @@
 tasks = [];
 users = [];
+activeUser = [];
 
 async function init() {
     setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
-
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
+    activeUser = JSON.parse(backend.getItem('activeUser')) || [];
 
     await includeHTML();
-    await loadTaskJSON();
+    //await loadTaskJSON();
     loadTasks();
 }
 
 async function initLogin() {
+    setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
+    await downloadFromServer();
+    users = JSON.parse(backend.getItem('users')) || [];
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
+    activeUser = JSON.parse(backend.getItem('activeUser')) || [];
+
     await includeHTML();
-    await loadUserJSON();
+    //await loadUserJSON();
     loadMSG();
 }
 
 /** Lädt die JSON herunter */
-async function loadTaskJSON() {
-    let resp = await fetch('./tasks.json');
-    if (resp.ok) { //all good
-        tasks = await resp.json();
-        console.log(tasks);
-    } else { //error
-        alert("JSON not found 😒")
-        console.error("JSON not found 😒")
-    }
-}
+//async function loadTaskJSON() {
+//    let resp = await fetch('./tasks.json');
+//    if (resp.ok) { //all good
+//        tasks = await resp.json();
+//        console.log(tasks);
+//    } else { //error
+//        alert("JSON not found 😒")
+//        console.error("JSON not found 😒")
+//    }
+//}
 
 /** Fügt die Daten aus dem JSON in das Summary, in das Board und in das Backlog */
 function loadTasks() {

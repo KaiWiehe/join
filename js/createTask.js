@@ -1,7 +1,7 @@
-let taskIdCounter = 9; // TODO auf 0 setzen, ist nur auf 9 weil ich testelemente drinnen habe
+let taskIdCounter = 0; // TODO auf 0 setzen, ist nur auf 9 weil ich testelemente drinnen habe
 
 /** Erstellt einen neuen Task mit dem eigegebenem Inhalt */
-function createTask() {
+async function createTask() {
     let titelInputField = document.getElementById('titelInputField');
     let dateInputField = document.getElementById('dateInputField');
     let categorySelect = document.getElementById('categorySelect');
@@ -9,8 +9,6 @@ function createTask() {
     let descriptionInputField = document.getElementById('descriptionInputField');
     let assignedToSelect = document.getElementById('assignedToSelect');
     let img;
-
-    taskIdCounter++
 
     //setzt das passende bild zum namen ein
     if (assignedToSelect.value === "Kai") {
@@ -30,7 +28,12 @@ function createTask() {
         "category": `${categorySelect.value}`,
         "img": `${img}`
     })
+
+    await backend.setItem('tasks', JSON.stringify(tasks));
+
     loadTasks();
+
+    taskIdCounter++
 
     titelInputField.value = '';
     dateInputField.value = '';
