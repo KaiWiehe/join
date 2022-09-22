@@ -107,9 +107,15 @@ function loadBoard(task, i) {
 
 /** Lädt das HTML Gerüßt */
 function loadBacklog(task, b) {
+    let img;
+    if (task["img"] != "undefined") {
+        img = task["img"];
+    } else {
+        img = "assets/img/image.svg";
+    }
     backlogContainer.innerHTML += `
         <tr>
-            <td id="backlogFirstTd${b}" class="backlogFirstTd"><img src=${task["img"]} alt="Profile Img"> ${task["AssignedTo"]}</td>
+            <td id="backlogFirstTd${b}" class="backlogFirstTd"><img src=${img} alt="Profile Img"> ${task["AssignedTo"]}</td>
             <td>${task["category"]}</td>
             <td class="backlogLastTd">${task["titel"]}: ${task["description"]} (Status: ${capitalizeFirstLetter(task["process"])})</td>
         </tr>`;

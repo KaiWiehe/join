@@ -88,3 +88,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding-right: 1.5rem;
     /* -webkit-appearance: none; */
 }
+
+.addTaskButtonContainer {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    right: 6rem;
+    width: 14rem;
+    justify-content: space-between;
+}

@@ -11,6 +11,9 @@ async function init() {
 
     await includeHTML();
     //await loadTaskJSON();
+
+    changeImg();
+
     loadTasks();
 }
 
@@ -92,6 +95,8 @@ function loadTasks() {
         loadBacklog(task, b);
         changeColor(b, task);
     }
+
+    backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 function showAddTask() {
@@ -108,4 +113,21 @@ function hideAddTask() {
         boardAddTask.classList.remove('slideIn');
         boardAddTask.classList.remove('slideOut');
     }, 225)
+}
+
+/** Ändert die beiden Bilder je nach angemeldetem Profile */
+function changeImg() {
+    let userImgHeader = document.getElementById('userImgHeader');
+    let userImg = document.getElementById('userImg');
+
+    let img = "assets/img/image.svg" //Notfallbild
+
+    //Fals kein Bild gefunden wird
+    if (activeUser['img'] != "undefined") {
+        userImgHeader.src = activeUser['img'];
+        userImg.src = activeUser['img'];
+    } else {
+        userImgHeader.src = img;
+        userImg.src = img;
+    }
 }

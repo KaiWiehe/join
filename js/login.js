@@ -51,14 +51,14 @@ async function addUser() {
     let registerMail = document.getElementById('registerMail');
     let registerPassword = document.getElementById('registerPassword');
 
-    users.push({ name: registerName.value, mail: registerMail.value, password: registerPassword.value });
+    users.push({ name: registerName.value, mail: registerMail.value, password: registerPassword.value, img: "assets/img/image.svg" });
 
     registerName.value = '';
     registerMail.value = '';
     registerPassword.value = '';
 
     console.log(users);
-    debugger
+
     await backend.setItem('users', JSON.stringify(users));
 
     window.location.href = 'login.html?msg=You have successfully registered!'; //leitet wieder zur loginseite, aber mit nachricht
