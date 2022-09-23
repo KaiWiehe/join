@@ -17,13 +17,15 @@ async function login() {
     let mailLow = mail.value.toLowerCase(); // damit die groß und kleinschreibung bei der E-Mail egal ist 
     let password = document.getElementById('password');
     let user = users.find(u => u.mail.toLowerCase() == mailLow && u.password == password.value); // duchsucht den array
-    console.log(user);
+
     if (user) {
         await backend.setItem('activeUser', JSON.stringify(user)); //setzt den angemeldeten user
         console.log(`User gefunden`);
         window.location.href = `index.html?user=${user["name"]}`;
     } else {
-        alert('User nicht gefunden');
+        let msgBox = document.getElementById('msgBox');
+        msgBox.innerHTML = "Incorrect username or password.";
+        password.style = "background: #ff000047;";
     }
 }
 

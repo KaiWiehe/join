@@ -19,6 +19,8 @@ function definesAllSummaryIds() {
     let todoSummary = document.getElementById('todoSummary');
     let doneSummary = document.getElementById('doneSummary');
     let goodMorningName = document.getElementById('goodMorningName');
+    let summaryDate = document.getElementById('summaryDate');
+    let summaryDay = document.getElementById('summaryDay');
 }
 
 /** Definiert alle ID's in der Board Karte */
@@ -52,6 +54,15 @@ function clearAllDivs() {
 
 /** Lädt das HTML Gerüßt */
 function loadBoard(task, i) {
+    let img;
+    if (task["AssignedTo"] === "Kai") {
+        img = "assets/img/profileImg.jpg"
+    } else if (task["AssignedTo"] === "Caro") {
+        img = "assets/img/profileImg2.jpg"
+    } else if (task["AssignedTo"] === "Paul") {
+        img = "assets/img/image.svg" //TODO richtiges bild einsetzen
+    }
+
     if (task["process"] === "todo") {
         todo.innerHTML += `
         <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
@@ -59,7 +70,7 @@ function loadBoard(task, i) {
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
-                <p>${task["AssignedTo"]}</p>
+                <img class="boardProfileImg" src="${img}">
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
                 <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>
@@ -71,7 +82,7 @@ function loadBoard(task, i) {
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
-                <p>${task["AssignedTo"]}</p>
+            <img class="boardProfileImg" src="${img}">
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
                 <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>
@@ -83,7 +94,7 @@ function loadBoard(task, i) {
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
-                <p>${task["AssignedTo"]}</p>
+            <img class="boardProfileImg" src="${img}">
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
                 <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>
@@ -95,7 +106,7 @@ function loadBoard(task, i) {
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
             <div class="AssignedTo">
-                <p>${task["AssignedTo"]}</p>
+            <img class="boardProfileImg" src="${img}">
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
                 <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
             </div>

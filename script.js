@@ -80,6 +80,11 @@ function loadTasks() {
     doneSummary.innerHTML = `${doneSummaryCounter}`;
     goodMorningName.innerHTML = activeUser["name"];
 
+    let heute = new Date();
+    let monthL = new Date().toLocaleString('de-de', { month: 'long' });
+    summaryDate.innerHTML = `${monthL} ${heute.getDate()}, ${heute.getFullYear()}`;
+    summaryDay.innerHTML = `${heute.getDate()}`;
+
     /* #########################   Board   ######################### */
 
     for (let i = 0; i < tasks.length; i++) {
