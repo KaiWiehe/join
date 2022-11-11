@@ -22,7 +22,7 @@ function removehighlightArea(id) {
     document.getElementById(id).classList.remove('onDragOverHighlight');
 }
 
-function boardnext(i) {
+function boardnext(i) { //TODO wird glaube ich nicht mehr benutzt
     if (tasks[i]['process'] === 'todo') {
         tasks[i]['process'] = 'inProgress';
         loadTasks();
@@ -38,7 +38,7 @@ function boardnext(i) {
 
 }
 
-function boardBack(i) {
+function boardBack(i) { //TODO wird glaube ich nicht mehr benutzt
     if (tasks[i]['process'] === 'todo') {
         alert("Weiter zurück geht nicht ");
     } else if (tasks[i]['process'] === 'inProgress') {

@@ -1,18 +1,7 @@
-/** lädt die Users.json herunter */
-//async function loadUserJSON() {
-//    let resp = await fetch('./users.json');
-//    if (resp.ok) { //all good
-//        users = await resp.json();
-//        console.log(users);
-//    } else { //error
-//        alert("JSON not found 😒")
-//        console.error("JSON not found 😒")
-//    }
-//}
-
 /** Überprüft den login, sind die eingegebenen werte richtig. wird ein user gefunden? */
 async function login() {
     await backend.deleteItem('activeUser');
+
     let mail = document.getElementById('mail');
     let mailLow = mail.value.toLowerCase(); // damit die groß und kleinschreibung bei der E-Mail egal ist 
     let password = document.getElementById('password');
@@ -21,7 +10,7 @@ async function login() {
     if (user) {
         await backend.setItem('activeUser', JSON.stringify(user)); //setzt den angemeldeten user
         console.log(`User gefunden`);
-        window.location.href = `index.html?user=${user["name"]}`;
+        window.location.href = `index.html?user=${user['name']}`;
     } else {
         let msgBox = document.getElementById('msgBox');
         msgBox.innerHTML = "Incorrect username or password.";
@@ -52,8 +41,9 @@ async function addUser() {
     let registerName = document.getElementById('registerName');
     let registerMail = document.getElementById('registerMail');
     let registerPassword = document.getElementById('registerPassword');
+    let registerImg = document.getElementById('imgSelect');
 
-    users.push({ name: registerName.value, mail: registerMail.value, password: registerPassword.value, img: "assets/img/image.svg" });
+    users.push({ name: registerName.value, mail: registerMail.value, password: registerPassword.value, img: registerImg.value });
 
     registerName.value = '';
     registerMail.value = '';
@@ -76,3 +66,17 @@ function loadMSG() {
         msgBox.innerHTML = msg;
     }
 }
+
+
+
+/** lädt die Users.json herunter */
+//async function loadUserJSON() {
+//    let resp = await fetch('./users.json');
+//    if (resp.ok) { //all good
+//        users = await resp.json();
+//        console.log(users);
+//    } else { //error
+//        alert("JSON not found 😒")
+//        console.error("JSON not found 😒")
+//    }
+//}

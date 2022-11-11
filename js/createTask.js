@@ -35,6 +35,8 @@ async function createTask() {
 
     taskIdCounter++
 
+    backend.setItem('taskIdCounter', JSON.stringify(taskIdCounter));
+
     titelInputField.value = '';
     dateInputField.value = '';
     categorySelect.value = '';

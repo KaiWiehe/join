@@ -51,21 +51,54 @@ function clearAllDivs() {
 
     backlogContainer.innerHTML = ``;
 }
+// var data = { records : [{ "empid": 1, "fname": "X", "lname": "Y" }, { "empid": 2, "fname": "A", "lname": "Y" }, { "empid": 3, "fname": "B", "lname": "Y" }, { "empid": 4, "fname": "C", "lname": "Y" }, { "empid": 5, "fname": "C", "lname": "Y" }] }
+// var empIds = [1,4,5]
+// var filteredArray = data.records.filter(function(itm){
+//   return empIds.indexOf(itm.empid) > -1;
+// });
 
+// filteredArray = { records : filteredArray };
+function openCard(i) {
+    let id = [i];
+    let task = tasks.filter((itm) => {
+        return id.indexOf(Number(itm.id)) > -1;
+    })
+    task = task[0];
+
+    let img = setImg(task);
+
+    let bottomRightPopUp = document.getElementById('bottomRightPopUp');
+    bottomRightPopUp.innerHTML = /* html */ `
+    <div class="cardBigContainer" onclick="closeCard()">
+        <div class="cardBig" onclick="doNotClose(event)">
+            <div class="card">
+                <span class="cardCategory">${task["category"]}</span>
+                <h3>${task["titel"]}</h3>
+                <p>${task["description"]}</p>
+                <p><b>Due date:</b>${task.date}</p>
+                <p><b>Priority:</b>Low <img id="urgencyIcon" class="urgencyIcon" src="assets/img/prioLow.png"></p>
+                <p class="flex"><b>Assigned to: </b>Kai Wiehe <img class="boardProfileImg" src="${task.img}"></p>
+                <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+            </div>
+        </div>
+    </div>`;
+}
+
+function closeCard() {
+    let bottomRightPopUp = document.getElementById('bottomRightPopUp');
+    bottomRightPopUp.innerHTML = '';
+}
+
+function doNotClose(event) {
+    event.stopPropagation();
+}
 /** Lädt das HTML Gerüßt */
-function loadBoard(task, i) {
-    let img;
-    if (task["AssignedTo"] === "Kai") {
-        img = "assets/img/profileImg.jpg"
-    } else if (task["AssignedTo"] === "Caro") {
-        img = "assets/img/profileImg2.jpg"
-    } else if (task["AssignedTo"] === "Paul") {
-        img = "assets/img/image.svg" //TODO richtiges bild einsetzen
-    }
+function loadBoard(task, i) { //TODO funktuniert aus irgendeinem grund nicht mehr
+    let img = setImg(task);
 
     if (task["process"] === "todo") {
         todo.innerHTML += `
-        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})" onclick="openCard(${i})">
             <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
@@ -77,7 +110,7 @@ function loadBoard(task, i) {
         </div>`;
     } else if (task["process"] === "inProgress") {
         inProgress.innerHTML += `
-        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})" onclick="openCard(${i})">
             <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
@@ -89,7 +122,7 @@ function loadBoard(task, i) {
         </div>`;
     } else if (task["process"] === "awaitingFeedback") {
         awaitingFeedback.innerHTML += `
-        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})" onclick="openCard(${i})">
             <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
@@ -101,7 +134,7 @@ function loadBoard(task, i) {
         </div>`;
     } else if (task["process"] === "done") {
         done.innerHTML += `
-        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})">
+        <div class="card" draggable="true" ondragstart="startDragging(${task["id"]})" onclick="openCard(${i})">
             <span id="category${i}" class="cardCategory">${task["category"]}</span>
             <h3>${task["titel"]}</h3>
             <p>${task["description"]}</p>
@@ -114,6 +147,19 @@ function loadBoard(task, i) {
     }
     changeCategoryColor(task, i);
     setUrgencyIcon(task, i);
+}
+
+function setImg(task) {
+    let img;
+    if (task["AssignedTo"] === "Kai") {
+        img = "assets/img/profileImg.jpg"
+    } else if (task["AssignedTo"] === "Caro") {
+        img = "assets/img/profileImg2.jpg"
+    } else if (task["AssignedTo"] === "Paul") {
+        img = "assets/img/image.svg" //TODO richtiges bild einsetzen
+            // ich habe es rausgenommen, dann hat die funktion nicht mehr funktuniert
+    }
+    return img;
 }
 
 /** Lädt das HTML Gerüßt */

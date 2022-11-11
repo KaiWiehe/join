@@ -3,43 +3,31 @@ users = [];
 activeUser = [];
 
 async function init() {
-    setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
-    activeUser = JSON.parse(backend.getItem('activeUser')) || [];
-
+    await downloadBackend();
     await includeHTML();
-    //await loadTaskJSON();
-
     changeImg();
-
     loadTasks();
 }
 
 async function initLogin() {
+    await downloadBackend();
+    await includeHTML();
+    loadMSG();
+}
+
+// setzt die url zum backend und lädt die infos in die Variablen
+async function downloadBackend() {
     setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
-
-    await includeHTML();
-    //await loadUserJSON();
-    loadMSG();
+    taskIdCounter = JSON.parse(backend.getItem('taskIdCounter')) || [];
+    console.log('users', users)
+    console.log('tasks', tasks)
+    console.log('activeUser', activeUser)
 }
 
-/** Lädt die JSON herunter */
-//async function loadTaskJSON() {
-//    let resp = await fetch('./tasks.json');
-//    if (resp.ok) { //all good
-//        tasks = await resp.json();
-//        console.log(tasks);
-//    } else { //error
-//        alert("JSON not found 😒")
-//        console.error("JSON not found 😒")
-//    }
-//}
 
 /** Fügt die Daten aus dem JSON in das Summary, in das Board und in das Backlog */
 function loadTasks() {
@@ -80,6 +68,7 @@ function loadTasks() {
     doneSummary.innerHTML = `${doneSummaryCounter}`;
     goodMorningName.innerHTML = activeUser["name"];
 
+    //Clock
     let heute = new Date();
     let monthL = new Date().toLocaleString('de-de', { month: 'long' });
     summaryDate.innerHTML = `${monthL} ${heute.getDate()}, ${heute.getFullYear()}`;
@@ -101,15 +90,17 @@ function loadTasks() {
         changeColor(b, task);
     }
 
-    backend.setItem('tasks', JSON.stringify(tasks));
+    backend.setItem('tasks', JSON.stringify(tasks)); // wenn ich etwas ändere soll es auch auf den backend geladen werden
 }
 
+// ist dazu da das im Board die add task leiste reinanimiert wird
 function showAddTask() {
     let boardAddTask = document.getElementById('boardAddTask');
     boardAddTask.classList.remove('hide');
     boardAddTask.classList.add('slideIn');
 }
 
+// Wenn man im board das add task schließt, bekommt es die klasse slideOut
 function hideAddTask() {
     let boardAddTask = document.getElementById('boardAddTask');
     boardAddTask.classList.add('slideOut');
@@ -136,3 +127,18 @@ function changeImg() {
         userImg.src = img;
     }
 }
+
+
+
+
+/** Lädt die JSON herunter */
+//async function loadTaskJSON() {
+//    let resp = await fetch('./tasks.json');
+//    if (resp.ok) { //all good
+//        tasks = await resp.json();
+//        console.log(tasks);
+//    } else { //error
+//        alert("JSON not found 😒")
+//        console.error("JSON not found 😒")
+//    }
+//}
