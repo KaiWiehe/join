@@ -6,6 +6,7 @@ function switchCategorys(number) {
     let addTask = document.getElementById('addTask');
     let help = document.getElementById('help');
     let aboutUs = document.getElementById('aboutUs');
+    let contacts = document.getElementById('contacts');
 
     summary.classList.add('hide');
     board.classList.add('hide');
@@ -13,6 +14,7 @@ function switchCategorys(number) {
     addTask.classList.add('hide');
     help.classList.add('hide');
     aboutUs.classList.add('hide');
+    contacts.classList.add('hide');
 
     if (number === 1) {
         summary.classList.remove('hide');
@@ -26,5 +28,7 @@ function switchCategorys(number) {
         help.classList.remove('hide');
     } else if (number === 6) {
         aboutUs.classList.remove('hide');
+    } else if (number === 7) {
+        contacts.classList.remove('hide');
     }
 }

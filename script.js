@@ -1,12 +1,14 @@
 tasks = [];
 users = [];
 activeUser = [];
+contacts = [];
 
 async function init() {
     await downloadBackend();
     await includeHTML();
     changeImg();
     loadTasks();
+    loadContacts();
 }
 
 async function initLogin() {
@@ -23,9 +25,11 @@ async function downloadBackend() {
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
     taskIdCounter = JSON.parse(backend.getItem('taskIdCounter')) || [];
+    contacts = JSON.parse(backend.getItem('contacts')) || [];
     console.log('users', users)
     console.log('tasks', tasks)
     console.log('activeUser', activeUser)
+    console.log('contacts', contacts)
 }
 
 
@@ -116,15 +120,13 @@ function changeImg() {
     let userImgHeader = document.getElementById('userImgHeader');
     let userImg = document.getElementById('userImg');
 
-    let img = "assets/img/image.svg" //Notfallbild
-
     //Fals kein Bild gefunden wird
-    if (activeUser['img'] != "undefined") {
-        userImgHeader.src = activeUser['img'];
-        userImg.src = activeUser['img'];
+    if (activeUser.img != 'noImg') {
+        userImgHeader.innerHTML = `<img class="userImgHeader" src="${activeUser.img}" alt="Profile Img">`;
+        userImg.innerHTML = `<img src="${activeUser.img}" alt="user img">`;
     } else {
-        userImgHeader.src = img;
-        userImg.src = img;
+        userImgHeader.innerHTML = `<div class="noImg" id="noImg">${firstLetter(activeUser.name)}</div>`;
+        userImg.innerHTML = `<div class="noImg" id="noImg" style="width: 5rem; height: 5rem;">${firstLetter(activeUser.name)}</div>`;
     }
 }
 

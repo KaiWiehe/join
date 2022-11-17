@@ -18,13 +18,8 @@ async function login() {
     }
 }
 
-function guestLogin() {}
+function guestLogin() {} //TODO
 
-/** zeigt die startseite Summary an sobalt man sich erfolgreich angemeldet hat */
-function showSummary() {
-    let summary = document.getElementById('summary');
-    summary.classList.remove('hide');
-}
 
 /** leitet zur regestrierungsseite weiter */
 function register() {
@@ -44,6 +39,7 @@ async function addUser() {
     let registerImg = document.getElementById('imgSelect');
 
     users.push({ name: registerName.value, mail: registerMail.value, password: registerPassword.value, img: registerImg.value });
+    addContact(registerName.value, registerMail.value, undefined, false)
 
     registerName.value = '';
     registerMail.value = '';
@@ -66,6 +62,12 @@ function loadMSG() {
         msgBox.innerHTML = msg;
     }
 }
+
+async function logOut() {
+    await backend.setItem('activeUser', JSON.stringify([]));
+    window.location.href = 'login.html';
+}
+
 
 
 

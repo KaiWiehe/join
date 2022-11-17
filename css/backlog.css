@@ -11,7 +11,7 @@
 }
 
 .backlog th {
-    min-width: 8rem;
+    min-width: 10rem;
     padding: 0 0.5rem 0.75rem 0.5rem;
     text-align: left;
     color: var(--fontColorBlue);
@@ -38,6 +38,10 @@
 .backlogFirstTd {
     display: flex;
     align-items: center;
+}
+
+.backlogFirstTd .noImg {
+    margin: 0 0.5rem 0 0;
 }
 
 .backlogLastTd {
