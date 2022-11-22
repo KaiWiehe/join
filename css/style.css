@@ -517,6 +517,11 @@ header div {
     align-items: center;
 }
 
+.addContactRight .boardProfileImg {
+    width: 7rem;
+    height: 7rem;
+}
+
 .addContactRight .noImg {
     width: 7rem;
     height: 7rem;
@@ -571,5 +576,56 @@ header div {
     width: 7rem;
     height: 7rem;
     font-size: 4rem;
+    margin: 0 1rem 0 0;
+}
+
+.showContactBottom .boardProfileImg {
+    width: 7rem;
+    height: 7rem;
+    font-size: 4rem;
+    margin: 0 1rem 0 0;
+}
+
+.nameAndImg {
+    display: flex;
+    align-items: center;
     margin: 4rem 0 0 2rem;
+}
+
+.nameAndImg h3 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.contactInfos {
+    margin: 2rem 0 0 2rem;
+}
+
+.contactInfos h4 {
+    margin: 1rem 0 1rem 0;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 0 2rem;
+}
+
+.contactInfo h4 {
+    font-size: 1.25rem;
+    margin: 0 1rem 0 0;
+}
+
+.contactInfo p {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contactInfo p:hover {
+    transform: scale(1.1);
+}
+
+.contactInfo img {
+    margin: 0 0.5rem 0 0;
 }

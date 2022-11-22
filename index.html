@@ -38,18 +38,16 @@
     <div class="right">
         <header w3-include-html="includes/header.html"></header>
         <div class="bottomRight">
-            <div id="boardAddTask" class="boardAddTask hide">
-                <img src="assets/img/X.png" alt="X" class="closeButton" onclick="hideAddTask()">
-                <div w3-include-html="includes/addTask2.html"></div> -->
-                <!-- TODO jetzt hat er alle ID's Doppelt -->
+            <div id="boardAddTaskcontainer" class="boardAddTaskcontainer hide" onclick="hideAddTask()">
+                <div class="boardAddTask " onclick="doNotClose(event)">
+                    <img src="assets/img/X.png" alt="X" class="closeButton" onclick="hideAddTask()">
+                    <div id="boardAddTask"></div>
+                </div>
             </div>
             <div id="summary" w3-include-html="includes/summary.html"></div>
             <div id="board" class="boardContainer hide" w3-include-html="includes/board.html"></div>
             <div id="backlog" class="backlog hide" w3-include-html="includes/backlog.html"></div>
-            <div id="addTask" class="addTask hide">
-                <h1>Add Task</h1>
-                <div w3-include-html="includes/addTask.html"></div>
-            </div>
+            <div id="addTask" class="addTask hide"></div>
             <div id="help" class="help hide">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel omnis soluta veniam, eos suscipit labore praesentium placeat unde eveniet odit incidunt quam perferendis facilis quos delectus commodi maiores tenetur sapiente!</p>
             </div>
@@ -67,26 +65,23 @@
                         <h3>Contacts</h3>
                         <span class="borderLeftBlue">Better with a team</span>
                     </div>
-                    <div class="showContactBottom" id="showContactBottom">
-                        <div class="noImg" style="width: 3rem;height: 3rem;font-size: 1rem;margin: 0 1rem 0 0;">H</div>
-                        //TODO Hier weiter machen
-                    </div>
+                    <div class="showContactBottom" id="showContactBottom"></div>
                 </div>
                 <button class="button addContactButton" onclick="openAddContact()">Add Contact</button>
                 <div onclick="closeAddContact()" class="addContactContainer hide" id="addContactContainer">
                     <div onclick="doNotClose(event)" class="addContact">
                         <div class="addContactLeft">
                             <img src="assets/img/joinlogo.png" alt="joinlogo">
-                            <h3>Add Contact</h3>
-                            <span class="borderBottom">Tasks are better with a team!</span>
+                            <h3 id="addContactTitel">Add Contact</h3>
+                            <span class="borderBottom" id="addContactSlogan">Tasks are better with a team!</span>
                         </div>
                         <div class="addContactRight" id="addContactRight">
-                            <div class="noImg">?</div>
+                            <div class="noImg" id="addContactImg">?</div>
                             <form onsubmit="addContactForm(); return false;">
                                 <input class="inputField" id="addContactName" type="text" required placeholder="Name">
                                 <input class="inputField" id="addContactMail" type="email" required placeholder="E-Mail">
                                 <input class="inputField" id="addContactTel" type="tel" required placeholder="Phone">
-                                <div class="flex">
+                                <div class="flex" id="addContactButtons">
                                     <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
                                     <button type="submit" class="button">Create contact</button>
                                 </div>

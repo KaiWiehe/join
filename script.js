@@ -99,20 +99,21 @@ function loadTasks() {
 
 // ist dazu da das im Board die add task leiste reinanimiert wird
 function showAddTask() {
+    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
+    boardAddTaskcontainer.classList.remove('hide');
+
     let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.classList.remove('hide');
-    boardAddTask.classList.add('slideIn');
+    boardAddTask.innerHTML = addTaskHTML();
+    updateAssignedTo();
 }
 
 // Wenn man im board das add task schließt, bekommt es die klasse slideOut
 function hideAddTask() {
+    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
+    boardAddTaskcontainer.classList.add('hide');
+
     let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.classList.add('slideOut');
-    setTimeout(() => {
-        boardAddTask.classList.add('hide');
-        boardAddTask.classList.remove('slideIn');
-        boardAddTask.classList.remove('slideOut');
-    }, 225)
+    boardAddTask.innerHTML = '';
 }
 
 /** Ändert die beiden Bilder je nach angemeldetem Profile */
