@@ -94,6 +94,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     bottom: 2rem;
     display: flex;
     right: 6rem;
-    width: 14rem;
+    /* width: 14rem; */
     justify-content: space-between;
+}
+
+.addTaskButtonContainer button {
+    margin: 0 0 0 1rem;
 }

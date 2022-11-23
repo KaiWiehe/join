@@ -121,6 +121,14 @@ async function deleteAllContacts() {
     await backend.setItem('contacts', JSON.stringify(contacts));
 }
 
+async function delContact(number) {
+    contacts.splice(number, 1);
+    await backend.setItem('contacts', JSON.stringify(contacts));
+    loadContacts();
+    let showContactBottom = document.getElementById('showContactBottom');
+    showContactBottom.innerHTML = '';
+}
+
 function showContactBig(number) {
     let showContactBottom = document.getElementById('showContactBottom');
     let contact = setContact(number);
@@ -191,6 +199,7 @@ function contactBigHTML(contact, number) {
         <p>${contact.mail}</p>
         <h4>Phone</h4>
         <p>${contact.phone}</p>
+        <img src="assets/img/trash.svg" alt="delContact" class="trashImg" onclick="delContact(${number})">
     </div>`;
 }
 

@@ -109,6 +109,18 @@ function showAddTask() {
 
 // Wenn man im board das add task schließt, bekommt es die klasse slideOut
 function hideAddTask() {
+    let titelInputField = document.getElementById('titelInputField');
+    let dateInputField = document.getElementById('dateInputField');
+    let categorySelect = document.getElementById('categorySelect');
+    let descriptionInputField = document.getElementById('descriptionInputField');
+    let assignedToSelect = document.getElementById('assignedToSelect');
+    titelInputField.value = '';
+    dateInputField.value = '';
+    categorySelect.value = '';
+    descriptionInputField.value = '';
+    assignedToSelect.value = '';
+    removeUrgencyClasses();
+
     let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
     boardAddTaskcontainer.classList.add('hide');
 
@@ -129,6 +141,10 @@ function changeImg() {
         userImgHeader.innerHTML = `<div class="noImg" id="noImg">${firstLetter(activeUser.name)}</div>`;
         userImg.innerHTML = `<div class="noImg" id="noImg" style="width: 5rem; height: 5rem;">${firstLetter(activeUser.name)}</div>`;
     }
+}
+
+function doNotClose(event) {
+    event.stopPropagation();
 }
 
 

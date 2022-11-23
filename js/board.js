@@ -43,20 +43,16 @@ function openCard(id, i) {
                 <p><b>Priority:</b>${task.urgency} <img id="urgencyIcon" class="urgencyIcon" src="${task.urgencyImg}"></p>
                 <div class="flex" style="align-items: center;"><p class="flex" style="margin: 0;"><b>Assigned to: </b>${task.AssignedTo}${task.img}</p></div>
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+                <button onclick="editTask(${task.id}, ${i})" class="editImg button"><img src="assets/img/editTaskIcon.png" alt=""></button>
             </div>
         </div>
     </div>`;
-
     changeCategoryColorBig(task);
 }
 
 function closeCard() {
     let bottomRightPopUp = document.getElementById('bottomRightPopUp');
     bottomRightPopUp.innerHTML = '';
-}
-
-function doNotClose(event) {
-    event.stopPropagation();
 }
 
 function loadBoard(task, i) { //TODO funktuniert aus irgendeinem grund nicht mehr
@@ -70,23 +66,11 @@ function loadBoard(task, i) { //TODO funktuniert aus irgendeinem grund nicht meh
         done.innerHTML += boardHTML(task, i)
     }
     changeCategoryColor(task);
-    setUrgencyIcon(task, i);
 }
 
 function changeCategoryColor(task) {
     let category = document.getElementById(`category${task.id}`);
     category.style = `background: ${task.categoryColor};`;
-}
-
-function setUrgencyIcon(task, i) {
-    let urgencyIcon = document.getElementById(`urgencyIcon${i}`);
-    if (task["urgency"] === "HIGH") {
-        urgencyIcon.src = "assets/img/prioHigh.png";
-    } else if (task["urgency"] === "MIDDLE") {
-        urgencyIcon.src = "assets/img/prioMiddle.png";
-    } else if (task["urgency"] === "LOW") {
-        urgencyIcon.src = "assets/img/prioLow.png";
-    }
 }
 
 function boardHTML(task, i) {
@@ -97,7 +81,7 @@ function boardHTML(task, i) {
             <div class="AssignedTo">
                 ${task.img}
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
-                <img id="urgencyIcon${i}" class="urgencyIcon" src="assets/img/prioLow.png">
+                <img id="urgencyIcon${i}" class="urgencyIcon" src="${task.urgencyImg}">
             </div>
         </div>`;
 }

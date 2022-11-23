@@ -43,7 +43,7 @@ function switchCategorys(number) {
 
 function addTaskHTML() {
     return /* html */ `
-    <h1>Add Task</h1>
+    <h1 id="addTaskh1">Add Task</h1>
     <form class="addTaskForm" onsubmit="createTask(); return false;">
         <div class="addTaskLeft">
             <div class=" formCullum">
@@ -80,15 +80,20 @@ function addTaskHTML() {
             </div>
             <div class=" formCullum">
                 <h2>Urgency</h2>
-                <select required id="urgencySelect" class="inputField">
+                <div class="urgencyContainer flex">
+                    <div onclick="clickUrgencyHigh()" id="urgencyButtonHigh" class="whiteButton">High <img id="urgencyImgHigh" src="assets/img/prioHigh.png"></div>
+                    <div onclick="clickUrgencyMiddle()" id="urgencyButtonMiddle" class="whiteButton">Middle <img id="urgencyImgMiddle" src="assets/img/prioMiddle.png"></div>
+                    <div onclick="clickUrgencyLow()" id="urgencyButtonLow" class="whiteButton">Low <img id="urgencyImgLow" src="assets/img/prioLow.png"></div>
+                </div>
+                <!-- <select required id="urgencySelect" class="inputField">
                                 <option value="" disabled selected hidden>Choose the Urgency</option>
                                 <option value="HIGH">HIGH</option>
                                 <option value="MIDDLE">MIDDLE</option>
                                 <option value="LOW">LOW</option>
-                            </select>
+                            </select> -->
             </div>
-            <div class="addTaskButtonContainer">
-                <button class="whiteButton">Cancel</button>
+            <div class="addTaskButtonContainer" id="addTaskButtonContainer">
+                <button type="button" onclick="hideAddTask()" class="whiteButton">Cancel</button>
                 <button type="submit" class="button">Create Task</button>
             </div>
         </div>

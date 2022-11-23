@@ -368,6 +368,17 @@ header div {
 
 .cardBig .trashImg {
     width: 3rem;
+    position: absolute;
+    right: 3rem;
+    bottom: 5.5rem;
+}
+
+.editImg {
+    position: absolute;
+    right: 3rem;
+    bottom: 2rem;
+    width: 3rem;
+    height: 3rem;
 }
 
 .cardBig b {
@@ -579,6 +590,11 @@ header div {
     margin: 0 1rem 0 0;
 }
 
+.showContactBottom .trashImg {
+    width: 3rem;
+    margin: 1rem 0 0 0;
+}
+
 .showContactBottom .boardProfileImg {
     width: 7rem;
     height: 7rem;
@@ -628,4 +644,32 @@ header div {
 
 .contactInfo img {
     margin: 0 0.5rem 0 0;
+}
+
+.urgencyContainer {
+    gap: 1rem;
+}
+
+.urgencyContainer .whiteButton {
+    gap: 0.5rem;
+    border: 2px solid #dfdede;
+}
+
+.urgencyHigh {
+    background: #ff0000;
+    color: var(--white);
+}
+
+.urgencyMiddle {
+    color: var(--white);
+    background: #ffce00;
+}
+
+.urgencyLow {
+    background: lime;
+    color: var(--white);
+}
+
+.urgencyImg {
+    filter: brightness(0) invert(1);
 }

@@ -118,7 +118,8 @@
     height: 1.25rem;
 }
 
-.trashImg:hover {
+.trashImg:hover,
+.editImg:hover {
     cursor: pointer;
     transform: scale(1.1);
 }

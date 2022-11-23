@@ -33,6 +33,7 @@ function backToLogin() {
 
 /** fügt einen User hinzu */
 async function addUser() {
+    debugger
     let registerName = document.getElementById('registerName');
     let registerMail = document.getElementById('registerMail');
     let registerPassword = document.getElementById('registerPassword');
