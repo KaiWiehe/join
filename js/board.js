@@ -8,8 +8,10 @@ function allowDrop(ev) {
     ev.preventDefault();
 }
 
-function moveTo(category) {
+async function moveTo(category) {
     currentDraggedElement.process = category;
+    backlog.push(currentDraggedElement);
+    await backend.setItem('backlog', JSON.stringify(backlog));
     loadTasks();
     removehighlightArea(category)
 }
@@ -39,6 +41,7 @@ function openCard(id, i) {
                 <span class="cardCategory" id="categoryBig${task.id}">${task.category}</span>
                 <h3>${task.titel}</h3>
                 <p>${task.description}</p>
+                <h4>Subtasks:</h4><div class="subtaskCardContainer" id="subtaskCardContainer"></div>
                 <p><b>Due date:</b>${task.date}</p>
                 <p><b>Priority:</b>${task.urgency} <img id="urgencyIcon" class="urgencyIcon" src="${task.urgencyImg}"></p>
                 <div class="flex" style="align-items: center;"><p class="flex" style="margin: 0;"><b>Assigned to: </b>${task.AssignedTo}${task.img}</p></div>
@@ -48,6 +51,11 @@ function openCard(id, i) {
         </div>
     </div>`;
     changeCategoryColorBig(task);
+
+    let subtaskCardContainer = document.getElementById('subtaskCardContainer');
+    task.subtasks.forEach(subtask => {
+        subtaskCardContainer.innerHTML += /* html */ `<div class="subtaskItem">${subtask}<div>`;
+    });
 }
 
 function closeCard() {

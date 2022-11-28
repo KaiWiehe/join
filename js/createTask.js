@@ -1,9 +1,9 @@
 let taskIdCounter = 0;
 let urgency = false;
+let subtasks = [];
 
 /** Erstellt einen neuen Task mit dem eigegebenem Inhalt */
 async function createTask() {
-    debugger
     if (urgency) {
         let titelInputField = document.getElementById('titelInputField');
         let dateInputField = document.getElementById('dateInputField');
@@ -22,12 +22,30 @@ async function createTask() {
             "process": "todo",
             "category": `${categorySelect.value}`,
             "categoryColor": `${setCategoryColor()}`,
-            "img": `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`
+            "img": `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`,
+            "subtasks": subtasks
+        })
+
+        backlog.push({
+            "id": `${taskIdCounter}`,
+            "titel": `${titelInputField.value}`,
+            "description": `${descriptionInputField.value}`,
+            "date": `${dateInputField.value}`,
+            "urgency": `${urgency}`,
+            "urgencyImg": `${setUrgencyImg()}`,
+            "AssignedTo": `${assignedToSelect.value}`,
+            "process": "todo",
+            "category": `${categorySelect.value}`,
+            "categoryColor": `${setCategoryColor()}`,
+            "img": `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`,
+            "subtasks": subtasks
         })
 
         await backend.setItem('tasks', JSON.stringify(tasks));
+        await backend.setItem('backlog', JSON.stringify(backlog));
 
         loadTasks();
+        loadBacklog();
 
         taskIdCounter++
 
@@ -38,6 +56,8 @@ async function createTask() {
         categorySelect.value = '';
         descriptionInputField.value = '';
         assignedToSelect.value = '';
+        subtasks = [];
+        loadSubTasks();
 
         hideAddTask();
         removeUrgencyClasses();
@@ -105,9 +125,10 @@ function editTask(id, number) {
     let titelInputField = document.getElementById('titelInputField');
     let dateInputField = document.getElementById('dateInputField');
     let categorySelect = document.getElementById('categorySelect');
-    let urgencySelect = document.getElementById('urgencySelect');
     let descriptionInputField = document.getElementById('descriptionInputField');
     let assignedToSelect = document.getElementById('assignedToSelect');
+
+    subtasks = task.subtasks;
 
     addTaskh1.innerHTML = 'Edit Task';
     addTaskButtonContainer.innerHTML = /* html */ `
@@ -119,12 +140,20 @@ function editTask(id, number) {
     titelInputField.value = `${task.titel}`;
     dateInputField.value = `${task.date}`;
     categorySelect.value = `${task.category}`;
-    urgencySelect.value = `${task.urgency}`;
     descriptionInputField.value = `${task.description}`;
     assignedToSelect.value = `${task.AssignedTo}`;
+    loadSubTasks();
+
+    if (task.urgency === 'High') {
+        clickUrgencyHigh();
+    } else if (task.urgency === 'Middle') {
+        clickUrgencyMiddle();
+    } else if (task.urgency === 'Low') {
+        clickUrgencyLow();
+    }
 }
 
-function saveChangesTask(id, number) {
+async function saveChangesTask(id, number) {
     let task = returnSelectedTask(id);
 
     let titelInputField = document.getElementById('titelInputField');
@@ -137,15 +166,31 @@ function saveChangesTask(id, number) {
     task.titel = titelInputField.value
     task.date = dateInputField.value
     task.category = categorySelect.value
-    task.urgency = urgencySelect.value
+    task.urgency = urgency
     task.description = descriptionInputField.value
     task.AssignedTo = assignedToSelect.value
     task.urgencyImg = setUrgencyImg();
     task.categoryColor = setCategoryColor();
     task.img = setImgFromAssignedToSelect(true, assignedToSelect.value);
 
+    backlog.push({
+        "titel": `${titelInputField.value}`,
+        "description": `${descriptionInputField.value}`,
+        "date": `${dateInputField.value}`,
+        "urgency": `${urgency}`,
+        "urgencyImg": `${setUrgencyImg()}`,
+        "AssignedTo": `${assignedToSelect.value}`,
+        "process": "todo",
+        "category": `${categorySelect.value}`,
+        "categoryColor": `${setCategoryColor()}`,
+        "img": `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`
+    })
+
+    await backend.setItem('backlog', JSON.stringify(backlog));
+
     hideAddTask();
     loadTasks();
+    loadBacklog();
     openCard(id, number);
 }
 
@@ -196,4 +241,25 @@ function removeUrgencyClasses() {
     urgencyImgHigh.classList.remove('urgencyImg');
     urgencyImgMiddle.classList.remove('urgencyImg');
     urgencyImgLow.classList.remove('urgencyImg');
+}
+
+function addSubtask() {
+    subtaskInputField = document.getElementById('subtaskInputField');
+
+    subtasks.push(subtaskInputField.value);
+    loadSubTasks(subtasksContainer);
+    subtaskInputField.value = '';
+}
+
+function loadSubTasks() {
+    subtasksContainer = document.getElementById('subtasksContainer');
+    subtasksContainer.innerHTML = '';
+    subtasks.forEach((subtask, index) => {
+        subtasksContainer.innerHTML += /* html */ `<div class="subtask">${subtask} <img onclick="delSubtask(${index})" src="assets/img/trash.svg"> <div>`;
+    });
+}
+
+function delSubtask(index) {
+    subtasks.splice(index, 1);
+    loadSubTasks();
 }

@@ -2,6 +2,7 @@ tasks = [];
 users = [];
 activeUser = [];
 contacts = [];
+backlog = [];
 
 async function init() {
     await downloadBackend();
@@ -17,6 +18,8 @@ async function initLogin() {
     loadMSG();
 }
 
+
+
 // setzt die url zum backend und lädt die infos in die Variablen
 async function downloadBackend() {
     setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
@@ -26,10 +29,12 @@ async function downloadBackend() {
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
     taskIdCounter = JSON.parse(backend.getItem('taskIdCounter')) || [];
     contacts = JSON.parse(backend.getItem('contacts')) || [];
+    backlog = JSON.parse(backend.getItem('backlog')) || [];
     console.log('users', users)
     console.log('tasks', tasks)
     console.log('activeUser', activeUser)
     console.log('contacts', contacts)
+    console.log('backlog', backlog)
 }
 
 
@@ -40,6 +45,8 @@ function loadTasks() {
     definesAllBacklogIds();
 
     clearAllDivs();
+    loadBacklog();
+
 
     /* #########################   Summary   ######################### */
 
@@ -83,15 +90,6 @@ function loadTasks() {
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         loadBoard(task, i);
-    }
-
-    /* #########################   Backlog   ######################### */
-
-    for (let b = 0; b < tasks.length; b++) {
-        const task = tasks[b];
-
-        loadBacklog(task, b);
-        changeColor(b, task);
     }
 
     backend.setItem('tasks', JSON.stringify(tasks)); // wenn ich etwas ändere soll es auch auf den backend geladen werden

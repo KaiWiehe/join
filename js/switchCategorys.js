@@ -29,6 +29,7 @@ function switchCategorys(number) {
         addTask.classList.remove('hide');
         addTask.innerHTML = addTaskHTML();
         updateAssignedTo();
+        loadSubTasks();
     } else if (number === 5) {
         help.classList.remove('hide');
         addTask.innerHTML = '';
@@ -85,12 +86,12 @@ function addTaskHTML() {
                     <div onclick="clickUrgencyMiddle()" id="urgencyButtonMiddle" class="whiteButton">Middle <img id="urgencyImgMiddle" src="assets/img/prioMiddle.png"></div>
                     <div onclick="clickUrgencyLow()" id="urgencyButtonLow" class="whiteButton">Low <img id="urgencyImgLow" src="assets/img/prioLow.png"></div>
                 </div>
-                <!-- <select required id="urgencySelect" class="inputField">
-                                <option value="" disabled selected hidden>Choose the Urgency</option>
-                                <option value="HIGH">HIGH</option>
-                                <option value="MIDDLE">MIDDLE</option>
-                                <option value="LOW">LOW</option>
-                            </select> -->
+            </div>
+            <div class=" formCullum subtasks">
+                <h2>Subtasks</h2>
+                <input id="subtaskInputField" class="inputField" type="text" placeholder="Enter a Subtask">
+                <img class="subtaskButton" onclick="addSubtask()" src="assets/img/plusBlack.png">
+                <div class="subtasksContainer" id="subtasksContainer"></div>
             </div>
             <div class="addTaskButtonContainer" id="addTaskButtonContainer">
                 <button type="button" onclick="hideAddTask()" class="whiteButton">Cancel</button>

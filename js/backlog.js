@@ -1,17 +1,13 @@
 /** Lädt das HTML Gerüßt */
-function loadBacklog(task, b) {
-    let img; //TODO img ist jetzt eine html struktur
-    if (task["img"] != "undefined") {
-        img = task["img"];
-    } else {
-        img = "assets/img/profileImg/image.svg";
-    }
-    backlogContainer.innerHTML += `
-        <tr>
-            <td id="backlogFirstTd${b}" class="backlogFirstTd">${img} ${task["AssignedTo"]}</td>
-            <td>${task["category"]}</td>
-            <td class="backlogLastTd">${task["titel"]}: ${task["description"]} (Status: ${capitalizeFirstLetter(task["process"])})</td>
-        </tr>`;
+function loadBacklog() {
+    backlog.forEach((element, index) => {
+        backlogContainer.innerHTML += `
+    <tr>
+        <td id="backlogFirstTd${index}" class="backlogFirstTd">${element.img} ${element.AssignedTo}</td>
+        <td>${element.category}</td>
+        <td class="backlogLastTd">${element.titel}: ${element.description} (Status: ${capitalizeFirstLetter(element.process)})</td>
+    </tr>`;
+    });
 }
 
 /** Setzt die passende Farbe je nach zugewiesener Person */
