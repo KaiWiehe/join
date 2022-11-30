@@ -68,18 +68,3 @@ async function logOut() {
     await backend.setItem('activeUser', JSON.stringify([]));
     window.location.href = 'login.html';
 }
-
-
-
-
-/** lädt die Users.json herunter */
-//async function loadUserJSON() {
-//    let resp = await fetch('./users.json');
-//    if (resp.ok) { //all good
-//        users = await resp.json();
-//        console.log(users);
-//    } else { //error
-//        alert("JSON not found 😒")
-//        console.error("JSON not found 😒")
-//    }
-//}

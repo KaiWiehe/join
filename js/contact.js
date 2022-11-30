@@ -71,12 +71,12 @@ async function addContact(name, mail, phone, loadContactsFunction) {
         phone: phone,
         img: setImgFromAssignedToSelect(false, name)
     })
-    contacts = arrClean(contacts);
+    contacts = arrClean(contacts, 'Contact already exists!', 'contactAlreadyExistsContainer');
     await backend.setItem('contacts', JSON.stringify(contacts));
 
     loadContactsFunction && loadContacts();
 
-    !alreadyExists && contactBanner('Contact succesfully created', "background: var(--leftGrey);");
+    !alreadyExists && banner('Contact succesfully created', "background: var(--leftGrey);", 'contactAlreadyExistsContainer');
 }
 
 /**
@@ -92,28 +92,18 @@ function closeOrOpenAddContact(open) {
  * @param {Array} arr 
  * @returns Array without dublicates
  */
-function arrClean(arr) {
+function arrClean(arr, errorText, containerID) {
     const data = arr;
     const set = new Set(data.map(item => JSON.stringify(item)));
     const dedup = [...set].map(item => JSON.parse(item));
     console.log(`Removed ${data.length - dedup.length} elements`);
     if (data.length - dedup.length > 0) {
         //if contact already exists
-        contactBanner('Contact already exists!', "background: rgba(255, 0, 0, 0.538);");
+        banner(errorText, "background: rgba(255, 0, 0, 0.538);", containerID);
         alreadyExists = true;
     }
     console.log(dedup);
     return dedup;
-}
-
-function contactBanner(string, style) {
-    let contactAlreadyExistsContainer = document.getElementById('contactAlreadyExistsContainer');
-    contactAlreadyExistsContainer.innerHTML = string;
-    contactAlreadyExistsContainer.style = style;
-    contactAlreadyExistsContainer.classList.remove('hide');
-    setTimeout(() => {
-        contactAlreadyExistsContainer.classList.add('hide');
-    }, 1250);
 }
 
 async function deleteAllContacts() {

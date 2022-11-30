@@ -1,4 +1,5 @@
 let currentDraggedElement;
+let searchedTasks = [];
 
 function startDragging(id) {
     currentDraggedElement = returnSelectedTask(id);
@@ -10,8 +11,6 @@ function allowDrop(ev) {
 
 async function moveTo(category) {
     currentDraggedElement.process = category;
-    backlog.push(currentDraggedElement);
-    await backend.setItem('backlog', JSON.stringify(backlog));
     loadTasks();
     removehighlightArea(category)
 }
@@ -63,7 +62,7 @@ function closeCard() {
     bottomRightPopUp.innerHTML = '';
 }
 
-function loadBoard(task, i) { //TODO funktuniert aus irgendeinem grund nicht mehr
+function loadBoard(task, i) {
     if (task.process === "todo") {
         todo.innerHTML += boardHTML(task, i);
     } else if (task.process === "inProgress") {
@@ -81,6 +80,11 @@ function changeCategoryColor(task) {
     category.style = `background: ${task.categoryColor};`;
 }
 
+function changeCategoryColorBig(task) {
+    let categoryBig = document.getElementById(`categoryBig${task.id}`);
+    categoryBig.style = `background: ${task.categoryColor};`;
+}
+
 function boardHTML(task, i) {
     return `<div class="card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openCard(${task.id}, ${i})">
             <span id="category${task.id}" class="cardCategory">${task.category}</span>
@@ -92,4 +96,27 @@ function boardHTML(task, i) {
                 <img id="urgencyIcon${i}" class="urgencyIcon" src="${task.urgencyImg}">
             </div>
         </div>`;
+}
+
+function filterTasks() {
+    clearBoard();
+    searchedTasks = [];
+
+    let search = document.getElementById('search');
+    search = search.value.toLowerCase(); // damit Groß und Kleinschreibung keine rolle spielt
+
+    if (search.length > 0) {
+        tasks.forEach(task => {
+            if (task.titel.toLowerCase().includes(search)) {
+                searchedTasks.push(task);
+            }
+        });
+    } else {
+        loadTasks();
+    }
+    if (searchedTasks.length > 0) {
+        searchedTasks.forEach((task, index) => {
+            loadBoard(task, index)
+        });
+    }
 }

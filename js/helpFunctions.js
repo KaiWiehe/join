@@ -42,11 +42,6 @@ function definesAllBoardIds() {
     let done = document.getElementById('done');
 }
 
-/** Definiert alle ID's in der Backlog Karte */
-function definesAllBacklogIds() {
-    let backlogContainer = document.getElementById('backlogContainer');
-}
-
 /** Löscht alle Divs */
 function clearAllDivs() {
     tasksInBoard.innerHTML = ``;
@@ -59,22 +54,18 @@ function clearAllDivs() {
     inProgress.innerHTML = ``;
     awaitingFeedback.innerHTML = ``;
     done.innerHTML = ``;
-
-    backlogContainer.innerHTML = ``;
 }
 
-// function changeIMG() {
-//     let img;
-//     //setzt das passende bild zum namen ein
-//     if (assignedToSelect.value === "Kai") {
-//         img = "assets/img/profileImg/profileImg.jpg";
-//     } else if (assignedToSelect.value === "Caro") {
-//         img = "assets/img/profileImg/profileImg2.jpg";
-//     }
-//     return img;
-// }
-
-
+function clearBoard() {
+    let todo = document.getElementById('todo');
+    let inProgress = document.getElementById('inProgress');
+    let awaitingFeedback = document.getElementById('awaitingFeedback');
+    let done = document.getElementById('done');
+    todo.innerHTML = ``;
+    inProgress.innerHTML = ``;
+    awaitingFeedback.innerHTML = ``;
+    done.innerHTML = ``;
+}
 
 function returnSelectedTask(i) {
     let id = [i];

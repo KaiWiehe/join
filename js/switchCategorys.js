@@ -2,7 +2,6 @@
 function switchCategorys(number) {
     let summary = document.getElementById('summary');
     let board = document.getElementById('board');
-    let backlog = document.getElementById('backlog');
     let addTask = document.getElementById('addTask');
     let help = document.getElementById('help');
     let aboutUs = document.getElementById('aboutUs');
@@ -10,7 +9,6 @@ function switchCategorys(number) {
 
     summary.classList.add('hide');
     board.classList.add('hide');
-    backlog.classList.add('hide');
     addTask.classList.add('hide');
     help.classList.add('hide');
     aboutUs.classList.add('hide');
@@ -22,14 +20,12 @@ function switchCategorys(number) {
     } else if (number === 2) {
         board.classList.remove('hide');
         addTask.innerHTML = '';
-    } else if (number === 3) {
-        backlog.classList.remove('hide');
-        addTask.innerHTML = '';
     } else if (number === 4) {
         addTask.classList.remove('hide');
         addTask.innerHTML = addTaskHTML();
         updateAssignedTo();
         loadSubTasks();
+        loadCategorys();
     } else if (number === 5) {
         help.classList.remove('hide');
         addTask.innerHTML = '';
@@ -55,7 +51,7 @@ function addTaskHTML() {
                 <h2>Description</h2>
                 <textarea minlength="4" required id="descriptionInputField" class="descriptionArea" placeholder="Enter a &#13;Description..."></textarea>
             </div>
-            <div class=" formCullum">
+            <div class=" formCullum categorySelect">
                 <h2>Category</h2>
                 <select required id="categorySelect" class="inputField">
                     <option value="" disabled selected hidden>Select task category</option>
@@ -66,6 +62,7 @@ function addTaskHTML() {
                     <option value="Marketing">Marketing</option>
                     <option value="Media">Media</option>
                 </select>
+                <img class=" addCategoryButton" onclick="openAddCategory()" src="assets/img/plusBlack.png">
             </div>
             <div class="collum formCullum assignedTo">
                 <h2>ASSIGNED TO</h2>

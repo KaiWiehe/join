@@ -26,26 +26,9 @@ async function createTask() {
             "subtasks": subtasks
         })
 
-        backlog.push({
-            "id": `${taskIdCounter}`,
-            "titel": `${titelInputField.value}`,
-            "description": `${descriptionInputField.value}`,
-            "date": `${dateInputField.value}`,
-            "urgency": `${urgency}`,
-            "urgencyImg": `${setUrgencyImg()}`,
-            "AssignedTo": `${assignedToSelect.value}`,
-            "process": "todo",
-            "category": `${categorySelect.value}`,
-            "categoryColor": `${setCategoryColor()}`,
-            "img": `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`,
-            "subtasks": subtasks
-        })
-
         await backend.setItem('tasks', JSON.stringify(tasks));
-        await backend.setItem('backlog', JSON.stringify(backlog));
 
         loadTasks();
-        loadBacklog();
 
         taskIdCounter++
 
@@ -61,8 +44,9 @@ async function createTask() {
 
         hideAddTask();
         removeUrgencyClasses();
+        banner('Task succesfully created', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
     } else {
-        alert('error')
+        banner('You have to select an urgency', "background: rgba(255, 0, 0, 0.538);", 'categoryAlreadyExistsContainer')
     }
 }
 
@@ -173,25 +157,10 @@ async function saveChangesTask(id, number) {
     task.categoryColor = setCategoryColor();
     task.img = setImgFromAssignedToSelect(true, assignedToSelect.value);
 
-    backlog.push({
-        "titel": `${titelInputField.value}`,
-        "description": `${descriptionInputField.value}`,
-        "date": `${dateInputField.value}`,
-        "urgency": `${urgency}`,
-        "urgencyImg": `${setUrgencyImg()}`,
-        "AssignedTo": `${assignedToSelect.value}`,
-        "process": "todo",
-        "category": `${categorySelect.value}`,
-        "categoryColor": `${setCategoryColor()}`,
-        "img": `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`
-    })
-
-    await backend.setItem('backlog', JSON.stringify(backlog));
-
     hideAddTask();
     loadTasks();
-    loadBacklog();
     openCard(id, number);
+    banner('Task succesfully edited', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
 }
 
 function hideEditTask(id, number) {
@@ -262,4 +231,49 @@ function loadSubTasks() {
 function delSubtask(index) {
     subtasks.splice(index, 1);
     loadSubTasks();
+}
+
+function openAddCategory() {
+    let addCategoryContainer = document.getElementById('addCategoryContainer');
+    addCategoryContainer.classList.remove('hide');
+}
+
+function closeAddCategory() {
+    let addCategoryContainer = document.getElementById('addCategoryContainer');
+    addCategoryContainer.classList.add('hide');
+}
+
+function loadCategorys() {
+    let categorySelect = document.getElementById('categorySelect');
+    categorySelect.innerHTML = '';
+    categorySelect.innerHTML = '<option value="" disabled selected hidden>Select task category</option>';
+    categorys.forEach(category => {
+        categorySelect.innerHTML += /* html */ `
+        <option value="${category}">${category}</option>`;
+    });
+}
+
+function addCategoryForm() {
+    let addCategoryTitel = document.getElementById('addCategoryTitel');
+    addCategory(addCategoryTitel.value);
+    addCategoryTitel.value = '';
+}
+
+async function addCategory(category) {
+    categorys.push(category);
+    categorys = arrClean(categorys, 'Category already exists!', 'categoryAlreadyExistsContainer');
+    closeAddCategory();
+    await backend.setItem('categorys', JSON.stringify(categorys));
+    loadCategorys();
+    !alreadyExists && banner('Category succesfully created', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
+}
+
+function banner(string, style, containerID) {
+    let container = document.getElementById(containerID);
+    container.innerHTML = string;
+    container.style = style;
+    container.classList.remove('hide');
+    setTimeout(() => {
+        container.classList.add('hide');
+    }, 1250);
 }

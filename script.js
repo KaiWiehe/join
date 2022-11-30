@@ -2,7 +2,7 @@ tasks = [];
 users = [];
 activeUser = [];
 contacts = [];
-backlog = [];
+categorys = [];
 
 async function init() {
     await downloadBackend();
@@ -18,8 +18,6 @@ async function initLogin() {
     loadMSG();
 }
 
-
-
 // setzt die url zum backend und lädt die infos in die Variablen
 async function downloadBackend() {
     setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
@@ -29,24 +27,21 @@ async function downloadBackend() {
     activeUser = JSON.parse(backend.getItem('activeUser')) || [];
     taskIdCounter = JSON.parse(backend.getItem('taskIdCounter')) || [];
     contacts = JSON.parse(backend.getItem('contacts')) || [];
-    backlog = JSON.parse(backend.getItem('backlog')) || [];
+    categorys = JSON.parse(backend.getItem('categorys')) || [];
     console.log('users', users)
     console.log('tasks', tasks)
     console.log('activeUser', activeUser)
     console.log('contacts', contacts)
-    console.log('backlog', backlog)
+    console.log('categorys', categorys)
 }
 
 
-/** Fügt die Daten aus dem JSON in das Summary, in das Board und in das Backlog */
+/** Fügt die Daten aus dem JSON in das Summary, in das Board*/
 function loadTasks() {
     definesAllSummaryIds();
     definesAllBoardIds();
-    definesAllBacklogIds();
 
     clearAllDivs();
-    loadBacklog();
-
 
     /* #########################   Summary   ######################### */
 
@@ -87,10 +82,9 @@ function loadTasks() {
 
     /* #########################   Board   ######################### */
 
-    for (let i = 0; i < tasks.length; i++) {
-        const task = tasks[i];
-        loadBoard(task, i);
-    }
+    tasks.forEach((task, index) => {
+        loadBoard(task, index);
+    });
 
     backend.setItem('tasks', JSON.stringify(tasks)); // wenn ich etwas ändere soll es auch auf den backend geladen werden
 }
@@ -144,18 +138,3 @@ function changeImg() {
 function doNotClose(event) {
     event.stopPropagation();
 }
-
-
-
-
-/** Lädt die JSON herunter */
-//async function loadTaskJSON() {
-//    let resp = await fetch('./tasks.json');
-//    if (resp.ok) { //all good
-//        tasks = await resp.json();
-//        console.log(tasks);
-//    } else { //error
-//        alert("JSON not found 😒")
-//        console.error("JSON not found 😒")
-//    }
-//}

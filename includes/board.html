@@ -3,13 +3,13 @@
 <div class="boardHeader">
     <h1>Board</h1>
     <div class="flex">
-        <input type="text" placeholder="Find Task" class="boardInput">
+        <input type="text" placeholder="Find Task" class="boardInput" id="search" onkeyup="filterTasks()">
         <button onclick="showAddTask()" class="button">Add Task <img class="plusImg" src="../assets/img/plus.png" alt=""></button>
     </div>
 </div>
 
 <div class="board">
-    <div class="category" ondrop="moveTo('todo')" ondragleave="removehighlightArea('todo')" ondragover="allowDrop(event), highlightArea('todo')">
+    <div class="category todo " ondrop="moveTo('todo')" ondragleave="removehighlightArea('todo')" ondragover="allowDrop(event), highlightArea('todo')">
         <h2>TO DO</h2>
         <div id="todo" class="cardContainer"></div>
     </div>
