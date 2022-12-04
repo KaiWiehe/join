@@ -258,7 +258,7 @@ header div {
     display: none;
     position: absolute;
     right: 0.01rem;
-    min-width: 6.25rem;
+    min-width: 7rem;
     box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
     z-index: 1;
     background: var(--leftGrey);
@@ -419,7 +419,7 @@ header div {
 .cardBig h4 {
     font-size: 1.5rem;
     color: black !important;
-    margin: 1rem 0;
+    margin: 1rem 0 0.25rem 0;
     font-weight: 700;
 }
 
@@ -743,11 +743,19 @@ header div {
 .aboutUs {
     height: 85vh;
     overflow-x: scroll;
-    margin: 0 0 0 2rem;
+    margin: 0 4rem 0 4rem;
 }
 
 .aboutUs h1 {
     margin: 2rem 0 2rem 0;
+}
+
+.aboutUs h2 {
+    margin: 2rem 0 2rem 0;
+}
+
+.aboutUs h3 {
+    margin: 1rem 0 1rem 0;
 }
 
 .aboutUs::-webkit-scrollbar {
@@ -769,4 +777,42 @@ header div {
 
 .addCategoryButton:hover {
     transform: scale(1.1);
+}
+
+.help p {
+    margin: 0 4rem 0 4rem;
+}
+
+.help h2 {
+    margin: 2rem 0 2rem 4rem;
+}
+
+.help ol {
+    margin: 0 4rem 0 4rem;
+}
+
+.help li {
+    margin: 0 0 1rem 0;
+}
+
+.closeImgContacts {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: 15rem;
+    top: 2rem;
+    z-index: 1;
+    display: none;
+}
+
+.closeImgContacts:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.noImg img {
+    border-radius: 100%;
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
 }

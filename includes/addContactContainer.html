@@ -1,0 +1,16 @@
+<div onclick="doNotClose(event)" class="addContact">
+    <div class="addContactLeft">
+        <img src="assets/img/joinlogo.png" alt="joinlogo">
+        <h3 id="addContactTitel">Add Category</h3>
+        <span class="borderBottom" id="addContactSlogan">Tasks are better with a team!</span>
+    </div>
+    <div class="addContactRight" id="addContactRight">
+        <form onsubmit="addCategoryForm(); return false;">
+            <input class="inputField" id="addCategoryTitel" type="text" required placeholder="Titel">
+            <div class="flex" id="addContactButtons">
+                <button type="button" class=" whiteButton" onclick="closeAddCategory()">Cancel</button>
+                <button type="submit" class="button">Create Category</button>
+            </div>
+        </form>
+    </div>
+</div>

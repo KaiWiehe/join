@@ -6,8 +6,8 @@
 }
 
 .boardContainer {
-    margin: 2rem 2rem 2rem 2rem;
-    height: calc(100vh - 8rem);
+    margin: 0rem 2rem 0rem 2rem;
+    height: calc(100vh - 4rem);
 }
 
 .boardInput {

@@ -33,22 +33,7 @@ function openCard(id, i) {
     let task = returnSelectedTask(id);
 
     let bottomRightPopUp = document.getElementById('bottomRightPopUp');
-    bottomRightPopUp.innerHTML = /* html */ `
-    <div class="cardBigContainer" onclick="closeCard()">
-        <div class="cardBig" onclick="doNotClose(event)">
-            <div class="card">
-                <span class="cardCategory" id="categoryBig${task.id}">${task.category}</span>
-                <h3>${task.titel}</h3>
-                <p>${task.description}</p>
-                <h4>Subtasks:</h4><div class="subtaskCardContainer" id="subtaskCardContainer"></div>
-                <p><b>Due date:</b>${task.date}</p>
-                <p><b>Priority:</b>${task.urgency} <img id="urgencyIcon" class="urgencyIcon" src="${task.urgencyImg}"></p>
-                <div class="flex" style="align-items: center;"><p class="flex" style="margin: 0;"><b>Assigned to: </b>${task.AssignedTo}${task.img}</p></div>
-                <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
-                <button onclick="editTask(${task.id}, ${i})" class="editImg button"><img src="assets/img/editTaskIcon.png" alt=""></button>
-            </div>
-        </div>
-    </div>`;
+    bottomRightPopUp.innerHTML = openCardHTML(task, i);
     changeCategoryColorBig(task);
 
     let subtaskCardContainer = document.getElementById('subtaskCardContainer');
@@ -119,4 +104,22 @@ function filterTasks() {
             loadBoard(task, index)
         });
     }
+}
+
+function openCardHTML(task, i) {
+    return `<div class="cardBigContainer" onclick="closeCard()">
+        <div class="cardBig" onclick="doNotClose(event)">
+            <div class="card">
+                <span class="cardCategory" id="categoryBig${task.id}">${task.category}</span>
+                <h3>${task.titel}</h3>
+                <p>${task.description}</p>
+                <h4>Subtasks:</h4><div class="subtaskCardContainer" id="subtaskCardContainer"></div>
+                <p><b>Due date:</b>${task.date}</p>
+                <p><b>Priority:</b>${task.urgency} <img id="urgencyIcon" class="urgencyIcon" src="${task.urgencyImg}"></p>
+                <div class="flex" style="align-items: center;"><p class="flex" style="margin: 0;"><b>Assigned to: </b>${task.AssignedTo}${task.img}</p></div>
+                <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+                <button onclick="editTask(${task.id}, ${i})" class="editImg button"><img src="assets/img/editTaskIcon.png" alt=""></button>
+            </div>
+        </div>
+    </div>`;
 }

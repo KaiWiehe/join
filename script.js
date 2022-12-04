@@ -138,3 +138,85 @@ function changeImg() {
 function doNotClose(event) {
     event.stopPropagation();
 }
+
+function editUser() {
+    let user = returnActiveUser();
+    openAddContactOrEdit();
+    let addContactTitel = document.getElementById('addContactTitel');
+    let addContactSlogan = document.getElementById('addContactSlogan');
+    let addContactImg = document.getElementById('addContactImg');
+    let addContactButtons = document.getElementById('addContactButtons');
+
+    let addContactName = document.getElementById('addContactName');
+    let addContactMail = document.getElementById('addContactMail');
+    let addContactTel = document.getElementById('addContactTel');
+
+    addContactTitel.innerHTML = 'Edit User';
+    addContactSlogan.classList.add('hide');
+    addContactImg.style = "display: flex;";
+    addContactMail.style = "display: flex;";
+    addContactTel.style = "display: flex;";
+    addContactImg.innerHTML = `<img src="${user.img}">`;
+    addContactButtons.innerHTML = /* html */ `
+        <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
+        <button type="button" class="button" onclick="saveChangesUser()">Save</button>`;
+
+    addContactName.value = `${user.name}`;
+    addContactMail.value = `${user.mail}`;
+    addContactTel.value = `${user.password}`;
+    addContactTel.placeholder = "Password";
+}
+
+async function saveChangesUser() {
+    let user = returnActiveUser();
+
+    let addContactName = document.getElementById('addContactName');
+    let addContactMail = document.getElementById('addContactMail');
+    let addContactTel = document.getElementById('addContactTel');
+
+    user.name = addContactName.value;
+    user.mail = addContactMail.value;
+    user.password = addContactTel.value;
+
+    closeAddContact();
+    banner('User succesfully edited', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
+    await backend.setItem('users', JSON.stringify(users));
+}
+
+
+function returnActiveUser() {
+    let userNew = [];
+    users.forEach(user => {
+        if (user.name.includes(activeUser.name)) {
+            userNew.push(user);
+        }
+    });
+    userNew = userNew[0];
+    return userNew;
+}
+
+// function editContact(number) {
+//     let contact = setContact(number);
+
+//     openAddContactOrEdit();
+
+//     let addContactTitel = document.getElementById('addContactTitel');
+//     let addContactSlogan = document.getElementById('addContactSlogan');
+//     let addContactImg = document.getElementById('addContactImg');
+//     let addContactButtons = document.getElementById('addContactButtons');
+
+//     let addContactName = document.getElementById('addContactName');
+//     let addContactMail = document.getElementById('addContactMail');
+//     let addContactTel = document.getElementById('addContactTel');
+
+//     addContactTitel.innerHTML = 'Edit Contact';
+//     addContactSlogan.classList.add('hide');
+//     addContactImg.innerHTML = `${contact.img}`;
+//     addContactButtons.innerHTML = /* html */ `
+//     <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
+//     <button type="button" class="button" onclick="saveChanges(${number})">Save</button>`;
+
+//     addContactName.value = `${contact.name}`;
+//     addContactMail.value = `${contact.mail}`;
+//     addContactTel.value = `${contact.phone}`;
+// }

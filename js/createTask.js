@@ -234,13 +234,31 @@ function delSubtask(index) {
 }
 
 function openAddCategory() {
-    let addCategoryContainer = document.getElementById('addCategoryContainer');
-    addCategoryContainer.classList.remove('hide');
+    openAddContactOrEdit();
+    let addContactTitel = document.getElementById('addContactTitel');
+    let addContactSlogan = document.getElementById('addContactSlogan');
+    let addContactImg = document.getElementById('addContactImg');
+    let addContactButtons = document.getElementById('addContactButtons');
+
+    let addContactName = document.getElementById('addContactName');
+    let addContactMail = document.getElementById('addContactMail');
+    let addContactTel = document.getElementById('addContactTel');
+
+    addContactTitel.innerHTML = 'Add Category';
+    addContactSlogan.classList.remove('hide');
+    addContactImg.style = "display: none;";
+    addContactSlogan.style = "display: none;";
+    addContactButtons.innerHTML = `
+    <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
+    <button type="button" class="button" onclick="addCategoryForm()">Create Category</button>`;
+
+    addContactName.value = ``;
+    addContactMail.style = "display: none;";
+    addContactTel.style = "display: none;";
 }
 
 function closeAddCategory() {
-    let addCategoryContainer = document.getElementById('addCategoryContainer');
-    addCategoryContainer.classList.add('hide');
+    closeAddContact();
 }
 
 function loadCategorys() {
@@ -254,7 +272,7 @@ function loadCategorys() {
 }
 
 function addCategoryForm() {
-    let addCategoryTitel = document.getElementById('addCategoryTitel');
+    let addCategoryTitel = document.getElementById('addContactName');
     addCategory(addCategoryTitel.value);
     addCategoryTitel.value = '';
 }

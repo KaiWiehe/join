@@ -38,6 +38,11 @@ function openAddContact() {
 
     addContactTitel.innerHTML = 'Add Contact';
     addContactSlogan.classList.remove('hide');
+    addContactSlogan.style = "display: flex;";
+    addContactImg.style = "display: flex;";
+    addContactMail.style = "display: flex;";
+    addContactTel.style = "display: flex;";
+    addContactTel.placeholder = "Phone";
     addContactImg.innerHTML = `<div class="noImg" id="addContactImg">?</div>`;
     addContactButtons.innerHTML = `
     <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
@@ -125,6 +130,15 @@ function showContactBig(number) {
     showContactBottom.innerHTML = contactBigHTML(contact, number);
     clearContactCardStyle();
     setContactCardStyle(number);
+
+    let showContact = document.getElementById('showContact');
+    showContact.style = "display: block;"
+}
+
+function closeContactBig() {
+    let showContact = document.getElementById('showContact');
+    showContact.style = "display: none;"
+    clearContactCardStyle();
 }
 
 function editContact(number) {
@@ -143,6 +157,10 @@ function editContact(number) {
 
     addContactTitel.innerHTML = 'Edit Contact';
     addContactSlogan.classList.add('hide');
+    addContactImg.style = "display: flex;";
+    addContactMail.style = "display: flex;";
+    addContactTel.style = "display: flex;";
+    addContactTel.placeholder = "Phone";
     addContactImg.innerHTML = `${contact.img}`;
     addContactButtons.innerHTML = /* html */ `
     <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>

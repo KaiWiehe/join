@@ -108,6 +108,9 @@
     .rectangle2 {
         width: calc(8.5rem + 3rem) !important;
     }
+    .addTaskForm {
+        margin: 0 0 0 2rem !important;
+    }
 }
 
 @media (max-width: 650px) {
@@ -142,9 +145,6 @@
     .mobileHide {
         display: none !important;
     }
-    .dropdown-content {
-        min-width: 7rem !important;
-    }
     .mobileShow {
         display: block !important;
     }
@@ -170,6 +170,25 @@
     }
     .rectangle2 {
         width: calc(10.5rem + 4rem) !important;
+    }
+    .boardHeader {
+        margin: 4rem 0 0 0;
+    }
+    .addTaskButtonContainer {
+        bottom: 6rem !important;
+    }
+    .addTask {
+        height: 75vh !important;
+    }
+    .contacts {
+        width: 100%;
+        margin: 6rem 0 0 0;
+    }
+    .addContactButton {
+        bottom: 8rem !important;
+    }
+    .closeImgContacts {
+        right: 2rem !important;
     }
 }
 
@@ -282,6 +301,7 @@
     .board {
         flex-direction: column;
         overflow-x: scroll;
+        justify-content: unset !important;
     }
     .board::-webkit-scrollbar {
         width: 0 !important/* Damit die scrollbar verschwindet */
@@ -292,9 +312,9 @@
         flex-direction: column;
         height: max-content !important;
     }
-    .todo {
+    /* .todo {
         margin: 60rem 0 0 0;
-    }
+    } */
     .cardContainer {
         width: 30rem !important;
         min-height: 10rem;
@@ -304,7 +324,7 @@
     }
     .addTask {
         overflow-x: scroll !important;
-        height: 85vh !important;
+        max-height: 85vh;
     }
     .addTask::-webkit-scrollbar {
         width: 0 !important/* Damit die scrollbar verschwindet */
@@ -314,5 +334,20 @@
     }
     .addTaskLeft {
         border-right: 0 !important;
+    }
+}
+
+@media (max-width: 980px) {
+    .showContact {
+        display: none;
+        width: 100% !important;
+        position: absolute;
+        background: white;
+    }
+    .contactsContainer {
+        width: 100% !important;
+    }
+    .closeImgContacts {
+        display: block !important;
     }
 }
