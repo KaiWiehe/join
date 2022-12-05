@@ -1,0 +1,30 @@
+.registerNewUser {
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+    display: flex;
+    align-items: center;
+}
+
+.registerNewUser p {
+    margin: 0 1rem 0 0;
+}
+
+.arrowBack {
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    cursor: pointer;
+}
+
+.imgSelect {
+    margin: 1rem;
+    padding: 0 0.5rem;
+    width: 21rem;
+    background: transparent;
+    color: grey;
+    font-size: 1.25rem;
+    border: 2px solid #dfdede;
+    border-radius: 0.5rem;
+    height: 3rem;
+}

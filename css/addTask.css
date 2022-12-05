@@ -101,3 +101,93 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .addTaskButtonContainer button {
     margin: 0 0 0 1rem;
 }
+
+.urgencyContainer {
+    gap: 1rem;
+}
+
+.urgencyContainer .whiteButton {
+    gap: 0.5rem;
+    border: 2px solid #dfdede;
+}
+
+.urgencyHigh {
+    background: #ff0000;
+    color: var(--white);
+}
+
+.urgencyMiddle {
+    color: var(--white);
+    background: #ffce00;
+}
+
+.urgencyLow {
+    background: lime;
+    color: var(--white);
+}
+
+.urgencyImg {
+    filter: brightness(0) invert(1);
+}
+
+.subtask {
+    border: 1px solid grey;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    margin: 0.5rem 0 0 0;
+    position: relative;
+}
+
+.subtask img {
+    width: 1rem;
+    position: absolute;
+    right: 1rem;
+}
+
+.subtask img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.subtasksContainer {
+    height: 18rem;
+    overflow-y: scroll;
+}
+
+.subtasksContainer::-webkit-scrollbar {
+    width: 0 !important/* Damit die scrollbar verschwindet */
+}
+
+.subtaskButton {
+    position: absolute;
+    top: 3.4rem;
+    right: 0.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+    filter: invert(0.6);
+}
+
+.subtaskButton:hover {
+    transform: scale(1.1);
+}
+
+.subtasks {
+    position: relative;
+}
+
+.categorySelect {
+    position: relative;
+}
+
+.addCategoryButton {
+    position: absolute;
+    top: 3.3rem;
+    right: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+    filter: invert(0.6);
+}
+
+.addCategoryButton:hover {
+    transform: scale(1.1);
+}

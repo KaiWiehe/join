@@ -81,7 +81,7 @@ async function addContact(name, mail, phone, loadContactsFunction) {
 
     loadContactsFunction && loadContacts();
 
-    !alreadyExists && banner('Contact succesfully created', "background: var(--leftGrey);", 'contactAlreadyExistsContainer');
+    !alreadyExists && banner('Contact succesfully created', "background: var(--leftGrey);", 'contactAlreadyExistsContainer', 1250);
 }
 
 /**
@@ -91,24 +91,6 @@ async function addContact(name, mail, phone, loadContactsFunction) {
 function closeOrOpenAddContact(open) {
     let addContactContainer = document.getElementById('addContactContainer');
     open ? addContactContainer.classList.remove('hide') : addContactContainer.classList.add('hide');
-}
-
-/**
- * @param {Array} arr 
- * @returns Array without dublicates
- */
-function arrClean(arr, errorText, containerID) {
-    const data = arr;
-    const set = new Set(data.map(item => JSON.stringify(item)));
-    const dedup = [...set].map(item => JSON.parse(item));
-    console.log(`Removed ${data.length - dedup.length} elements`);
-    if (data.length - dedup.length > 0) {
-        //if contact already exists
-        banner(errorText, "background: rgba(255, 0, 0, 0.538);", containerID);
-        alreadyExists = true;
-    }
-    console.log(dedup);
-    return dedup;
 }
 
 async function deleteAllContacts() {
@@ -185,6 +167,7 @@ async function saveChanges(number) {
     closeAddContact();
     loadContacts();
     showContactBig(number)
+    banner('Contact succesfully edited', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer', 1250);
     await backend.setItem('contacts', JSON.stringify(contacts));
 }
 

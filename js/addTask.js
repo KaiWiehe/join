@@ -3,50 +3,11 @@ let urgency = false;
 let subtasks = [];
 
 /** Erstellt einen neuen Task mit dem eigegebenem Inhalt */
-async function createTask() {
+function createTask() {
     if (urgency) {
-        let titelInputField = document.getElementById('titelInputField');
-        let dateInputField = document.getElementById('dateInputField');
-        let categorySelect = document.getElementById('categorySelect');
-        let descriptionInputField = document.getElementById('descriptionInputField');
-        let assignedToSelect = document.getElementById('assignedToSelect');
-
-        tasks.push({
-            "id": `${taskIdCounter}`,
-            "titel": `${titelInputField.value}`,
-            "description": `${descriptionInputField.value}`,
-            "date": `${dateInputField.value}`,
-            "urgency": `${urgency}`,
-            "urgencyImg": `${setUrgencyImg()}`,
-            "AssignedTo": `${assignedToSelect.value}`,
-            "process": "todo",
-            "category": `${categorySelect.value}`,
-            "categoryColor": `${setCategoryColor()}`,
-            "img": `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`,
-            "subtasks": subtasks
-        })
-
-        await backend.setItem('tasks', JSON.stringify(tasks));
-
-        loadTasks();
-
-        taskIdCounter++
-
-        backend.setItem('taskIdCounter', JSON.stringify(taskIdCounter));
-
-        titelInputField.value = '';
-        dateInputField.value = '';
-        categorySelect.value = '';
-        descriptionInputField.value = '';
-        assignedToSelect.value = '';
-        subtasks = [];
-        loadSubTasks();
-
-        hideAddTask();
-        removeUrgencyClasses();
-        banner('Task succesfully created', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
+        createNewTask();
     } else {
-        banner('You have to select an urgency', "background: rgba(255, 0, 0, 0.538);", 'categoryAlreadyExistsContainer')
+        banner('You have to select an urgency', 'background: rgba(255, 0, 0, 0.538);', 'categoryAlreadyExistsContainer', 1250);
     }
 }
 
@@ -61,17 +22,17 @@ function setUrgencyImg() {
 }
 
 function setCategoryColor() {
-    if (categorySelect.value === "Managment") {
+    if (categorySelect.value === 'Managment') {
         return '#bc935b';
-    } else if (categorySelect.value === "Design") {
+    } else if (categorySelect.value === 'Design') {
         return 'orange';
-    } else if (categorySelect.value === "Sales") {
+    } else if (categorySelect.value === 'Sales') {
         return '#e583e5';
-    } else if (categorySelect.value === "Backoffice") {
+    } else if (categorySelect.value === 'Backoffice') {
         return '#68ffce';
-    } else if (categorySelect.value === "Marketing") {
+    } else if (categorySelect.value === 'Marketing') {
         return 'blue';
-    } else if (categorySelect.value === "Media") {
+    } else if (categorySelect.value === 'Media') {
         return '#c1c100';
     }
 }
@@ -98,69 +59,19 @@ function updateAssignedTo() {
 }
 
 function editTask(id, number) {
-    let task = returnSelectedTask(id)
+    let task = returnSelectedTask(id);
     closeCard();
     showAddTask();
-    let addTaskh1 = document.getElementById('addTaskh1');
-    let addTaskButtonContainer = document.getElementById('addTaskButtonContainer');
-    let hideAddTaskButton = document.getElementById('hideAddTaskButton');
-    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
-
-    let titelInputField = document.getElementById('titelInputField');
-    let dateInputField = document.getElementById('dateInputField');
-    let categorySelect = document.getElementById('categorySelect');
-    let descriptionInputField = document.getElementById('descriptionInputField');
-    let assignedToSelect = document.getElementById('assignedToSelect');
-
-    subtasks = task.subtasks;
-
-    addTaskh1.innerHTML = 'Edit Task';
-    addTaskButtonContainer.innerHTML = /* html */ `
-    <button type="button" class="whiteButton" onclick="hideEditTask(${id}, ${number})">Cancel</button>
-    <button type="button" onclick="saveChangesTask(${id}, ${number})" class="button">Save</button>`;
-    hideAddTaskButton.setAttribute('onclick', `hideEditTask(${id}, ${number})`);
-    boardAddTaskcontainer.setAttribute('onclick', `hideEditTask(${id}, ${number})`);
-
-    titelInputField.value = `${task.titel}`;
-    dateInputField.value = `${task.date}`;
-    categorySelect.value = `${task.category}`;
-    descriptionInputField.value = `${task.description}`;
-    assignedToSelect.value = `${task.AssignedTo}`;
-    loadSubTasks();
-
-    if (task.urgency === 'High') {
-        clickUrgencyHigh();
-    } else if (task.urgency === 'Middle') {
-        clickUrgencyMiddle();
-    } else if (task.urgency === 'Low') {
-        clickUrgencyLow();
-    }
+    changeAddTaskToEditTask(task, number, id);
 }
 
 async function saveChangesTask(id, number) {
     let task = returnSelectedTask(id);
-
-    let titelInputField = document.getElementById('titelInputField');
-    let dateInputField = document.getElementById('dateInputField');
-    let categorySelect = document.getElementById('categorySelect');
-    let urgencySelect = document.getElementById('urgencySelect');
-    let descriptionInputField = document.getElementById('descriptionInputField');
-    let assignedToSelect = document.getElementById('assignedToSelect');
-
-    task.titel = titelInputField.value
-    task.date = dateInputField.value
-    task.category = categorySelect.value
-    task.urgency = urgency
-    task.description = descriptionInputField.value
-    task.AssignedTo = assignedToSelect.value
-    task.urgencyImg = setUrgencyImg();
-    task.categoryColor = setCategoryColor();
-    task.img = setImgFromAssignedToSelect(true, assignedToSelect.value);
-
+    setEditedTask(task);
     hideAddTask();
     loadTasks();
     openCard(id, number);
-    banner('Task succesfully edited', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
+    banner('Task succesfully edited', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
 }
 
 function hideEditTask(id, number) {
@@ -246,15 +157,15 @@ function openAddCategory() {
 
     addContactTitel.innerHTML = 'Add Category';
     addContactSlogan.classList.remove('hide');
-    addContactImg.style = "display: none;";
-    addContactSlogan.style = "display: none;";
+    addContactImg.style = 'display: none;';
+    addContactSlogan.style = 'display: none;';
     addContactButtons.innerHTML = `
     <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
     <button type="button" class="button" onclick="addCategoryForm()">Create Category</button>`;
 
     addContactName.value = ``;
-    addContactMail.style = "display: none;";
-    addContactTel.style = "display: none;";
+    addContactMail.style = 'display: none;';
+    addContactTel.style = 'display: none;';
 }
 
 function closeAddCategory() {
@@ -265,7 +176,7 @@ function loadCategorys() {
     let categorySelect = document.getElementById('categorySelect');
     categorySelect.innerHTML = '';
     categorySelect.innerHTML = '<option value="" disabled selected hidden>Select task category</option>';
-    categorys.forEach(category => {
+    categorys.forEach((category) => {
         categorySelect.innerHTML += /* html */ `
         <option value="${category}">${category}</option>`;
     });
@@ -283,15 +194,127 @@ async function addCategory(category) {
     closeAddCategory();
     await backend.setItem('categorys', JSON.stringify(categorys));
     loadCategorys();
-    !alreadyExists && banner('Category succesfully created', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
+    !alreadyExists && banner('Category succesfully created', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
 }
 
-function banner(string, style, containerID) {
-    let container = document.getElementById(containerID);
-    container.innerHTML = string;
-    container.style = style;
-    container.classList.remove('hide');
-    setTimeout(() => {
-        container.classList.add('hide');
-    }, 1250);
+function pushNewTask() {
+    let titelInputField = document.getElementById('titelInputField');
+    let dateInputField = document.getElementById('dateInputField');
+    let categorySelect = document.getElementById('categorySelect');
+    let descriptionInputField = document.getElementById('descriptionInputField');
+    let assignedToSelect = document.getElementById('assignedToSelect');
+
+    tasks.push({
+        id: `${taskIdCounter}`,
+        titel: `${titelInputField.value}`,
+        description: `${descriptionInputField.value}`,
+        date: `${dateInputField.value}`,
+        urgency: `${urgency}`,
+        urgencyImg: `${setUrgencyImg()}`,
+        AssignedTo: `${assignedToSelect.value}`,
+        process: 'todo',
+        category: `${categorySelect.value}`,
+        categoryColor: `${setCategoryColor()}`,
+        img: `${setImgFromAssignedToSelect(true, assignedToSelect.value)}`,
+        subtasks: subtasks,
+    });
+}
+
+function clearInputFields() {
+    let titelInputField = document.getElementById('titelInputField');
+    let dateInputField = document.getElementById('dateInputField');
+    let categorySelect = document.getElementById('categorySelect');
+    let descriptionInputField = document.getElementById('descriptionInputField');
+    let assignedToSelect = document.getElementById('assignedToSelect');
+
+    titelInputField.value = '';
+    dateInputField.value = '';
+    categorySelect.value = '';
+    descriptionInputField.value = '';
+    assignedToSelect.value = '';
+    subtasks = [];
+    loadSubTasks();
+}
+
+async function createNewTask() {
+    pushNewTask();
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    loadTasks();
+    taskIdCounter++;
+    backend.setItem('taskIdCounter', JSON.stringify(taskIdCounter));
+    clearInputFields();
+    hideAddTask();
+    removeUrgencyClasses();
+    banner('Task succesfully created', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
+}
+
+function changeAddTaskToEditTask(task, number, id) {
+    definesAllInputs();
+    subtasks = task.subtasks;
+    changeContent(task, number, id);
+}
+
+function definesAllInputs() {
+    let addTaskh1 = document.getElementById('addTaskh1');
+    let addTaskButtonContainer = document.getElementById('addTaskButtonContainer');
+    let hideAddTaskButton = document.getElementById('hideAddTaskButton');
+    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
+    let titelInputField = document.getElementById('titelInputField');
+    let dateInputField = document.getElementById('dateInputField');
+    let categorySelect = document.getElementById('categorySelect');
+    let descriptionInputField = document.getElementById('descriptionInputField');
+    let assignedToSelect = document.getElementById('assignedToSelect');
+}
+
+function changeContent(task, number, id) {
+    addTaskh1.innerHTML = 'Edit Task';
+    addTaskButtonContainer.innerHTML = editTaskButtonsHTML(id, number);
+    hideAddTaskButton.setAttribute('onclick', `hideEditTask(${id}, ${number})`);
+    boardAddTaskcontainer.setAttribute('onclick', `hideEditTask(${id}, ${number})`);
+    loadCategorys();
+    loadInputValue(task, number, id);
+    highlightUrgencyButton(task);
+}
+
+function editTaskButtonsHTML(id, number) {
+    return /* html */ `
+    <button type="button" class="whiteButton" onclick="hideEditTask(${id}, ${number})">Cancel</button>
+    <button type="button" onclick="saveChangesTask(${id}, ${number})" class="button">Save</button>`;
+}
+
+function loadInputValue(task, number, id) {
+    titelInputField.value = `${task.titel}`;
+    dateInputField.value = `${task.date}`;
+    categorySelect.value = `${task.category}`;
+    descriptionInputField.value = `${task.description}`;
+    assignedToSelect.value = `${task.AssignedTo}`;
+    loadSubTasks();
+}
+
+function highlightUrgencyButton(task) {
+    if (task.urgency === 'High') {
+        clickUrgencyHigh();
+    } else if (task.urgency === 'Middle') {
+        clickUrgencyMiddle();
+    } else if (task.urgency === 'Low') {
+        clickUrgencyLow();
+    }
+}
+
+function setEditedTask(task) {
+    let titelInputField = document.getElementById('titelInputField');
+    let dateInputField = document.getElementById('dateInputField');
+    let categorySelect = document.getElementById('categorySelect');
+    let descriptionInputField = document.getElementById('descriptionInputField');
+    let assignedToSelect = document.getElementById('assignedToSelect');
+
+    task.titel = titelInputField.value;
+    task.date = dateInputField.value;
+    task.category = categorySelect.value;
+    task.urgency = urgency;
+    task.description = descriptionInputField.value;
+    task.AssignedTo = assignedToSelect.value;
+    task.urgencyImg = setUrgencyImg();
+    task.categoryColor = setCategoryColor();
+    task.img = setImgFromAssignedToSelect(true, assignedToSelect.value);
 }

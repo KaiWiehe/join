@@ -1,0 +1,248 @@
+.contacts {
+    height: calc(100vh - 4rem);
+    /* position: relative; */
+    display: flex;
+}
+
+.contactsContainer {
+    background: var(--white);
+    height: calc(100vh - 4rem);
+    width: 25rem;
+    overflow-y: scroll;
+    box-shadow: inset 0px 0px 0.5rem lightgrey;
+}
+
+.contactCard {
+    padding: 1rem;
+    border-radius: 2rem;
+    margin: 1rem 1rem 1rem 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contactCard img {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem 0 0;
+}
+
+.contactCard .noImg {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1rem;
+    margin: 0 1rem 0 0;
+}
+
+.contactCard p {
+    color: var(--bgPrimaryBlue);
+}
+
+.contactCard:hover {
+    background-color: var(--leftGrey);
+    color: var(--white);
+}
+
+.addContactButton {
+    position: absolute;
+    bottom: 2rem;
+    right: 6rem;
+}
+
+.addContact {
+    width: 90%;
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* border-radius: 2rem; */
+    display: flex;
+}
+
+.addContactContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.addContactLeft {
+    background: var(--leftGrey);
+    padding: 2rem;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--white);
+    border-radius: 2rem 0 0 2rem;
+    width: 22rem;
+}
+
+.addContactLeft img {
+    width: 4rem;
+    margin: 0 0 1rem 0;
+}
+
+.addContactLeft h3 {
+    font-size: 3rem;
+}
+
+.addContactLeft span {
+    font-size: 1.25rem;
+    padding: 0 0 0.5rem 0;
+}
+
+.addContactRight {
+    width: calc(100% - 22rem);
+    background: var(--white);
+    border-radius: 0 2rem 2rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.addContactRight .boardProfileImg {
+    width: 7rem;
+    height: 7rem;
+}
+
+.addContactRight .noImg {
+    width: 7rem;
+    height: 7rem;
+    margin: 2rem;
+}
+
+.addContactRight form {
+    margin: 0 0 0 2rem;
+    width: 50%;
+}
+
+.addContactRight form input {
+    margin: 1rem 0 0 0;
+    width: 15rem;
+}
+
+.addContactRight form button {
+    margin: 2rem 1rem 0 0;
+}
+
+.contactAlreadyExistsContainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 0, 0, 0.538);
+    border-radius: 2rem;
+    padding: 1rem;
+    color: var(--white);
+    font-size: 3rem;
+    text-align: center;
+}
+
+.showContactTop {
+    display: flex;
+    margin: 3rem 2rem 0 2rem;
+}
+
+.showContactTop h3 {
+    font-size: 3rem;
+    padding: 0 1rem 0 0;
+}
+
+.showContactTop span {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 1rem;
+    font-size: 1.5rem;
+}
+
+.showContactBottom .noImg {
+    width: 7rem;
+    height: 7rem;
+    font-size: 4rem;
+    margin: 0 1rem 0 0;
+}
+
+.showContactBottom .trashImg {
+    width: 3rem;
+    margin: 1rem 0 0 0;
+}
+
+.showContactBottom .boardProfileImg {
+    width: 7rem;
+    height: 7rem;
+    font-size: 4rem;
+    margin: 0 1rem 0 0;
+}
+
+.nameAndImg {
+    display: flex;
+    align-items: center;
+    margin: 4rem 0 0 2rem;
+}
+
+.nameAndImg h3 {
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+.contactInfos {
+    margin: 2rem 0 0 2rem;
+}
+
+.contactInfos h4 {
+    margin: 1rem 0 1rem 0;
+}
+
+.contactInfo {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 0 2rem;
+}
+
+.contactInfo h4 {
+    font-size: 1.25rem;
+    margin: 0 1rem 0 0;
+}
+
+.contactInfo p {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.contactInfo p:hover {
+    transform: scale(1.1);
+}
+
+.contactInfo img {
+    margin: 0 0.5rem 0 0;
+}
+
+.closeImgContacts {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    z-index: 1;
+    display: none;
+}
+
+.closeImgContacts:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.noImg img {
+    border-radius: 100%;
+    width: 7rem;
+    height: 7rem;
+    object-fit: cover;
+}
+
+.contactsContainer::-webkit-scrollbar {
+    width: 0 !important/* Damit die scrollbar verschwindet */
+}

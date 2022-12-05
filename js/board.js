@@ -12,7 +12,7 @@ function allowDrop(ev) {
 async function moveTo(category) {
     currentDraggedElement.process = category;
     loadTasks();
-    removehighlightArea(category)
+    removehighlightArea(category);
 }
 
 function highlightArea(id) {
@@ -37,7 +37,7 @@ function openCard(id, i) {
     changeCategoryColorBig(task);
 
     let subtaskCardContainer = document.getElementById('subtaskCardContainer');
-    task.subtasks.forEach(subtask => {
+    task.subtasks.forEach((subtask) => {
         subtaskCardContainer.innerHTML += /* html */ `<div class="subtaskItem">${subtask}<div>`;
     });
 }
@@ -48,14 +48,14 @@ function closeCard() {
 }
 
 function loadBoard(task, i) {
-    if (task.process === "todo") {
+    if (task.process === 'todo') {
         todo.innerHTML += boardHTML(task, i);
-    } else if (task.process === "inProgress") {
-        inProgress.innerHTML += boardHTML(task, i)
-    } else if (task.process === "awaitingFeedback") {
-        awaitingFeedback.innerHTML += boardHTML(task, i)
-    } else if (task["process"] === "done") {
-        done.innerHTML += boardHTML(task, i)
+    } else if (task.process === 'inProgress') {
+        inProgress.innerHTML += boardHTML(task, i);
+    } else if (task.process === 'awaitingFeedback') {
+        awaitingFeedback.innerHTML += boardHTML(task, i);
+    } else if (task['process'] === 'done') {
+        done.innerHTML += boardHTML(task, i);
     }
     changeCategoryColor(task);
 }
@@ -91,7 +91,7 @@ function filterTasks() {
     search = search.value.toLowerCase(); // damit Groß und Kleinschreibung keine rolle spielt
 
     if (search.length > 0) {
-        tasks.forEach(task => {
+        tasks.forEach((task) => {
             if (task.titel.toLowerCase().includes(search)) {
                 searchedTasks.push(task);
             }
@@ -101,7 +101,7 @@ function filterTasks() {
     }
     if (searchedTasks.length > 0) {
         searchedTasks.forEach((task, index) => {
-            loadBoard(task, index)
+            loadBoard(task, index);
         });
     }
 }
@@ -122,4 +122,34 @@ function openCardHTML(task, i) {
             </div>
         </div>
     </div>`;
+}
+
+function showAddTask() {
+    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
+    boardAddTaskcontainer.classList.remove('hide');
+
+    let boardAddTask = document.getElementById('boardAddTask');
+    boardAddTask.innerHTML = addTaskHTML();
+    updateAssignedTo();
+    loadCategorys();
+}
+
+function hideAddTask() {
+    let titelInputField = document.getElementById('titelInputField');
+    let dateInputField = document.getElementById('dateInputField');
+    let categorySelect = document.getElementById('categorySelect');
+    let descriptionInputField = document.getElementById('descriptionInputField');
+    let assignedToSelect = document.getElementById('assignedToSelect');
+    titelInputField.value = '';
+    dateInputField.value = '';
+    categorySelect.value = '';
+    descriptionInputField.value = '';
+    assignedToSelect.value = '';
+    removeUrgencyClasses();
+
+    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
+    boardAddTaskcontainer.classList.add('hide');
+
+    let boardAddTask = document.getElementById('boardAddTask');
+    boardAddTask.innerHTML = '';
 }

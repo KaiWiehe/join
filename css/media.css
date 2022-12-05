@@ -1,353 +1,371 @@
-@media (max-width: 1350px) {
-    .goodMorning {
-        font-size: 2rem !important;
-    }
-    .goodMorning b {
-        font-size: 3rem !important;
-    }
-}
-
-@media (max-width: 1220px) {
-    .cube {
-        width: 8rem !important;
-        height: 8rem !important;
-    }
-    .rectangle {
-        width: calc(24rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(10rem + 4rem) !important;
-    }
-}
-
-@media (max-width: 1100px) {
-    .goodMorning {
-        display: none;
-    }
-    .cube {
-        width: 10rem !important;
-        height: 10rem !important;
-    }
-    .rectangle {
-        width: calc(30rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(13rem + 4rem) !important;
-    }
-}
-
-@media (max-width: 900px) {
-    .cube {
-        width: 8rem !important;
-        height: 8rem !important;
-    }
-    .rectangle {
-        width: calc(24rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(10rem + 4rem) !important;
-    }
-    .cubeNumber {
-        font-size: 2rem !important;
-    }
-    .cube span {
-        font-size: 0.75rem;
-    }
-    .left .top ul li {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 800px) {
-    h1 {
-        font-size: 2rem !important;
-    }
-    .summaryHeader span {
-        font-size: 1rem !important;
-    }
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(21rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(8.5rem + 4rem) !important;
-    }
-    .cubeNumber {
-        font-size: 2rem !important;
-    }
-    .cube span {
-        font-size: 0.75rem;
-    }
-    .left .top ul li {
-        padding: 1rem 1rem 1rem 1rem !important;
-    }
-}
-
-@media (max-width: 700px) {
-    .right {
-        width: 75% !important;
-    }
-    .left {
-        width: 25% !important;
-    }
-    h1 {
-        margin: 1rem 0 1rem 2rem !important;
-    }
-    header span {
-        margin: 0 0 0 2rem !important;
-    }
-    .cube {
-        margin: 0 0 2rem 2rem !important;
-    }
-    .rectangle {
-        width: calc(21rem + 4rem) !important;
-    }
-    .rectangle2 {
-        width: calc(8.5rem + 3rem) !important;
-    }
-    .addTaskForm {
-        margin: 0 0 0 2rem !important;
-    }
-}
-
-@media (max-width: 650px) {
-    /* header span {
+                @media (max-width: 1350px) {
+                    .goodMorning {
+                        font-size: 2rem !important;
+                    }
+                    .goodMorning b {
+                        font-size: 3rem !important;
+                    }
+                }
+                
+                @media (max-width: 1220px) {
+                    .cube {
+                        width: 8rem !important;
+                        height: 8rem !important;
+                    }
+                    .rectangle {
+                        width: calc(24rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(10rem + 4rem) !important;
+                    }
+                }
+                
+                @media (max-width: 1100px) {
+                    .goodMorning {
+                        display: none;
+                    }
+                    .cube {
+                        width: 10rem !important;
+                        height: 10rem !important;
+                    }
+                    .rectangle {
+                        width: calc(30rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(13rem + 4rem) !important;
+                    }
+                }
+                
+                @media (max-width: 900px) {
+                    .cube {
+                        width: 8rem !important;
+                        height: 8rem !important;
+                    }
+                    .rectangle {
+                        width: calc(24rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(10rem + 4rem) !important;
+                    }
+                    .cubeNumber {
+                        font-size: 2rem !important;
+                    }
+                    .cube span {
+                        font-size: 0.75rem;
+                    }
+                    .left .top ul li {
+                        font-size: 0.75rem;
+                    }
+                }
+                
+                @media (max-width: 800px) {
+                    h1 {
+                        font-size: 2rem !important;
+                    }
+                    .summaryHeader span {
+                        font-size: 1rem !important;
+                    }
+                    .cube {
+                        width: 7rem !important;
+                        height: 7rem !important;
+                    }
+                    .rectangle {
+                        width: calc(21rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(8.5rem + 4rem) !important;
+                    }
+                    .cubeNumber {
+                        font-size: 2rem !important;
+                    }
+                    .cube span {
+                        font-size: 0.75rem;
+                    }
+                    .left .top ul li {
+                        padding: 1rem 1rem 1rem 1rem !important;
+                    }
+                }
+                
+                @media (max-width: 700px) {
+                    /* .right {
+                        width: 75% !important;
+                    }
+                    .left {
+                        width: 25% !important;
+                    } */
+                    h1 {
+                        margin: 1rem 0 1rem 2rem !important;
+                    }
+                    header span {
+                        margin: 0 0 0 2rem !important;
+                    }
+                    .cube {
+                        margin: 0 0 2rem 2rem !important;
+                    }
+                    .rectangle {
+                        width: calc(21rem + 4rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(8.5rem + 3rem) !important;
+                    }
+                    .addTaskForm {
+                        margin: 0 0 0 2rem !important;
+                    }
+                    .showContact {
+                        width: 75%;
+                    }
+                }
+                
+                @media (max-width: 650px) {
+                    /* header span {
         font-size: 0.75rem;
     } */
-    body {
-        flex-direction: column-reverse;
-    }
-    .left {
-        width: 100% !important;
-        height: 10vh !important;
-    }
-    .joinlogo {
-        display: none !important;
-    }
-    .left .top ul {
-        flex-direction: unset !important;
-        justify-content: space-around !important;
-    }
-    .left .top ul li {
-        flex-direction: column !important;
-        border-left: 0 !important;
-    }
-    .userImg {
-        display: none !important;
-    }
-    .right {
-        width: 100% !important;
-        height: 90vh !important;
-    }
-    .mobileHide {
-        display: none !important;
-    }
-    .mobileShow {
-        display: block !important;
-    }
-    .left .top ul li:hover {
-        border-left: 0 !important;
-        transform: scale(1.2) !important;
-    }
-    .bottomRight {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: calc((100vh - 4rem) - 10vh);
-    }
-    #summary {
-        margin: 0 2rem 0 0;
-    }
-    .cube {
-        width: 9rem !important;
-        height: 9rem !important;
-    }
-    .rectangle {
-        width: calc(23rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(10.5rem + 4rem) !important;
-    }
-    .boardHeader {
-        margin: 4rem 0 0 0;
-    }
-    .addTaskButtonContainer {
-        bottom: 6rem !important;
-    }
-    .addTask {
-        height: 75vh !important;
-    }
-    .contacts {
-        width: 100%;
-        margin: 6rem 0 0 0;
-    }
-    .addContactButton {
-        bottom: 8rem !important;
-    }
-    .closeImgContacts {
-        right: 2rem !important;
-    }
-}
-
-@media (max-width: 550px) {
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(17rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(7.5rem + 4rem) !important;
-    }
-    .headerSpan {
-        display: none;
-    }
-    header {
-        align-items: center !important;
-    }
-    .headerImgMobile {
-        display: block !important;
-    }
-}
-
-@media (max-width: 420px) {
-    .cube {
-        width: 5rem !important;
-        height: 5rem !important;
-    }
-    .rectangle {
-        width: calc(11rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(4.5rem + 4rem) !important;
-    }
-}
-
-@media (max-height: 850px) and (min-width: 900px) {
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(21rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(8.5rem + 4rem) !important;
-    }
-}
-
-@media (max-height: 700px) and (min-width: 900px) {
-    .cube {
-        width: 5rem !important;
-        height: 5rem !important;
-    }
-    .rectangle {
-        width: calc(15rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(5.5rem + 4rem) !important;
-    }
-    .userImg {
-        display: none !important;
-    }
-    .cubeNumber {
-        font-size: 2rem !important;
-    }
-    .cube span {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-height: 750px) and (max-width: 800px) {
-    .userImg {
-        display: none !important;
-    }
-}
-
-@media (max-height: 750px) and (max-width: 700px) {
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(17rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(7.5rem + 4rem) !important;
-    }
-}
-
-@media (max-height: 750px) and (max-width: 420px) {
-    .cube {
-        width: 5rem !important;
-        height: 5rem !important;
-    }
-    .rectangle {
-        width: calc(11rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(4.5rem + 4rem) !important;
-    }
-}
-
-
-/* --------------------------------------------------------------------- */
-
-@media (max-width: 1250px) {
-    .board {
-        flex-direction: column;
-        overflow-x: scroll;
-        justify-content: unset !important;
-    }
-    .board::-webkit-scrollbar {
-        width: 0 !important/* Damit die scrollbar verschwindet */
-    }
-    .category {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        height: max-content !important;
-    }
-    /* .todo {
+                    body {
+                        flex-direction: column-reverse;
+                    }
+                    .left {
+                        width: 100% !important;
+                        height: 10vh !important;
+                    }
+                    .joinlogo {
+                        display: none !important;
+                    }
+                    .left .top ul {
+                        flex-direction: unset !important;
+                        justify-content: space-around !important;
+                    }
+                    .left .top ul li {
+                        flex-direction: column !important;
+                        border-left: 0 !important;
+                    }
+                    .userImg {
+                        display: none !important;
+                    }
+                    .right {
+                        width: 100% !important;
+                        height: 90vh !important;
+                    }
+                    .mobileHide {
+                        display: none !important;
+                    }
+                    .mobileShow {
+                        display: block !important;
+                    }
+                    .left .top ul li:hover {
+                        border-left: 0 !important;
+                        transform: scale(1.2) !important;
+                    }
+                    .bottomRight {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: calc((100vh - 4rem) - 10vh);
+                    }
+                    #summary {
+                        margin: 0 2rem 0 0;
+                    }
+                    .cube {
+                        width: 9rem !important;
+                        height: 9rem !important;
+                    }
+                    .rectangle {
+                        width: calc(23rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(10.5rem + 4rem) !important;
+                    }
+                    .boardHeader {
+                        margin: 4rem 0 0 0;
+                    }
+                    .addTaskButtonContainer {
+                        bottom: 6rem !important;
+                    }
+                    .addTask {
+                        height: 75vh !important;
+                    }
+                    .contacts {
+                        width: 100%;
+                        margin: 4rem 0 0 0;
+                    }
+                    .contactsContainer {
+                        height: calc((100vh - 4rem) - 10vh);
+                    }
+                    .showContact {
+                        height: calc((100vh - 4rem) - 10vh);
+                        width: 100% !important;
+                    }
+                    .addContactButton {
+                        bottom: 8rem !important;
+                    }
+                    .closeImgContacts {
+                        right: 2rem !important;
+                    }
+                    .help,
+                    .aboutUs {
+                        overflow-x: scroll;
+                        height: calc((100vh - 6rem) - 10vh) !important;
+                    }
+                }
+                
+                @media (max-width: 550px) {
+                    .cube {
+                        width: 7rem !important;
+                        height: 7rem !important;
+                    }
+                    .rectangle {
+                        width: calc(17rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(7.5rem + 4rem) !important;
+                    }
+                    .headerSpan {
+                        display: none;
+                    }
+                    header {
+                        align-items: center !important;
+                    }
+                    .headerImgMobile {
+                        display: block !important;
+                    }
+                }
+                
+                @media (max-width: 420px) {
+                    .cube {
+                        width: 5rem !important;
+                        height: 5rem !important;
+                    }
+                    .rectangle {
+                        width: calc(11rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(4.5rem + 4rem) !important;
+                    }
+                }
+                
+                @media (max-height: 850px) and (min-width: 900px) {
+                    .cube {
+                        width: 7rem !important;
+                        height: 7rem !important;
+                    }
+                    .rectangle {
+                        width: calc(21rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(8.5rem + 4rem) !important;
+                    }
+                }
+                
+                @media (max-height: 700px) and (min-width: 900px) {
+                    .cube {
+                        width: 5rem !important;
+                        height: 5rem !important;
+                    }
+                    .rectangle {
+                        width: calc(15rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(5.5rem + 4rem) !important;
+                    }
+                    .userImg {
+                        display: none !important;
+                    }
+                    .cubeNumber {
+                        font-size: 2rem !important;
+                    }
+                    .cube span {
+                        font-size: 0.75rem;
+                    }
+                }
+                
+                @media (max-height: 750px) and (max-width: 800px) {
+                    .userImg {
+                        display: none !important;
+                    }
+                }
+                
+                @media (max-height: 750px) and (max-width: 700px) {
+                    .cube {
+                        width: 7rem !important;
+                        height: 7rem !important;
+                    }
+                    .rectangle {
+                        width: calc(17rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(7.5rem + 4rem) !important;
+                    }
+                }
+                
+                @media (max-height: 750px) and (max-width: 420px) {
+                    .cube {
+                        width: 5rem !important;
+                        height: 5rem !important;
+                    }
+                    .rectangle {
+                        width: calc(11rem + 8rem) !important;
+                    }
+                    .rectangle2 {
+                        width: calc(4.5rem + 4rem) !important;
+                    }
+                }
+                /* --------------------------------------------------------------------- */
+                
+                @media (max-width: 1250px) {
+                    .board {
+                        flex-direction: column;
+                        overflow-x: scroll;
+                        justify-content: unset !important;
+                    }
+                    .board::-webkit-scrollbar {
+                        width: 0 !important/* Damit die scrollbar verschwindet */
+                    }
+                    .category {
+                        align-items: center;
+                        display: flex;
+                        flex-direction: column;
+                        height: max-content !important;
+                    }
+                    /* .todo {
         margin: 60rem 0 0 0;
     } */
-    .cardContainer {
-        width: 30rem !important;
-        min-height: 10rem;
-    }
-    .board div h2 {
-        font-size: 2rem !important;
-    }
-    .addTask {
-        overflow-x: scroll !important;
-        max-height: 85vh;
-    }
-    .addTask::-webkit-scrollbar {
-        width: 0 !important/* Damit die scrollbar verschwindet */
-    }
-    .addTaskForm {
-        flex-direction: column !important;
-    }
-    .addTaskLeft {
-        border-right: 0 !important;
-    }
-}
-
-@media (max-width: 980px) {
-    .showContact {
-        display: none;
-        width: 100% !important;
-        position: absolute;
-        background: white;
-    }
-    .contactsContainer {
-        width: 100% !important;
-    }
-    .closeImgContacts {
-        display: block !important;
-    }
-}
+                    .cardContainer {
+                        width: 30rem !important;
+                        min-height: 10rem;
+                    }
+                    .board div h2 {
+                        font-size: 2rem !important;
+                    }
+                    .addTask {
+                        overflow-x: scroll !important;
+                        max-height: 85vh;
+                    }
+                    .addTask::-webkit-scrollbar {
+                        width: 0 !important/* Damit die scrollbar verschwindet */
+                    }
+                    .addTaskForm {
+                        flex-direction: column !important;
+                    }
+                    .addTaskLeft {
+                        border-right: 0 !important;
+                        padding: 0 !important;
+                        margin: 0 !important;
+                    }
+                    .boardAddTaskcontainer .addTaskButtonContainer {
+                        bottom: -32rem !important;
+                    }
+                }
+                
+                @media (max-width: 980px) {
+                    .showContact {
+                        display: none;
+                        width: 80%;
+                        position: absolute;
+                        background: white;
+                    }
+                    .contactsContainer {
+                        width: 100% !important;
+                    }
+                    .closeImgContacts {
+                        display: block !important;
+                    }
+                }

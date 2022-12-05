@@ -16,15 +16,22 @@
     <link rel="stylesheet" href="css/summary.css">
     <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="css/addTask.css">
+    <link rel="stylesheet" href="css/help.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/aboutUs.css">
 
     <script src="script.js"></script>
     <script src="js/login.js"></script>
     <script src="js/switchCategorys.js"></script>
-    <script src="js/createTask.js"></script>
+    <script src="js/addTask.js"></script>
     <script src="js/board.js"></script>
-    <script src="js/helpFunctions.js"></script>
     <script src="js/include.js"></script>
     <script src="js/contact.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/summary.js"></script>
 
     <script src="./mini_backend.js"></script>
 
@@ -49,28 +56,7 @@
             <div id="aboutUs" class="aboutUs hide" w3-include-html="includes/aboutUs.html"></div>
             <div id="contacts" class="contacts hide" w3-include-html="includes/contacts.html">
             </div>
-            <div onclick="closeAddContact()" class="addContactContainer hide" id="addContactContainer">
-                <div onclick="doNotClose(event)" class="addContact">
-                    <div class="addContactLeft">
-                        <img src="assets/img/joinlogo.png" alt="joinlogo">
-                        <h3 id="addContactTitel">Add Contact</h3>
-                        <span class="borderBottom" id="addContactSlogan">Tasks are better with a team!</span>
-                    </div>
-                    <div class="addContactRight" id="addContactRight">
-                        <div class="noImg" id="addContactImg">?</div>
-
-                        <form onsubmit="addContactForm(); return false;">
-                            <input class="inputField" id="addContactName" type="text" required placeholder="Name">
-                            <input class="inputField" id="addContactMail" type="email" required placeholder="E-Mail">
-                            <input class="inputField" id="addContactTel" type="tel" required placeholder="Phone">
-                            <div class="flex" id="addContactButtons">
-                                <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
-                                <button type="submit" class="button">Create contact</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            <div onclick="closeAddContact()" class="addContactContainer hide" id="addContactContainer" w3-include-html="includes/addContactContainer.html"></div>
             <div class="contactAlreadyExistsContainer hide" id="categoryAlreadyExistsContainer"></div>
         </div>
     </div>

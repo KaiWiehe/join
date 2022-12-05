@@ -1,0 +1,21 @@
+.aboutUs {
+    height: 90vh;
+    overflow-x: scroll;
+    margin: 0 4rem 0 4rem;
+}
+
+.aboutUs h1 {
+    margin: 2rem 0 2rem 0;
+}
+
+.aboutUs h2 {
+    margin: 2rem 0 2rem 0;
+}
+
+.aboutUs h3 {
+    margin: 1rem 0 1rem 0;
+}
+
+.aboutUs::-webkit-scrollbar {
+    width: 0 !important/* Damit die scrollbar verschwindet */
+}

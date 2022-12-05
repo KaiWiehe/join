@@ -4,12 +4,16 @@ activeUser = [];
 contacts = [];
 categorys = [];
 
+let today = new Date();
+let monthL = new Date().toLocaleString('de-de', { month: 'long' });
+
 async function init() {
     await downloadBackend();
     await includeHTML();
     changeImg();
     loadTasks();
     loadContacts();
+    sayHello();
 }
 
 async function initLogin() {
@@ -40,84 +44,12 @@ async function downloadBackend() {
 function loadTasks() {
     definesAllSummaryIds();
     definesAllBoardIds();
-
     clearAllDivs();
-
-    /* #########################   Summary   ######################### */
-
-    let todoSummaryCounter = 0;
-    let tasksInProgressCounter = 0;
-    let awaitingFeedbackCounter = 0;
-    let doneSummaryCounter = 0;
-
-    tasksInBoard.innerHTML = `${tasks.length}`;
-
-    for (let a = 0; a < tasks.length; a++) {
-        const task = tasks[a];
-
-        if (task["process"] === "todo") {
-            todoSummaryCounter++
-        }
-        if (task["process"] === "inProgress") {
-            tasksInProgressCounter++
-        }
-        if (task["process"] === "awaitingFeedback") {
-            awaitingFeedbackCounter++
-        }
-        if (task["process"] === "done") {
-            doneSummaryCounter++
-        }
-    }
-    todoSummary.innerHTML = `${todoSummaryCounter}`;
-    tasksInProgress.innerHTML = `${tasksInProgressCounter}`;
-    awaitingFeedbackSummary.innerHTML = `${awaitingFeedbackCounter}`;
-    doneSummary.innerHTML = `${doneSummaryCounter}`;
-    goodMorningName.innerHTML = activeUser["name"];
-
-    //Clock
-    let heute = new Date();
-    let monthL = new Date().toLocaleString('de-de', { month: 'long' });
-    summaryDate.innerHTML = `${monthL} ${heute.getDate()}, ${heute.getFullYear()}`;
-    summaryDay.innerHTML = `${heute.getDate()}`;
-
-    /* #########################   Board   ######################### */
-
+    loadSummary();
     tasks.forEach((task, index) => {
         loadBoard(task, index);
     });
-
-    backend.setItem('tasks', JSON.stringify(tasks)); // wenn ich etwas ändere soll es auch auf den backend geladen werden
-}
-
-// ist dazu da das im Board die add task leiste reinanimiert wird
-function showAddTask() {
-    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
-    boardAddTaskcontainer.classList.remove('hide');
-
-    let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.innerHTML = addTaskHTML();
-    updateAssignedTo();
-}
-
-// Wenn man im board das add task schließt, bekommt es die klasse slideOut
-function hideAddTask() {
-    let titelInputField = document.getElementById('titelInputField');
-    let dateInputField = document.getElementById('dateInputField');
-    let categorySelect = document.getElementById('categorySelect');
-    let descriptionInputField = document.getElementById('descriptionInputField');
-    let assignedToSelect = document.getElementById('assignedToSelect');
-    titelInputField.value = '';
-    dateInputField.value = '';
-    categorySelect.value = '';
-    descriptionInputField.value = '';
-    assignedToSelect.value = '';
-    removeUrgencyClasses();
-
-    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
-    boardAddTaskcontainer.classList.add('hide');
-
-    let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.innerHTML = '';
+    backend.setItem('tasks', JSON.stringify(tasks));
 }
 
 /** Ändert die beiden Bilder je nach angemeldetem Profile */
@@ -125,7 +57,6 @@ function changeImg() {
     let userImgHeader = document.getElementById('userImgHeader');
     let userImg = document.getElementById('userImg');
 
-    //Fals kein Bild gefunden wird
     if (activeUser.img != 'noImg') {
         userImgHeader.innerHTML = `<img class="userImgHeader" src="${activeUser.img}" alt="Profile Img">`;
         userImg.innerHTML = `<img src="${activeUser.img}" alt="user img">`;
@@ -156,7 +87,11 @@ function editUser() {
     addContactImg.style = "display: flex;";
     addContactMail.style = "display: flex;";
     addContactTel.style = "display: flex;";
-    addContactImg.innerHTML = `<img src="${user.img}">`;
+    if (user.img === 'noImg') {
+        addContactImg.innerHTML = firstLetter(user.name);
+    } else {
+        addContactImg.innerHTML = `<img src="${user.img}">`;
+    }
     addContactButtons.innerHTML = /* html */ `
         <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
         <button type="button" class="button" onclick="saveChangesUser()">Save</button>`;
@@ -179,10 +114,9 @@ async function saveChangesUser() {
     user.password = addContactTel.value;
 
     closeAddContact();
-    banner('User succesfully edited', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer');
+    banner('User succesfully edited', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer', 1250);
     await backend.setItem('users', JSON.stringify(users));
 }
-
 
 function returnActiveUser() {
     let userNew = [];
@@ -195,28 +129,111 @@ function returnActiveUser() {
     return userNew;
 }
 
-// function editContact(number) {
-//     let contact = setContact(number);
+function banner(string, style, containerID, timeout) {
+    let container = document.getElementById(containerID);
+    container.innerHTML = string;
+    container.style = style;
+    container.classList.remove('hide');
+    setTimeout(() => {
+        container.classList.add('hide');
+    }, timeout);
+}
 
-//     openAddContactOrEdit();
+/**
+ * @param {Array} arr 
+ * @returns Array without dublicates
+ */
+function arrClean(arr, errorText, containerID) {
+    const data = arr;
+    const set = new Set(data.map(item => JSON.stringify(item)));
+    const dedup = [...set].map(item => JSON.parse(item));
+    console.log(`Removed ${data.length - dedup.length} elements`);
+    if (data.length - dedup.length > 0) {
+        //if contact already exists
+        banner(errorText, "background: rgba(255, 0, 0, 0.538);", containerID, 1250);
+        alreadyExists = true;
+    }
+    console.log(dedup);
+    return dedup;
+}
 
-//     let addContactTitel = document.getElementById('addContactTitel');
-//     let addContactSlogan = document.getElementById('addContactSlogan');
-//     let addContactImg = document.getElementById('addContactImg');
-//     let addContactButtons = document.getElementById('addContactButtons');
 
-//     let addContactName = document.getElementById('addContactName');
-//     let addContactMail = document.getElementById('addContactMail');
-//     let addContactTel = document.getElementById('addContactTel');
+/**
+ * @param string 
+ * @returns string Großgeschrieben
+ * @example
+ * // Die Funktion gibt uns "Name" zurück
+ * console.log(capitalizeFirstLetter(name))
+ */
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-//     addContactTitel.innerHTML = 'Edit Contact';
-//     addContactSlogan.classList.add('hide');
-//     addContactImg.innerHTML = `${contact.img}`;
-//     addContactButtons.innerHTML = /* html */ `
-//     <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
-//     <button type="button" class="button" onclick="saveChanges(${number})">Save</button>`;
+/**
+ * @param string 
+ * @returns string only first letter Big
+ * @example
+ * // Die Funktion gibt uns "N" zurück
+ * console.log(capitalizeFirstLetter(name))
+ */
+function firstLetter(string) {
+    return string.charAt(0).toUpperCase();
+}
 
-//     addContactName.value = `${contact.name}`;
-//     addContactMail.value = `${contact.mail}`;
-//     addContactTel.value = `${contact.phone}`;
-// }
+/** Definiert alle ID's in der Summary Karte */
+function definesAllSummaryIds() {
+    let tasksInBoard = document.getElementById('tasksInBoard');
+    let tasksInProgress = document.getElementById('tasksInProgress');
+    let awaitingFeedbackSummary = document.getElementById('awaitingFeedbackSummary');
+    let todoSummary = document.getElementById('todoSummary');
+    let doneSummary = document.getElementById('doneSummary');
+    let goodMorningName = document.getElementById('goodMorningName');
+    let summaryDate = document.getElementById('summaryDate');
+    let summaryDay = document.getElementById('summaryDay');
+}
+
+/** Definiert alle ID's in der Board Karte */
+function definesAllBoardIds() {
+    let todo = document.getElementById('todo');
+    let inProgress = document.getElementById('inProgress');
+    let awaitingFeedback = document.getElementById('awaitingFeedback');
+    let done = document.getElementById('done');
+}
+
+/** Löscht alle Divs */
+function clearAllDivs() {
+    tasksInBoard.innerHTML = ``;
+    tasksInProgress.innerHTML = ``;
+    awaitingFeedbackSummary.innerHTML = ``;
+    todoSummary.innerHTML = ``;
+    doneSummary.innerHTML = ``;
+
+    todo.innerHTML = ``;
+    inProgress.innerHTML = ``;
+    awaitingFeedback.innerHTML = ``;
+    done.innerHTML = ``;
+}
+
+function clearBoard() {
+    let todo = document.getElementById('todo');
+    let inProgress = document.getElementById('inProgress');
+    let awaitingFeedback = document.getElementById('awaitingFeedback');
+    let done = document.getElementById('done');
+    todo.innerHTML = ``;
+    inProgress.innerHTML = ``;
+    awaitingFeedback.innerHTML = ``;
+    done.innerHTML = ``;
+}
+
+function returnSelectedTask(i) {
+    let id = [i];
+    let task = tasks.filter((itm) => {
+        return id.indexOf(Number(itm.id)) > -1;
+    })
+    task = task[0];
+    return task;
+}
+
+function sayHello() {
+    banner(`Good Morning ${activeUser.name}. It's ${monthL} ${today.getDate()}, ${today.getFullYear()}. Have a nice Day.`, "background: var(--leftGrey);", 'categoryAlreadyExistsContainer', 3000)
+}

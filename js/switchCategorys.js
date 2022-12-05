@@ -1,40 +1,17 @@
-/** Wecheselt zwischen den Kategorien */
 function switchCategorys(number) {
-    let summary = document.getElementById('summary');
-    let board = document.getElementById('board');
-    let addTask = document.getElementById('addTask');
-    let help = document.getElementById('help');
-    let aboutUs = document.getElementById('aboutUs');
-    let contacts = document.getElementById('contacts');
-
-    summary.classList.add('hide');
-    board.classList.add('hide');
-    addTask.classList.add('hide');
-    help.classList.add('hide');
-    aboutUs.classList.add('hide');
-    contacts.classList.add('hide');
-
+    hideAll();
     if (number === 1) {
-        summary.classList.remove('hide');
-        addTask.innerHTML = '';
+        openSummary();
     } else if (number === 2) {
-        board.classList.remove('hide');
-        addTask.innerHTML = '';
+        openBoard();
     } else if (number === 4) {
-        addTask.classList.remove('hide');
-        addTask.innerHTML = addTaskHTML();
-        updateAssignedTo();
-        loadSubTasks();
-        loadCategorys();
+        openAddTask();
     } else if (number === 5) {
-        help.classList.remove('hide');
-        addTask.innerHTML = '';
+        openHelp();
     } else if (number === 6) {
-        aboutUs.classList.remove('hide');
-        addTask.innerHTML = '';
+        openAboutUs();
     } else if (number === 7) {
-        contacts.classList.remove('hide');
-        addTask.innerHTML = '';
+        openContacts();
     }
 }
 
@@ -70,7 +47,6 @@ function addTaskHTML() {
                 </select>
             </div>
         </div>
-
         <div class="addTaskRight">
             <div class="collum formCullum">
                 <h2>Date</h2>
@@ -96,4 +72,64 @@ function addTaskHTML() {
             </div>
         </div>
     </form>`;
+}
+
+function hideAll() {
+    let summary = document.getElementById('summary');
+    let board = document.getElementById('board');
+    let addTask = document.getElementById('addTask');
+    let help = document.getElementById('help');
+    let aboutUs = document.getElementById('aboutUs');
+    let contacts = document.getElementById('contacts');
+    summary.classList.add('hide');
+    board.classList.add('hide');
+    addTask.classList.add('hide');
+    help.classList.add('hide');
+    aboutUs.classList.add('hide');
+    contacts.classList.add('hide');
+}
+
+function openSummary() {
+    let summary = document.getElementById('summary');
+    let addTask = document.getElementById('addTask');
+    summary.classList.remove('hide');
+    addTask.innerHTML = '';
+}
+
+function openBoard() {
+    let board = document.getElementById('board');
+    let addTask = document.getElementById('addTask');
+    board.classList.remove('hide');
+    addTask.innerHTML = '';
+}
+
+function openAddTask() {
+    let addTask = document.getElementById('addTask');
+    addTask.classList.remove('hide');
+    addTask.innerHTML = addTaskHTML();
+    updateAssignedTo();
+    subtasks = [];
+    loadSubTasks();
+    loadCategorys();
+}
+
+function openHelp() {
+    let help = document.getElementById('help');
+    let addTask = document.getElementById('addTask');
+    help.classList.remove('hide');
+    addTask.innerHTML = '';
+}
+
+function openAboutUs() {
+    let aboutUs = document.getElementById('aboutUs');
+    let addTask = document.getElementById('addTask');
+    aboutUs.classList.remove('hide');
+    addTask.innerHTML = '';
+}
+
+function openContacts() {
+    let contacts = document.getElementById('contacts');
+    let addTask = document.getElementById('addTask');
+    contacts.classList.remove('hide');
+    addTask.innerHTML = '';
 }

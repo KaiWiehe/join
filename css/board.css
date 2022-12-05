@@ -131,6 +131,16 @@
     padding: 2rem;
     border-radius: 2rem;
     position: absolute;
+    max-height: 45rem;
+    overflow-x: scroll;
+}
+
+.boardAddTask::-webkit-scrollbar {
+    width: 0 !important/* Damit die scrollbar verschwindet */
+}
+
+.boardAddTask .addCategoryButton {
+    top: 2.5rem;
 }
 
 .boardAddTaskcontainer {
@@ -188,4 +198,114 @@
     height: 2rem;
     border-radius: 100%;
     object-fit: cover;
+}
+
+.cardBigContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.cardBig {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35rem;
+}
+
+.cardBig h3 {
+    font-size: 2.5rem;
+    text-decoration: underline;
+    font-weight: 900;
+}
+
+.cardBig span {
+    font-size: 2rem;
+    padding: 0.5rem 2rem;
+}
+
+.cardBig p {
+    font-size: 1.5rem;
+    color: black !important;
+    margin: 1rem 0;
+}
+
+.cardBig .boardProfileImg {
+    margin: 0 0 0 1rem;
+}
+
+.cardBig .card {
+    padding: 2rem;
+}
+
+.cardBig .trashImg {
+    width: 3rem;
+    position: absolute;
+    right: 3rem;
+    bottom: 5.5rem;
+}
+
+.editImg {
+    position: absolute;
+    right: 3rem;
+    bottom: 2rem;
+    width: 3rem;
+    height: 3rem;
+}
+
+.cardBig b {
+    margin: 0 0.25rem 0 0;
+}
+
+.noImg {
+    background: var(--bgPrimaryBlue);
+    border-radius: 100%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--white);
+}
+
+.userImgHeader .noImg:hover {
+    font-size: 2.25rem;
+    cursor: pointer;
+}
+
+.dropdown:hover .noImg {
+    font-size: 2.25rem;
+}
+
+.cardBig .noImg {
+    margin: 0 0 0 1rem;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+.cardBig h4 {
+    font-size: 1.5rem;
+    color: black !important;
+    margin: 1rem 0 0.25rem 0;
+    font-weight: 700;
+}
+
+.board .noImg {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+#boardAddTask #addTaskh1 {
+    margin: 0;
+}
+
+#boardAddTask .addTaskForm {
+    margin: 1rem 0 0 0;
 }
