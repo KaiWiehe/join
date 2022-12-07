@@ -4,16 +4,18 @@ function loadContacts() {
     let contactsContainer = document.getElementById('contactsContainer');
     contactsContainer.innerHTML = '';
 
-    contacts.forEach((contact, index) => {
-        contactsContainer.innerHTML += /* html */ `
-        <div class="contactCard" id="contact${index}" onclick="showContactBig(${index})">
-            ${contact.img}
-            <div class="collum">
-                <b>${contact.name}</b>
-                <p>${contact.mail}</p>
-            </div>
-        </div>`;
-    });
+    contacts.forEach((contact, index) => (contactsContainer.innerHTML += contactsContainerHTML(contact, index)));
+}
+
+function contactsContainerHTML(contact, index) {
+    return /* html */ `
+    <div class="contactCard" id="contact${index}" onclick="showContactBig(${index})">
+        ${contact.img}
+        <div class="collum">
+            <b>${contact.name}</b>
+            <p>${contact.mail}</p>
+        </div>
+    </div>`;
 }
 
 function openAddContactOrEdit() {
@@ -26,7 +28,6 @@ function closeAddContact() {
 
 function openAddContact() {
     openAddContactOrEdit();
-
     let addContactTitel = document.getElementById('addContactTitel');
     let addContactSlogan = document.getElementById('addContactSlogan');
     let addContactImg = document.getElementById('addContactImg');
@@ -36,21 +37,27 @@ function openAddContact() {
     let addContactMail = document.getElementById('addContactMail');
     let addContactTel = document.getElementById('addContactTel');
 
+    updateAddContact(addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel);
+}
+
+function updateAddContact(addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel) {
     addContactTitel.innerHTML = 'Add Contact';
     addContactSlogan.classList.remove('hide');
-    addContactSlogan.style = "display: flex;";
-    addContactImg.style = "display: flex;";
-    addContactMail.style = "display: flex;";
-    addContactTel.style = "display: flex;";
-    addContactTel.placeholder = "Phone";
+    addContactSlogan.style = 'display: flex;';
+    addContactImg.style = 'display: flex;';
+    addContactMail.style = 'display: flex;';
+    addContactTel.style = 'display: flex;';
+    addContactTel.placeholder = 'Phone';
     addContactImg.innerHTML = `<div class="noImg" id="addContactImg">?</div>`;
-    addContactButtons.innerHTML = `
-    <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
-    <button type="submit" class="button">Create contact</button>`;
-
+    addContactButtons.innerHTML = addContactButtonsHTML();
     addContactName.value = ``;
     addContactMail.value = ``;
     addContactTel.value = ``;
+}
+
+function addContactButtonsHTML() {
+    return `<button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
+    <button type="submit" class="button">Create contact</button>`;
 }
 
 function addContactForm() {
@@ -61,12 +68,14 @@ function addContactForm() {
     let addContactTel = document.getElementById('addContactTel');
 
     addContact(addContactName.value, addContactMail.value, addContactTel.value, true);
+    clearAddCategoryValue(addContactName, addContactMail, addContactTel);
+    closeOrOpenAddContact(false);
+}
 
+function clearAddCategoryValue(addContactName, addContactMail, addContactTel) {
     addContactName.value = '';
     addContactMail.value = '';
     addContactTel.value = '';
-
-    closeOrOpenAddContact(false);
 }
 
 async function addContact(name, mail, phone, loadContactsFunction) {
@@ -74,19 +83,17 @@ async function addContact(name, mail, phone, loadContactsFunction) {
         name: name,
         mail: mail,
         phone: phone,
-        img: setImgFromAssignedToSelect(false, name)
-    })
+        img: setImgFromAssignedToSelect(false, name),
+    });
     contacts = arrClean(contacts, 'Contact already exists!', 'contactAlreadyExistsContainer');
     await backend.setItem('contacts', JSON.stringify(contacts));
-
     loadContactsFunction && loadContacts();
-
-    !alreadyExists && banner('Contact succesfully created', "background: var(--leftGrey);", 'contactAlreadyExistsContainer', 1250);
+    !alreadyExists && banner('Contact succesfully created', 'background: var(--leftGrey);', 'contactAlreadyExistsContainer', 1250);
 }
 
 /**
- * @param open true // for open addContact
- * @param open false // for close addContact
+ * @param {boolean} open true // for open addContact
+ * @param {boolean} open false // for close addContact
  */
 function closeOrOpenAddContact(open) {
     let addContactContainer = document.getElementById('addContactContainer');
@@ -114,61 +121,66 @@ function showContactBig(number) {
     setContactCardStyle(number);
 
     let showContact = document.getElementById('showContact');
-    showContact.style = "display: block;"
+    showContact.style = 'display: block;';
 }
 
 function closeContactBig() {
     let showContact = document.getElementById('showContact');
-    showContact.style = "display: none;"
+    showContact.style = 'display: none;';
     clearContactCardStyle();
 }
 
 function editContact(number) {
     let contact = setContact(number);
-
     openAddContactOrEdit();
-
     let addContactTitel = document.getElementById('addContactTitel');
     let addContactSlogan = document.getElementById('addContactSlogan');
     let addContactImg = document.getElementById('addContactImg');
     let addContactButtons = document.getElementById('addContactButtons');
-
     let addContactName = document.getElementById('addContactName');
     let addContactMail = document.getElementById('addContactMail');
     let addContactTel = document.getElementById('addContactTel');
 
+    updateEditContact(number, contact, addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel);
+}
+
+function updateEditContact(number, contact, addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel) {
     addContactTitel.innerHTML = 'Edit Contact';
     addContactSlogan.classList.add('hide');
-    addContactImg.style = "display: flex;";
-    addContactMail.style = "display: flex;";
-    addContactTel.style = "display: flex;";
-    addContactTel.placeholder = "Phone";
+    addContactImg.style = 'display: flex;';
+    addContactMail.style = 'display: flex;';
+    addContactTel.style = 'display: flex;';
+    addContactTel.placeholder = 'Phone';
     addContactImg.innerHTML = `${contact.img}`;
-    addContactButtons.innerHTML = /* html */ `
-    <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
-    <button type="button" class="button" onclick="saveChanges(${number})">Save</button>`;
-
+    addContactButtons.innerHTML = editContactButtonsHTML(number);
     addContactName.value = `${contact.name}`;
     addContactMail.value = `${contact.mail}`;
     addContactTel.value = `${contact.phone}`;
 }
 
-async function saveChanges(number) {
-    let contact = setContact(number);
+function editContactButtonsHTML(number) {
+    return /* html */ `
+    <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
+    <button type="button" class="button" onclick="saveChanges(${number})">Save</button>`;
+}
 
+async function saveChanges(number) {
+    updateContact(number);
+    closeAddContact();
+    loadContacts();
+    showContactBig(number);
+    banner('Contact succesfully edited', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
+    await backend.setItem('contacts', JSON.stringify(contacts));
+}
+
+function updateContact(number) {
+    let contact = setContact(number);
     let addContactName = document.getElementById('addContactName');
     let addContactMail = document.getElementById('addContactMail');
     let addContactTel = document.getElementById('addContactTel');
-
     contact.name = addContactName.value;
     contact.mail = addContactMail.value;
     contact.phone = addContactTel.value;
-
-    closeAddContact();
-    loadContacts();
-    showContactBig(number)
-    banner('Contact succesfully edited', "background: var(--leftGrey);", 'categoryAlreadyExistsContainer', 1250);
-    await backend.setItem('contacts', JSON.stringify(contacts));
 }
 
 function setContact(number) {
@@ -195,10 +207,7 @@ function contactBigHTML(contact, number) {
 }
 
 function clearContactCardStyle() {
-    contacts.forEach((contact, index) => {
-        let contactCard = document.getElementById(`contact${index}`);
-        contactCard.style = '';
-    })
+    contacts.forEach((contact, index) => (document.getElementById(`contact${index}`).style = ''));
 }
 
 function setContactCardStyle(number) {

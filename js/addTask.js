@@ -2,60 +2,42 @@ let taskIdCounter = 0;
 let urgency = false;
 let subtasks = [];
 
-/** Erstellt einen neuen Task mit dem eigegebenem Inhalt */
+/** Creates a new task with the given content */
 function createTask() {
-    if (urgency) {
-        createNewTask();
-    } else {
-        banner('You have to select an urgency', 'background: rgba(255, 0, 0, 0.538);', 'categoryAlreadyExistsContainer', 1250);
-    }
+    urgency ? createNewTask() : banner('You have to select an urgency', 'background: rgba(255, 0, 0, 0.538);', 'categoryAlreadyExistsContainer', 1250);
 }
 
 function setUrgencyImg() {
-    if (urgency === 'High') {
-        return 'assets/img/prioHigh.png';
-    } else if (urgency === 'Middle') {
-        return 'assets/img/prioMiddle.png';
-    } else if (urgency === 'Low') {
-        return 'assets/img/prioLow.png';
-    }
+    if (urgency === 'High') return 'assets/img/prioHigh.png';
+    else if (urgency === 'Middle') return 'assets/img/prioMiddle.png';
+    else if (urgency === 'Low') return 'assets/img/prioLow.png';
 }
 
 function setCategoryColor() {
-    if (categorySelect.value === 'Managment') {
-        return '#bc935b';
-    } else if (categorySelect.value === 'Design') {
-        return 'orange';
-    } else if (categorySelect.value === 'Sales') {
-        return '#e583e5';
-    } else if (categorySelect.value === 'Backoffice') {
-        return '#68ffce';
-    } else if (categorySelect.value === 'Marketing') {
-        return 'blue';
-    } else if (categorySelect.value === 'Media') {
-        return '#c1c100';
-    }
+    if (categorySelect.value === 'Managment') return '#bc935b';
+    else if (categorySelect.value === 'Design') return 'orange';
+    else if (categorySelect.value === 'Sales') return '#e583e5';
+    else if (categorySelect.value === 'Backoffice') return '#68ffce';
+    else if (categorySelect.value === 'Marketing') return 'blue';
+    else if (categorySelect.value === 'Media') return '#c1c100';
 }
 
 function setImgFromAssignedToSelect(task, name) {
-    //setzt das passende bild zum namen ein
-    if (name === 'Kai Wiehe') {
-        return `<img class="boardProfileImg" src="assets/img/profileImg/profileImg.jpg">`;
-    } else if (name === 'Carolin') {
-        return `<img class="boardProfileImg" src="assets/img/profileImg/profileImg2.jpg">`;
-    } else {
-        return `<div class="noImg">${firstLetter(name)}</div>`;
-    }
+    //insert the appropriate picture for the name
+    if (name === 'Kai Wiehe') return `<img class="boardProfileImg" src="assets/img/profileImg/profileImg.jpg">`;
+    else if (name === 'Carolin') return `<img class="boardProfileImg" src="assets/img/profileImg/profileImg2.jpg">`;
+    else return `<div class="noImg">${firstLetter(name)}</div>`;
 }
 
 function updateAssignedTo() {
     let assignedToSelect = document.getElementById('assignedToSelect');
     assignedToSelect.innerHTML = '';
     assignedToSelect.innerHTML = '<option value="" disabled selected hidden>Select contacts to assign</option>';
-    contacts.forEach((contact, index) => {
-        assignedToSelect.innerHTML += /* html */ `
-        <option value="${contact.name}">${contact.name}</option>`;
-    });
+    contacts.forEach((contact, index) => (assignedToSelect.innerHTML += assignedToSelectHTML(contact, index)));
+}
+
+function assignedToSelectHTML(contact, index) {
+    return /* html */ `<option value="${contact.name}">${contact.name}</option>`;
 }
 
 function editTask(id, number) {
@@ -125,7 +107,6 @@ function removeUrgencyClasses() {
 
 function addSubtask() {
     subtaskInputField = document.getElementById('subtaskInputField');
-
     subtasks.push(subtaskInputField.value);
     loadSubTasks(subtasksContainer);
     subtaskInputField.value = '';
@@ -134,9 +115,11 @@ function addSubtask() {
 function loadSubTasks() {
     subtasksContainer = document.getElementById('subtasksContainer');
     subtasksContainer.innerHTML = '';
-    subtasks.forEach((subtask, index) => {
-        subtasksContainer.innerHTML += /* html */ `<div class="subtask">${subtask} <img onclick="delSubtask(${index})" src="assets/img/trash.svg"> <div>`;
-    });
+    subtasks.forEach((subtask, index) => (subtasksContainer.innerHTML += subtasksContainerHTML(subtask, index)));
+}
+
+function subtasksContainerHTML(subtask, index) {
+    return /* html */ `<div class="subtask">${subtask} <img onclick="delSubtask(${index})" src="assets/img/trash.svg"> <div>`;
 }
 
 function delSubtask(index) {
@@ -150,11 +133,13 @@ function openAddCategory() {
     let addContactSlogan = document.getElementById('addContactSlogan');
     let addContactImg = document.getElementById('addContactImg');
     let addContactButtons = document.getElementById('addContactButtons');
-
     let addContactName = document.getElementById('addContactName');
     let addContactMail = document.getElementById('addContactMail');
     let addContactTel = document.getElementById('addContactTel');
+    updateAddCategory(addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel);
+}
 
+function updateAddCategory(addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel) {
     addContactTitel.innerHTML = 'Add Category';
     addContactSlogan.classList.remove('hide');
     addContactImg.style = 'display: none;';
@@ -162,7 +147,6 @@ function openAddCategory() {
     addContactButtons.innerHTML = `
     <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
     <button type="button" class="button" onclick="addCategoryForm()">Create Category</button>`;
-
     addContactName.value = ``;
     addContactMail.style = 'display: none;';
     addContactTel.style = 'display: none;';
@@ -176,10 +160,11 @@ function loadCategorys() {
     let categorySelect = document.getElementById('categorySelect');
     categorySelect.innerHTML = '';
     categorySelect.innerHTML = '<option value="" disabled selected hidden>Select task category</option>';
-    categorys.forEach((category) => {
-        categorySelect.innerHTML += /* html */ `
-        <option value="${category}">${category}</option>`;
-    });
+    categorys.forEach((category) => (categorySelect.innerHTML += categorySelectHTML(category)));
+}
+
+function categorySelectHTML(category) {
+    return /* html */ `<option value="${category}">${category}</option>`;
 }
 
 function addCategoryForm() {
@@ -203,7 +188,10 @@ function pushNewTask() {
     let categorySelect = document.getElementById('categorySelect');
     let descriptionInputField = document.getElementById('descriptionInputField');
     let assignedToSelect = document.getElementById('assignedToSelect');
+    taskPush(titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect);
+}
 
+function taskPush(titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect) {
     tasks.push({
         id: `${taskIdCounter}`,
         titel: `${titelInputField.value}`,
@@ -226,7 +214,6 @@ function clearInputFields() {
     let categorySelect = document.getElementById('categorySelect');
     let descriptionInputField = document.getElementById('descriptionInputField');
     let assignedToSelect = document.getElementById('assignedToSelect');
-
     titelInputField.value = '';
     dateInputField.value = '';
     categorySelect.value = '';
@@ -243,8 +230,8 @@ async function createNewTask() {
     taskIdCounter++;
     backend.setItem('taskIdCounter', JSON.stringify(taskIdCounter));
     clearInputFields();
-    hideAddTask();
     removeUrgencyClasses();
+    hideAddTask();
     banner('Task succesfully created', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
 }
 
@@ -292,13 +279,9 @@ function loadInputValue(task, number, id) {
 }
 
 function highlightUrgencyButton(task) {
-    if (task.urgency === 'High') {
-        clickUrgencyHigh();
-    } else if (task.urgency === 'Middle') {
-        clickUrgencyMiddle();
-    } else if (task.urgency === 'Low') {
-        clickUrgencyLow();
-    }
+    if (task.urgency === 'High') clickUrgencyHigh();
+    else if (task.urgency === 'Middle') clickUrgencyMiddle();
+    else if (task.urgency === 'Low') clickUrgencyLow();
 }
 
 function setEditedTask(task) {
@@ -307,7 +290,10 @@ function setEditedTask(task) {
     let categorySelect = document.getElementById('categorySelect');
     let descriptionInputField = document.getElementById('descriptionInputField');
     let assignedToSelect = document.getElementById('assignedToSelect');
+    updateTask(task, titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect);
+}
 
+function updateTask(task, titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect) {
     task.titel = titelInputField.value;
     task.date = dateInputField.value;
     task.category = categorySelect.value;

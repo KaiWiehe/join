@@ -1,18 +1,11 @@
 function switchCategorys(number) {
     hideAll();
-    if (number === 1) {
-        openSummary();
-    } else if (number === 2) {
-        openBoard();
-    } else if (number === 4) {
-        openAddTask();
-    } else if (number === 5) {
-        openHelp();
-    } else if (number === 6) {
-        openAboutUs();
-    } else if (number === 7) {
-        openContacts();
-    }
+    if (number === 1) openSummary();
+    else if (number === 2) openBoard();
+    else if (number === 4) openAddTask();
+    else if (number === 5) openHelp();
+    else if (number === 6) openAboutUs();
+    else if (number === 7) openContacts();
 }
 
 function addTaskHTML() {
