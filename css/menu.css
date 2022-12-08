@@ -1,5 +1,13 @@
 /* ##############################Menu############################## */
 
+.top {
+    overflow-x: scroll;
+}
+
+.top::-webkit-scrollbar {
+    width: 0 !important
+}
+
 .left {
     background: var(--leftGrey);
     width: 20%;

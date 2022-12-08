@@ -78,12 +78,15 @@ function clearAddCategoryValue(addContactName, addContactMail, addContactTel) {
     addContactTel.value = '';
 }
 
-async function addContact(name, mail, phone, loadContactsFunction) {
+async function addContact(name, mail, phone, loadContactsFunction, registerImg) {
+    let img;
+    if (registerImg) img = `<img class="boardProfileImg" src="${registerImg}">`;
+    else img = setImgFromAssignedToSelect(false, name);
     contacts.push({
         name: name,
         mail: mail,
         phone: phone,
-        img: setImgFromAssignedToSelect(false, name),
+        img: img,
     });
     contacts = arrClean(contacts, 'Contact already exists!', 'contactAlreadyExistsContainer');
     await backend.setItem('contacts', JSON.stringify(contacts));
@@ -111,6 +114,7 @@ async function delContact(number) {
     loadContacts();
     let showContactBottom = document.getElementById('showContactBottom');
     showContactBottom.innerHTML = '';
+    closeContactBig();
 }
 
 function showContactBig(number) {

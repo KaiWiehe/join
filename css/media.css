@@ -108,6 +108,9 @@
     h1 {
         margin: 1rem 0 1rem 2rem !important;
     }
+    .summaryHeader h1 {
+        margin: 1rem 0 1rem 4rem !important;
+    }
     header span {
         margin: 0 0 0 2rem !important;
     }
@@ -115,16 +118,46 @@
         margin: 0 0 2rem 2rem !important;
     }
     .rectangle {
-        width: calc(21rem + 4rem) !important;
+        width: 29rem !important;
     }
     .rectangle2 {
-        width: calc(8.5rem + 3rem) !important;
+        width: 29rem !important;
     }
     .showContact {
         width: 75%;
     }
     #addTaskh1 {
         margin: 1rem 0 1rem 4rem !important;
+    }
+    .loginContainer h1 {
+        margin: 1rem auto 0 auto !important;
+    }
+}
+
+@media (max-height: 550px) {
+    .register .loginForm input {
+        margin: 0.5rem !important;
+        height: 2rem !important;
+    }
+    .imgSelect {
+        margin: 0.5rem !important;
+        height: 2rem !important;
+    }
+    #register {
+        align-items: center !important;
+    }
+    .loginContainer h1 {
+        margin: 1rem auto 0 auto !important;
+    }
+    .cube {
+        width: 4rem !important;
+        height: 4rem !important;
+    }
+    .rectangle {
+        width: calc(24rem + 8rem) !important;
+    }
+    .rectangle2 {
+        width: calc(10rem + 4rem) !important;
     }
 }
 
@@ -137,7 +170,7 @@
     }
     .left {
         width: 100% !important;
-        height: 10vh !important;
+        height: 11vh !important;
     }
     .joinlogo {
         display: none !important;
@@ -302,9 +335,6 @@
     .board {
         height: calc(100vh - 15rem) !important;
     }
-    .addTaskButtonContainer button[type=button] {
-        margin: 0 0 0 0 !important;
-    }
     .addContactRight .noImg {
         margin: 1rem;
     }
@@ -353,6 +383,30 @@
     }
     .closeImgCardBig {
         display: block !important;
+    }
+    #summary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    body {
+        overflow: hidden;
+    }
+    .left .top ul li span {
+        display: none;
+    }
+    .arrowDown {
+        bottom: 2rem !important;
+        left: 10rem !important;
+    }
+    .arrowUp {
+        bottom: 2rem !important;
+        left: 14rem !important;
+    }
+    .boardAddTaskcontainer .addTaskButtonContainer {
+        top: 2rem !important;
+        left: 7rem !important;
     }
 }
 
@@ -405,6 +459,167 @@
     }
 }
 
+@media (max-width: 850px) {
+    .loginContainer {
+        width: 20rem !important;
+    }
+    .loginForm input {
+        width: 17rem !important;
+    }
+    .rememberMeClickbox input {
+        width: 1rem !important;
+    }
+    .mail {
+        background-position: 15rem !important;
+    }
+    .pass {
+        background-position: 15rem !important;
+    }
+    .imgSelect {
+        padding: 0 1.5rem 0 0.5rem !important;
+        width: 18rem !important;
+    }
+    #forgotPasswort h1 {
+        width: 15rem !important;
+    }
+}
+
+@media (max-height: 400px) {
+    #resetPasswort .loginButtons button {
+        margin: 0rem 0rem 1rem 0rem;
+    }
+    #resetPasswort .loginForm input {
+        margin: 0.5rem;
+    }
+}
+
+@media (max-height: 450px) {
+    .loginContainer h1 {
+        margin: 1rem auto 0 auto!important;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 1150px) {
+    .registerNewUser {
+        flex-direction: column-reverse;
+        gap: 1rem;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 950px) {
+    .registerNewUser {
+        right: 0rem !important;
+    }
+}
+
+@media (max-height: 800px) and (max-width: 700px) {
+    .joinlogoDarkAnimation {
+        z-index: 2;
+        background: rgb(246, 247, 248);
+        animation: joinLogoDarkMobile2 1000ms cubic-bezier(0.6, -0.05, 0.35, 1.29) alternate forwards !important;
+    }
+}
+
+@media (max-height: 620px) and (max-width: 500px) {
+    .register .joinlogoDark {
+        display: none;
+    }
+}
+
+@media (max-height: 600px) and (max-width: 850px) {
+    .register .loginContainer {
+        margin: 0 !important;
+    }
+}
+
+@media (max-height: 550px) and (max-width: 650px) {
+    .summaryHeader {
+        display: none !important;
+    }
+}
+
+@media (max-height: 400px) {
+    .rememberMeForgotMyPasswort {
+        margin: 0 1rem !important;
+    }
+}
+
+@media (max-height: 850px) {
+    .cube {
+        width: 8rem !important;
+        height: 8rem !important;
+    }
+    .rectangle {
+        width: calc(24rem + 8rem) !important;
+    }
+    .rectangle2 {
+        width: calc(10rem + 4rem) !important;
+    }
+}
+
+@media (max-height: 850px) and (min-width: 1250px) {
+    .boardAddTaskcontainer .addTaskButtonContainer {
+        top: 2rem !important;
+        right: 6rem !important;
+        bottom: unset !important;
+    }
+}
+
+@media (max-height: 750px) {
+    .cube {
+        width: 7rem !important;
+        height: 7rem !important;
+        margin: 0 0 1rem 4rem !important;
+    }
+    .rectangle {
+        width: calc(21rem + 8rem) !important;
+    }
+    .rectangle2 {
+        width: calc(8.5rem + 4rem) !important;
+    }
+    .cubeNumber {
+        font-size: 2rem !important;
+    }
+    .cube span {
+        font-size: 0.75rem;
+    }
+    .goodMorning {
+        font-size: 2rem !important;
+        line-height: 3rem !important;
+    }
+    .goodMorning b {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-height: 700px) {
+    .userImg img {
+        display: none !important;
+    }
+}
+
+@media (max-height: 800px) {
+    .addTask {
+        overflow-x: scroll !important;
+        height: calc(100vh - 7rem) !important;
+    }
+}
+
+@media (max-height: 600px) {
+    h1 {
+        font-size: 2rem !important;
+    }
+    .summaryHeader span {
+        font-size: 1rem !important;
+    }
+    .summaryHeader {
+        margin: 0 0 -1rem 0 !important;
+    }
+    .joinlogo {
+        margin: 2rem 0 2rem 0 !important;
+    }
+}
+
 @media (max-height: 850px) and (min-width: 900px) {
     .cube {
         width: 7rem !important;
@@ -440,22 +655,23 @@
     }
 }
 
-@media (max-height: 750px) and (max-width: 800px) {
-    .userImg {
-        display: none !important;
+@media ( max-width:550px) {
+    .cube {
+        width: 5rem !important;
+        height: 5rem !important;
+        margin: 0 0 1rem 2rem !important;
+    }
+    .rectangle {
+        width: 19rem !important;
+    }
+    .rectangle2 {
+        width: 8.5rem !important;
     }
 }
 
-@media (max-height: 750px) and (max-width: 700px) {
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(17rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(7.5rem + 4rem) !important;
+@media (max-height: 750px) and (max-width: 800px) {
+    .userImg {
+        display: none !important;
     }
 }
 
@@ -471,9 +687,6 @@
         width: calc(4.5rem + 4rem) !important;
     }
 }
-
-
-/* --------------------------------------------------------------------- */
 
 @media (max-width: 1250px) {
     .board {
@@ -517,7 +730,19 @@
         margin: 0 !important;
     }
     .boardAddTaskcontainer .addTaskButtonContainer {
-        bottom: -32rem !important;
+        top: 1rem;
+        left: 1rem;
+        right: unset !important;
+        bottom: unset !important;
+    }
+    #boardAddTask #addTaskh1 {
+        margin: 3rem 0 0 0 !important;
+    }
+    .arrowUp {
+        display: block !important;
+    }
+    .arrowDown {
+        display: block !important;
     }
 }
 
@@ -550,9 +775,6 @@
         top: 1rem;
         left: 1rem;
     }
-    .register .loginContainer {
-        margin: 0 0 2rem 0 !important;
-    }
     #register {
         align-items: flex-end;
     }
@@ -578,14 +800,17 @@
     }
 }
 
+@media (max-width: 850px) and (min-height: 550px) {
+    .register .loginContainer {
+        margin: 0 0 2rem 0 !important;
+    }
+}
+
 @media (max-width: 850px) {
     .register .joinlogoDark {
         width: 4rem !important;
         top: 1rem;
         left: 1rem;
-    }
-    .register .loginContainer {
-        margin: 0 0 2rem 0 !important;
     }
     #register {
         align-items: flex-end;

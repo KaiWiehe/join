@@ -227,5 +227,14 @@ function returnSelectedTask(i) {
 }
 
 function sayHello() {
-    banner(`Good Morning ${activeUser.name}. It's ${monthL} ${today.getDate()}, ${today.getFullYear()}. Have a nice Day.`, 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 3000);
+    let container = document.getElementById('categoryAlreadyExistsContainer');
+    container.innerHTML += `Good Morning ${activeUser.name}. It's ${monthL} ${today.getDate()}, ${today.getFullYear()}. Have a nice Day.`;
+    container.style = 'background: var(--leftGrey); padding: 3rem 1rem 1rem 1rem;';
+    container.classList.remove('hide');
+    setTimeout(() => container.classList.add('hide'), 10000);
+}
+
+function closeSayHello() {
+    let container = document.getElementById('categoryAlreadyExistsContainer');
+    container.classList.add('hide');
 }

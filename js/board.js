@@ -107,9 +107,37 @@ function openCardHTML(task, i) {
                 <div class="flex" style="align-items: center;"><p  class="flex assignedToP" style="margin: 0;"><b>Assigned to: </b>${task.AssignedTo}${task.img}</p></div>
                 <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
                 <button onclick="editTask(${task.id}, ${i})" class="editImg button"><img src="assets/img/editTaskIcon.png" alt=""></button>
+                <button onclick="nextProcess(${task.id})" class="editImg button arrowUp"><img id="arrowDown" src="assets/img/arrowDown.svg" alt=""></button>
+                <button onclick="lastProcess(${task.id})" class="editImg button arrowDown"><img id="arrowUp" src="assets/img/arrowUp.svg" alt=""></button>
             </div>
         </div>
     </div>`;
+}
+
+async function nextProcess(id) {
+    let error = false;
+    let task = returnSelectedTask(id);
+    if (task.process == 'todo') task.process = 'inProgress';
+    else if (task.process == 'inProgress') task.process = 'awaitingFeedback';
+    else if (task.process == 'awaitingFeedback') task.process = 'done';
+    else processError(task), (error = true);
+    loadTasks();
+    !error && banner(`Task moved to ${task.process}`, 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
+}
+
+async function lastProcess(id) {
+    let error = false;
+    let task = returnSelectedTask(id);
+    if (task.process == 'inProgress') task.process = 'todo';
+    else if (task.process == 'awaitingFeedback') task.process = 'inProgress';
+    else if (task.process == 'done') task.process = 'awaitingFeedback';
+    else processError(task), (error = true);
+    loadTasks();
+    !error && banner(`Task moved to ${task.process}`, 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
+}
+
+function processError(task) {
+    banner(`Task is already in ${task.process}`, 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
 }
 
 function showAddTask() {

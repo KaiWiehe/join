@@ -26,6 +26,7 @@ body {
     align-items: center;
     box-sizing: border-box;
     font-family: Open Sans, sans-serif;
+    overflow: hidden;
 }
 
 img {
@@ -109,4 +110,27 @@ h1 {
 
 .mobileShow {
     display: none;
+}
+
+.help {
+    overflow-x: scroll;
+    height: calc(100vh - 6rem);
+}
+
+.help::-webkit-scrollbar {
+    width: 0 !important/* Damit die scrollbar verschwindet */
+}
+
+.closeImgSayHello {
+    top: 1rem;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    right: 1rem;
+    filter: invert(1);
+}
+
+.closeImgSayHello:hover {
+    cursor: pointer;
+    scale: 1.1;
 }

@@ -6,7 +6,7 @@ async function addUser() {
     let registerImg = document.getElementById('imgSelect');
 
     users.push({ name: registerName.value, mail: registerMail.value, password: registerPassword.value, img: registerImg.value });
-    addContact(registerName.value, registerMail.value, undefined, false);
+    addContact(registerName.value, registerMail.value, undefined, false, registerImg.value);
 
     clearAddUserValue(registerName, registerMail, registerPassword);
     await backend.setItem('users', JSON.stringify(users));

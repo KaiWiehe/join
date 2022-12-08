@@ -139,11 +139,22 @@
     color: var(--white);
     font-size: 3rem;
     text-align: center;
+    z-index: 2;
 }
 
 .showContactTop {
     display: flex;
     margin: 3rem 2rem 0 2rem;
+}
+
+.showContact {
+    overflow-x: scroll;
+    margin: 0 0 2rem 0;
+    max-height: calc(100vh - 4rem);
+}
+
+.showContact::-webkit-scrollbar {
+    width: 0 !important
 }
 
 .showContactTop h3 {
