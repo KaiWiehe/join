@@ -24,7 +24,7 @@ async function initLogin() {
 
 /** sets the url to the backend and loads the info into the variables*/
 async function downloadBackend() {
-    setURL('https://kai-wiehe.developerakademie.net/smallest_backend_ever');
+    setURL('https://kai-wiehe.de/smallest_backend_ever');
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];
@@ -229,7 +229,7 @@ function returnSelectedTask(i) {
 function sayHello() {
     let container = document.getElementById('categoryAlreadyExistsContainer');
     container.innerHTML += `Good Morning ${activeUser.name}. It's ${monthL} ${today.getDate()}, ${today.getFullYear()}. Have a nice Day.`;
-    container.style = 'background: var(--leftGrey); padding: 3rem 1rem 1rem 1rem;';
+    container.style = 'background: var(--leftGrey); padding: 4rem 1rem 1rem 1rem; width: 80%;';
     container.classList.remove('hide');
     setTimeout(() => container.classList.add('hide'), 10000);
 }
@@ -237,4 +237,67 @@ function sayHello() {
 function closeSayHello() {
     let container = document.getElementById('categoryAlreadyExistsContainer');
     container.classList.add('hide');
+}
+
+function switchCategorys(number) {
+    new SwitchCategorys(number);
+}
+
+function addTaskHTML() {
+    return /* html */ `
+<h1 id="addTaskh1">Add Task</h1>
+<form class="addTaskForm" onsubmit="createTask(); return false;">
+    <div class="addTaskLeft">
+        <div class=" formCullum">
+            <h2>Title</h2>
+            <input required id="titelInputField" class="inputField" type="text" placeholder="Enter a Titel">
+        </div>
+        <div class=" formCullum">
+            <h2>Description</h2>
+            <textarea minlength="4" required id="descriptionInputField" class="descriptionArea" placeholder="Enter a &#13;Description..."></textarea>
+        </div>
+        <div class=" formCullum categorySelect">
+            <h2>Category</h2>
+            <select required id="categorySelect" class="inputField">
+                <option value="" disabled selected hidden>Select task category</option>
+                <option value="Managment">Managment</option>
+                <option value="Design">Design</option>
+                <option value="Sales">Sales</option>
+                <option value="Backoffice">Backoffice</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Media">Media</option>
+            </select>
+            <img class=" addCategoryButton" onclick="openAddCategory()" src="assets/img/plusBlack.png">
+        </div>
+        <div class="collum formCullum assignedTo">
+            <h2>ASSIGNED TO</h2>
+            <select required id="assignedToSelect" class="inputField">
+            </select>
+        </div>
+    </div>
+    <div class="addTaskRight">
+        <div class="collum formCullum">
+            <h2>Date</h2>
+            <input required id="dateInputField" class="inputField" placeholder="Day/Month/Year" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+        </div>
+        <div class=" formCullum">
+            <h2>Urgency</h2>
+            <div class="urgencyContainer flex">
+                <div onclick="clickUrgencyHigh()" id="urgencyButtonHigh" class="whiteButton">High <img id="urgencyImgHigh" src="assets/img/prioHigh.png"></div>
+                <div onclick="clickUrgencyMiddle()" id="urgencyButtonMiddle" class="whiteButton">Middle <img id="urgencyImgMiddle" src="assets/img/prioMiddle.png"></div>
+                <div onclick="clickUrgencyLow()" id="urgencyButtonLow" class="whiteButton">Low <img id="urgencyImgLow" src="assets/img/prioLow.png"></div>
+            </div>
+        </div>
+        <div class=" formCullum subtasks">
+            <h2>Subtasks</h2>
+            <input id="subtaskInputField" class="inputField" type="text" placeholder="Enter a Subtask">
+            <img class="subtaskButton" onclick="addSubtask()" src="assets/img/plusBlack.png">
+            <div class="subtasksContainer" id="subtasksContainer"></div>
+        </div>
+        <div class="addTaskButtonContainer" id="addTaskButtonContainer">
+            <button type="button" onclick="hideAddTask()" class="whiteButton">Cancel</button>
+            <button type="submit" class="button">Create Task</button>
+        </div>
+    </div>
+</form>`;
 }

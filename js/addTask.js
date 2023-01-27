@@ -7,12 +7,14 @@ function createTask() {
     urgency ? createNewTask() : banner('You have to select an urgency', 'background: rgba(255, 0, 0, 0.538);', 'categoryAlreadyExistsContainer', 1250);
 }
 
+/** selects the img according to urgency  */
 function setUrgencyImg() {
     if (urgency === 'High') return 'assets/img/prioHigh.png';
     else if (urgency === 'Middle') return 'assets/img/prioMiddle.png';
     else if (urgency === 'Low') return 'assets/img/prioLow.png';
 }
 
+/** selects the color according to the category */
 function setCategoryColor() {
     if (categorySelect.value === 'Managment') return '#bc935b';
     else if (categorySelect.value === 'Design') return 'orange';
@@ -22,6 +24,7 @@ function setCategoryColor() {
     else if (categorySelect.value === 'Media') return '#c1c100';
 }
 
+/** selects the img according to assignedToSelect */
 function setImgFromAssignedToSelect(task, name) {
     //insert the appropriate picture for the name
     if (name === 'Kai Wiehe') return `<img class="boardProfileImg" src="assets/img/profileImg/profileImg.jpg">`;
@@ -29,6 +32,7 @@ function setImgFromAssignedToSelect(task, name) {
     else return `<div class="noImg">${firstLetter(name)}</div>`;
 }
 
+/** fill the assignedToSelect with the contacts */
 function updateAssignedTo() {
     let assignedToSelect = document.getElementById('assignedToSelect');
     assignedToSelect.innerHTML = '';

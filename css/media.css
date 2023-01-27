@@ -49,6 +49,9 @@
 }
 
 @media (max-width: 900px) {
+    .contactAlreadyExistsContainer {
+        font-size: 2rem !important;
+    }
     .cube {
         width: 8rem !important;
         height: 8rem !important;
@@ -127,7 +130,7 @@
         width: 75%;
     }
     #addTaskh1 {
-        margin: 1rem 0 1rem 4rem !important;
+        margin: 1rem 0 1rem 0rem !important;
     }
     .loginContainer h1 {
         margin: 1rem auto 0 auto !important;
@@ -165,6 +168,9 @@
     /* header span {
         font-size: 0.75rem;
     } */
+    .contactAlreadyExistsContainer {
+        font-size: 1.5rem !important;
+    }
     body {
         flex-direction: column-reverse;
     }
@@ -198,7 +204,7 @@
     }
     .left .top ul li:hover {
         border-left: 0 !important;
-        transform: scale(1.2) !important;
+        transform: unset !important;
     }
     .bottomRight {
         display: flex;
@@ -220,12 +226,6 @@
     }
     .boardHeader {
         margin: 1rem 0 0 0;
-    }
-    .addTaskButtonContainer {
-        bottom: 9vh !important;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        right: unset !important;
     }
     .addTask {
         width: 100%;
@@ -291,9 +291,6 @@
     }
     .addTaskForm {
         margin: 0 0 0 0 !important;
-    }
-    #addTaskh1 {
-        margin: 1rem 0 1rem 0 !important;
     }
     .formCullum {
         width: 16rem !important;
@@ -404,9 +401,13 @@
         bottom: 2rem !important;
         left: 14rem !important;
     }
-    .boardAddTaskcontainer .addTaskButtonContainer {
-        top: 2rem !important;
-        left: 7rem !important;
+    .addTask {
+        max-height: 65vh !important;
+    }
+    li img {
+        width: 2rem !important;
+        height: 2rem !important;
+        padding: 0 !important;
     }
 }
 
@@ -554,14 +555,6 @@
     }
     .rectangle2 {
         width: calc(10rem + 4rem) !important;
-    }
-}
-
-@media (max-height: 850px) and (min-width: 1250px) {
-    .boardAddTaskcontainer .addTaskButtonContainer {
-        top: 2rem !important;
-        right: 6rem !important;
-        bottom: unset !important;
     }
 }
 
@@ -730,13 +723,8 @@
         margin: 0 !important;
     }
     .boardAddTaskcontainer .addTaskButtonContainer {
-        top: 1rem;
-        left: 1rem;
-        right: unset !important;
-        bottom: unset !important;
-    }
-    #boardAddTask #addTaskh1 {
-        margin: 3rem 0 0 0 !important;
+        position: unset;
+        justify-content: unset;
     }
     .arrowUp {
         display: block !important;

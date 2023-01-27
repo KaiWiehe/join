@@ -134,3 +134,12 @@ h1 {
     cursor: pointer;
     scale: 1.1;
 }
+
+.highlightActiveMenu {
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 0.5rem solid var(--white) !important;
+}
+
+.highlightActiveMenu:hover {
+    transform: scale(1) !important;
+}
