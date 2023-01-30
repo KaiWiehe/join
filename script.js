@@ -283,9 +283,9 @@ function addTaskHTML() {
         <div class=" formCullum">
             <h2>Urgency</h2>
             <div class="urgencyContainer flex">
-                <div onclick="clickUrgencyHigh()" id="urgencyButtonHigh" class="whiteButton">High <img id="urgencyImgHigh" src="assets/img/prioHigh.png"></div>
-                <div onclick="clickUrgencyMiddle()" id="urgencyButtonMiddle" class="whiteButton">Middle <img id="urgencyImgMiddle" src="assets/img/prioMiddle.png"></div>
-                <div onclick="clickUrgencyLow()" id="urgencyButtonLow" class="whiteButton">Low <img id="urgencyImgLow" src="assets/img/prioLow.png"></div>
+                <div onclick="clickUrgencyButton(0)" id="urgencyButtonHigh" class="whiteButton">High <img id="urgencyImgHigh" src="assets/img/prioHigh.png"></div>
+                <div onclick="clickUrgencyButton(1)" id="urgencyButtonMiddle" class="whiteButton">Middle <img id="urgencyImgMiddle" src="assets/img/prioMiddle.png"></div>
+                <div onclick="clickUrgencyButton(2)" id="urgencyButtonLow" class="whiteButton">Low <img id="urgencyImgLow" src="assets/img/prioLow.png"></div>
             </div>
         </div>
         <div class=" formCullum subtasks">

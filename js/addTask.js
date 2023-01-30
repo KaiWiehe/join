@@ -16,12 +16,13 @@ function setUrgencyImg() {
 
 /** selects the color according to the category */
 function setCategoryColor() {
-    if (categorySelect.value === 'Managment') return '#bc935b';
-    else if (categorySelect.value === 'Design') return 'orange';
-    else if (categorySelect.value === 'Sales') return '#e583e5';
-    else if (categorySelect.value === 'Backoffice') return '#68ffce';
-    else if (categorySelect.value === 'Marketing') return 'blue';
-    else if (categorySelect.value === 'Media') return '#c1c100';
+    let category = categorySelect.value;
+    if (category === 'Managment') return '#bc935b';
+    else if (category === 'Design') return 'orange';
+    else if (category === 'Sales') return '#e583e5';
+    else if (category === 'Backoffice') return '#68ffce';
+    else if (category === 'Marketing') return 'blue';
+    else if (category === 'Media') return '#c1c100';
 }
 
 /** selects the img according to assignedToSelect */
@@ -40,10 +41,12 @@ function updateAssignedTo() {
     contacts.forEach((contact, index) => (assignedToSelect.innerHTML += assignedToSelectHTML(contact, index)));
 }
 
+/** HTML snippet */
 function assignedToSelectHTML(contact, index) {
     return /* html */ `<option value="${contact.name}">${contact.name}</option>`;
 }
 
+/** Shows the edit task card */
 function editTask(id, number) {
     let task = returnSelectedTask(id);
     closeCard();
@@ -51,6 +54,8 @@ function editTask(id, number) {
     changeAddTaskToEditTask(task, number, id);
 }
 
+/** If you click on the button the new task will save.
+ * Close the card, update the board etc., shows the task in big and shows the banner. */
 async function saveChangesTask(id, number) {
     let task = returnSelectedTask(id);
     setEditedTask(task);
@@ -60,6 +65,7 @@ async function saveChangesTask(id, number) {
     banner('Task succesfully edited', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
 }
 
+/** Function for the cancel button, to close "Edit Task" and open the task in big */
 function hideEditTask(id, number) {
     hideAddTask();
     openCard(id, number);
@@ -67,123 +73,30 @@ function hideEditTask(id, number) {
     boardAddTaskcontainer.setAttribute('onclick', `hideAddTask()`);
 }
 
-function clickUrgencyHigh() {
+/** If you click the urency high button, it will change the look 
+ * @param {i} number - 0 = High, 1 = Middle, 2 = Low */
+function clickUrgencyButton(i) {
     removeUrgencyClasses();
-    let urgencyButtonHigh = document.getElementById('urgencyButtonHigh');
-    let urgencyImgHigh = document.getElementById('urgencyImgHigh');
-    urgencyButtonHigh.classList.add('urgencyHigh');
-    urgencyImgHigh.classList.add('urgencyImg');
-    urgency = urgencyButtonHigh.innerText;
+    let ids = ['urgencyButtonHigh', 'urgencyButtonMiddle', 'urgencyButtonLow', 'urgencyImgHigh', 'urgencyImgMiddle', 'urgencyImgLow']
+    let classes = ['urgencyHigh', 'urgencyMiddle', 'urgencyLow'];
+    let urgencyButton = document.getElementById(ids[i])
+    let urgencyImg = document.getElementById(ids[i + 3])
+    urgencyButton.classList.add(classes[i]);
+    urgencyImg.classList.add('urgencyImg');
+    urgency = urgencyButton.innerText;
 }
 
-function clickUrgencyMiddle() {
-    removeUrgencyClasses();
-    let urgencyButtonMiddle = document.getElementById('urgencyButtonMiddle');
-    let urgencyImgMiddle = document.getElementById('urgencyImgMiddle');
-    urgencyButtonMiddle.classList.add('urgencyMiddle');
-    urgencyImgMiddle.classList.add('urgencyImg');
-    urgency = urgencyButtonMiddle.innerText;
-}
-
-function clickUrgencyLow() {
-    removeUrgencyClasses();
-    let urgencyButtonLow = document.getElementById('urgencyButtonLow');
-    let urgencyImgLow = document.getElementById('urgencyImgLow');
-    urgencyButtonLow.classList.add('urgencyLow');
-    urgencyImgLow.classList.add('urgencyImg');
-    urgency = urgencyButtonLow.innerText;
-}
-
+/** Remove the look of all urgency buttons */
 function removeUrgencyClasses() {
-    let urgencyButtonHigh = document.getElementById('urgencyButtonHigh');
-    let urgencyButtonMiddle = document.getElementById('urgencyButtonMiddle');
-    let urgencyButtonLow = document.getElementById('urgencyButtonLow');
-    let urgencyImgHigh = document.getElementById('urgencyImgHigh');
-    let urgencyImgMiddle = document.getElementById('urgencyImgMiddle');
-    let urgencyImgLow = document.getElementById('urgencyImgLow');
-    urgencyButtonHigh.classList.remove('urgencyHigh');
-    urgencyButtonMiddle.classList.remove('urgencyMiddle');
-    urgencyButtonLow.classList.remove('urgencyLow');
-    urgencyImgHigh.classList.remove('urgencyImg');
-    urgencyImgMiddle.classList.remove('urgencyImg');
-    urgencyImgLow.classList.remove('urgencyImg');
-}
-
-function addSubtask() {
-    subtaskInputField = document.getElementById('subtaskInputField');
-    subtasks.push(subtaskInputField.value);
-    loadSubTasks(subtasksContainer);
-    subtaskInputField.value = '';
-}
-
-function loadSubTasks() {
-    subtasksContainer = document.getElementById('subtasksContainer');
-    subtasksContainer.innerHTML = '';
-    subtasks.forEach((subtask, index) => (subtasksContainer.innerHTML += subtasksContainerHTML(subtask, index)));
-}
-
-function subtasksContainerHTML(subtask, index) {
-    return /* html */ `<div class="subtask">${subtask} <img onclick="delSubtask(${index})" src="assets/img/trash.svg"> <div>`;
-}
-
-function delSubtask(index) {
-    subtasks.splice(index, 1);
-    loadSubTasks();
-}
-
-function openAddCategory() {
-    openAddContactOrEdit();
-    let addContactTitel = document.getElementById('addContactTitel');
-    let addContactSlogan = document.getElementById('addContactSlogan');
-    let addContactImg = document.getElementById('addContactImg');
-    let addContactButtons = document.getElementById('addContactButtons');
-    let addContactName = document.getElementById('addContactName');
-    let addContactMail = document.getElementById('addContactMail');
-    let addContactTel = document.getElementById('addContactTel');
-    updateAddCategory(addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel);
-}
-
-function updateAddCategory(addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel) {
-    addContactTitel.innerHTML = 'Add Category';
-    addContactSlogan.classList.remove('hide');
-    addContactImg.style = 'display: none;';
-    addContactSlogan.style = 'display: none;';
-    addContactButtons.innerHTML = `
-    <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
-    <button type="button" class="button" onclick="addCategoryForm()">Create Category</button>`;
-    addContactName.value = ``;
-    addContactMail.style = 'display: none;';
-    addContactTel.style = 'display: none;';
-}
-
-function closeAddCategory() {
-    closeAddContact();
-}
-
-function loadCategorys() {
-    let categorySelect = document.getElementById('categorySelect');
-    categorySelect.innerHTML = '';
-    categorySelect.innerHTML = '<option value="" disabled selected hidden>Select task category</option>';
-    categorys.forEach((category) => (categorySelect.innerHTML += categorySelectHTML(category)));
-}
-
-function categorySelectHTML(category) {
-    return /* html */ `<option value="${category}">${category}</option>`;
-}
-
-function addCategoryForm() {
-    let addCategoryTitel = document.getElementById('addContactName');
-    addCategory(addCategoryTitel.value);
-    addCategoryTitel.value = '';
-}
-
-async function addCategory(category) {
-    categorys.push(category);
-    categorys = arrClean(categorys, 'Category already exists!', 'categoryAlreadyExistsContainer');
-    closeAddCategory();
-    await backend.setItem('categorys', JSON.stringify(categorys));
-    loadCategorys();
-    !alreadyExists && banner('Category succesfully created', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
+    let ids = ['urgencyButtonHigh', 'urgencyButtonMiddle', 'urgencyButtonLow', 'urgencyImgHigh', 'urgencyImgMiddle', 'urgencyImgLow']
+    let buttons = [];
+    let classes = ['urgencyHigh', 'urgencyMiddle', 'urgencyLow', 'urgencyImg', 'urgencyImg', 'urgencyImg'];
+    ids.forEach(el => {
+        buttons.push(document.getElementById(el));
+    });
+    buttons.forEach((el, i) => {
+        el.classList.remove(classes[i]);
+    });
 }
 
 function pushNewTask() {
@@ -195,6 +108,13 @@ function pushNewTask() {
     taskPush(titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect);
 }
 
+/**
+ * @param {*} HTMLElement - titelInputField 
+ * @param {*} HTMLElement - dateInputField 
+ * @param {*} HTMLElement - categorySelect 
+ * @param {*} HTMLElement - descriptionInputField 
+ * @param {*} HTMLElement - assignedToSelect 
+ */
 function taskPush(titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect) {
     tasks.push({
         id: `${taskIdCounter}`,
@@ -227,6 +147,7 @@ function clearInputFields() {
     loadSubTasks();
 }
 
+/** Creates a new task with the given content */
 async function createNewTask() {
     pushNewTask();
     await backend.setItem('tasks', JSON.stringify(tasks));
@@ -237,74 +158,4 @@ async function createNewTask() {
     removeUrgencyClasses();
     hideAddTask();
     banner('Task succesfully created', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
-}
-
-function changeAddTaskToEditTask(task, number, id) {
-    definesAllInputs();
-    subtasks = task.subtasks;
-    changeContent(task, number, id);
-}
-
-function definesAllInputs() {
-    let addTaskh1 = document.getElementById('addTaskh1');
-    let addTaskButtonContainer = document.getElementById('addTaskButtonContainer');
-    let hideAddTaskButton = document.getElementById('hideAddTaskButton');
-    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
-    let titelInputField = document.getElementById('titelInputField');
-    let dateInputField = document.getElementById('dateInputField');
-    let categorySelect = document.getElementById('categorySelect');
-    let descriptionInputField = document.getElementById('descriptionInputField');
-    let assignedToSelect = document.getElementById('assignedToSelect');
-}
-
-function changeContent(task, number, id) {
-    addTaskh1.innerHTML = 'Edit Task';
-    addTaskButtonContainer.innerHTML = editTaskButtonsHTML(id, number);
-    hideAddTaskButton.setAttribute('onclick', `hideEditTask(${id}, ${number})`);
-    boardAddTaskcontainer.setAttribute('onclick', `hideEditTask(${id}, ${number})`);
-    loadCategorys();
-    loadInputValue(task, number, id);
-    highlightUrgencyButton(task);
-}
-
-function editTaskButtonsHTML(id, number) {
-    return /* html */ `
-    <button type="button" class="whiteButton" onclick="hideEditTask(${id}, ${number})">Cancel</button>
-    <button type="button" onclick="saveChangesTask(${id}, ${number})" class="button">Save</button>`;
-}
-
-function loadInputValue(task, number, id) {
-    titelInputField.value = `${task.titel}`;
-    dateInputField.value = `${task.date}`;
-    categorySelect.value = `${task.category}`;
-    descriptionInputField.value = `${task.description}`;
-    assignedToSelect.value = `${task.AssignedTo}`;
-    loadSubTasks();
-}
-
-function highlightUrgencyButton(task) {
-    if (task.urgency === 'High') clickUrgencyHigh();
-    else if (task.urgency === 'Middle') clickUrgencyMiddle();
-    else if (task.urgency === 'Low') clickUrgencyLow();
-}
-
-function setEditedTask(task) {
-    let titelInputField = document.getElementById('titelInputField');
-    let dateInputField = document.getElementById('dateInputField');
-    let categorySelect = document.getElementById('categorySelect');
-    let descriptionInputField = document.getElementById('descriptionInputField');
-    let assignedToSelect = document.getElementById('assignedToSelect');
-    updateTask(task, titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect);
-}
-
-function updateTask(task, titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect) {
-    task.titel = titelInputField.value;
-    task.date = dateInputField.value;
-    task.category = categorySelect.value;
-    task.urgency = urgency;
-    task.description = descriptionInputField.value;
-    task.AssignedTo = assignedToSelect.value;
-    task.urgencyImg = setUrgencyImg();
-    task.categoryColor = setCategoryColor();
-    task.img = setImgFromAssignedToSelect(true, assignedToSelect.value);
 }
