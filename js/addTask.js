@@ -46,35 +46,8 @@ function assignedToSelectHTML(contact, index) {
     return /* html */ `<option value="${contact.name}">${contact.name}</option>`;
 }
 
-/** Shows the edit task card */
-function editTask(id, number) {
-    let task = returnSelectedTask(id);
-    closeCard();
-    showAddTask();
-    changeAddTaskToEditTask(task, number, id);
-}
-
-/** If you click on the button the new task will save.
- * Close the card, update the board etc., shows the task in big and shows the banner. */
-async function saveChangesTask(id, number) {
-    let task = returnSelectedTask(id);
-    setEditedTask(task);
-    hideAddTask();
-    loadTasks();
-    openCard(id, number);
-    banner('Task succesfully edited', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
-}
-
-/** Function for the cancel button, to close "Edit Task" and open the task in big */
-function hideEditTask(id, number) {
-    hideAddTask();
-    openCard(id, number);
-    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
-    boardAddTaskcontainer.setAttribute('onclick', `hideAddTask()`);
-}
-
 /** If you click the urency high button, it will change the look 
- * @param {i} number - 0 = High, 1 = Middle, 2 = Low */
+ * @param {number} i - 0 = High, 1 = Middle, 2 = Low */
 function clickUrgencyButton(i) {
     removeUrgencyClasses();
     let ids = ['urgencyButtonHigh', 'urgencyButtonMiddle', 'urgencyButtonLow', 'urgencyImgHigh', 'urgencyImgMiddle', 'urgencyImgLow']
@@ -109,11 +82,11 @@ function pushNewTask() {
 }
 
 /**
- * @param {*} HTMLElement - titelInputField 
- * @param {*} HTMLElement - dateInputField 
- * @param {*} HTMLElement - categorySelect 
- * @param {*} HTMLElement - descriptionInputField 
- * @param {*} HTMLElement - assignedToSelect 
+ * @param {HTMLElement} titelInputField 
+ * @param {HTMLElement} dateInputField 
+ * @param {HTMLElement} categorySelect 
+ * @param {HTMLElement} descriptionInputField 
+ * @param {HTMLElement} assignedToSelect 
  */
 function taskPush(titelInputField, dateInputField, categorySelect, descriptionInputField, assignedToSelect) {
     tasks.push({
@@ -132,6 +105,7 @@ function taskPush(titelInputField, dateInputField, categorySelect, descriptionIn
     });
 }
 
+/** empties the inputfields and the subtasks */
 function clearInputFields() {
     let titelInputField = document.getElementById('titelInputField');
     let dateInputField = document.getElementById('dateInputField');

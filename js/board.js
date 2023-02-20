@@ -1,72 +1,78 @@
-let currentDraggedElement;
 let searchedTasks = [];
 
-function startDragging(id) {
-    currentDraggedElement = returnSelectedTask(id);
-}
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-async function moveTo(category) {
-    currentDraggedElement.process = category;
-    loadTasks();
-    removehighlightArea(category);
-}
-
-function highlightArea(id) {
-    document.getElementById(id).classList.add('onDragOverHighlight');
-}
-
-function removehighlightArea(id) {
-    document.getElementById(id).classList.remove('onDragOverHighlight');
-}
-
+/**
+ * del the task and reload the board
+ * close the card in big
+ * @param {number} i - the index of the element when it is generated
+ */
 function del(i) {
     tasks.splice(i, 1);
     loadTasks();
     closeCard();
 }
 
+/**
+ * opens the task in big
+ * and fill the empty card with the right content
+ * @param {number} id - the id of the task
+ * @param {number} i - the index of the task
+ */
 function openCard(id, i) {
     let task = returnSelectedTask(id);
     if (task) {
         let bottomRightPopUp = document.getElementById('bottomRightPopUp');
         bottomRightPopUp.innerHTML = openCardHTML(task, i);
-        changeCategoryColorBig(task);
+        changeCategoryColor(task, 'categoryBig');
         let subtaskCardContainer = document.getElementById('subtaskCardContainer');
         task.subtasks.forEach((subtask) => (subtaskCardContainer.innerHTML += subtaskCardContainerHTML(subtask)));
     }
 }
 
+/**
+ * 
+ * @param {string} subtask - the single subtask
+ * @returns {HTMLElement} - the div element with the given subtask
+ */
 function subtaskCardContainerHTML(subtask) {
     return /* html */ `<div class="subtaskItem">${subtask}<div>`;
 }
 
+/** close the card in big */
 function closeCard() {
     let bottomRightPopUp = document.getElementById('bottomRightPopUp');
     bottomRightPopUp.innerHTML = '';
 }
 
+/**
+ * fill the board and sort by categories
+ * changes the category color
+ * @param {JSON} task - the single task
+ * @param {number} i - the index of the task
+ */
 function loadBoard(task, i) {
     if (task.process === 'todo') todo.innerHTML += boardHTML(task, i);
     else if (task.process === 'inProgress') inProgress.innerHTML += boardHTML(task, i);
     else if (task.process === 'awaitingFeedback') awaitingFeedback.innerHTML += boardHTML(task, i);
     else if (task['process'] === 'done') done.innerHTML += boardHTML(task, i);
-    changeCategoryColor(task);
+    changeCategoryColor(task, 'category');
 }
 
-function changeCategoryColor(task) {
-    let category = document.getElementById(`category${task.id}`);
+/**
+ * changes the category color
+ * @param {JSON} task - the single task
+ * @param {string} id - the id of the category element (category / categoryBig)
+ */
+function changeCategoryColor(task, id) {
+    let category = document.getElementById(`${id}${task.id}`);
     category.style = `background: ${task.categoryColor};`;
 }
 
-function changeCategoryColorBig(task) {
-    let categoryBig = document.getElementById(`categoryBig${task.id}`);
-    categoryBig.style = `background: ${task.categoryColor};`;
-}
-
+/**
+ * 
+ * @param {JSON} task - the single task
+ * @param {number} i - the index of the task
+ * @returns {HTMLElement} - the div with the given content
+ */
 function boardHTML(task, i) {
     return `<div class="card" draggable="true" ondragstart="startDragging(${task.id})" onclick="openCard(${task.id}, ${i})">
             <span id="category${task.id}" class="cardCategory">${task.category}</span>
@@ -80,6 +86,10 @@ function boardHTML(task, i) {
         </div>`;
 }
 
+/**
+ * clear the board
+ * Show the searched tasks
+ */
 function filterTasks() {
     clearBoard();
     searchedTasks = [];
@@ -92,6 +102,12 @@ function filterTasks() {
     searchedTasks.length > 0 && searchedTasks.forEach((task, index) => loadBoard(task, index));
 }
 
+/**
+ * 
+ * @param {JSON} task - the singe task
+ * @param {number} i - the index of the task
+ * @returns {HTMLElement} - the div for the big view
+ */
 function openCardHTML(task, i) {
     return `
     <div class="cardBigContainer" onclick="closeCard()">
@@ -114,6 +130,10 @@ function openCardHTML(task, i) {
     </div>`;
 }
 
+/**
+ * gives the next higher process
+ * @param {number} id - the id of the task
+ */
 async function nextProcess(id) {
     let error = false;
     let task = returnSelectedTask(id);
@@ -125,6 +145,10 @@ async function nextProcess(id) {
     !error && banner(`Task moved to ${task.process}`, 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
 }
 
+/**
+ * gives the next lower process
+ * @param {number} id - the id of the task
+ */
 async function lastProcess(id) {
     let error = false;
     let task = returnSelectedTask(id);
@@ -136,38 +160,10 @@ async function lastProcess(id) {
     !error && banner(`Task moved to ${task.process}`, 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
 }
 
+/**
+ * Shows the error banner
+ * @param {JSON} task - the single task
+ */
 function processError(task) {
     banner(`Task is already in ${task.process}`, 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
-}
-
-function showAddTask() {
-    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
-    boardAddTaskcontainer.classList.remove('hide');
-
-    let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.innerHTML = addTaskHTML();
-    updateAssignedTo();
-    loadCategorys();
-}
-
-function hideAddTask() {
-    clearAddTaskInputs();
-    let boardAddTaskcontainer = document.getElementById('boardAddTaskcontainer');
-    boardAddTaskcontainer.classList.add('hide');
-    let boardAddTask = document.getElementById('boardAddTask');
-    boardAddTask.innerHTML = '';
-}
-
-function clearAddTaskInputs() {
-    let titelInputField = document.getElementById('titelInputField');
-    let dateInputField = document.getElementById('dateInputField');
-    let categorySelect = document.getElementById('categorySelect');
-    let descriptionInputField = document.getElementById('descriptionInputField');
-    let assignedToSelect = document.getElementById('assignedToSelect');
-    titelInputField.value = '';
-    dateInputField.value = '';
-    categorySelect.value = '';
-    descriptionInputField.value = '';
-    assignedToSelect.value = '';
-    removeUrgencyClasses();
 }

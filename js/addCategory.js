@@ -13,13 +13,13 @@ function openAddCategory() {
 
 /**
  * edit the card
- * @param {*} HTMLElement - addContactTitel 
- * @param {*} HTMLElement - addContactSlogan 
- * @param {*} HTMLElement - addContactImg 
- * @param {*} HTMLElement - addContactButtons 
- * @param {*} HTMLElement - addContactName 
- * @param {*} HTMLElement - addContactMail 
- * @param {*} HTMLElement - addContactTel 
+ * @param {HTMLElement} addContactTitel 
+ * @param {HTMLElement} addContactSlogan 
+ * @param {HTMLElement} addContactImg 
+ * @param {HTMLElement} addContactButtons 
+ * @param {HTMLElement} addContactName 
+ * @param {HTMLElement} addContactMail 
+ * @param {HTMLElement} addContactTel 
  */
 function updateAddCategory(addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel) {
     addContactTitel.innerHTML = 'Add Category';
@@ -59,7 +59,7 @@ function addCategoryForm() {
 
 /**
  * pushed the new category and del all dublicates
- * @param {*} string - addCategoryTitel.value
+ * @param {string} category - addCategoryTitel.value
  */
 async function addCategory(category) {
     categorys.push(category);

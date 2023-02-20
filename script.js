@@ -22,27 +22,8 @@ async function initLogin() {
     loadMSG();
 }
 
-/** sets the url to the backend and loads the info into the variables*/
-async function downloadBackend() {
-    setURL('https://kai-wiehe.de/smallest_backend_ever');
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
-    activeUser = JSON.parse(backend.getItem('activeUser')) || [];
-    taskIdCounter = JSON.parse(backend.getItem('taskIdCounter')) || [];
-    contacts = JSON.parse(backend.getItem('contacts')) || [];
-    categorys = JSON.parse(backend.getItem('categorys')) || [];
-    console.log('users', users);
-    console.log('tasks', tasks);
-    console.log('activeUser', activeUser);
-    console.log('contacts', contacts);
-    console.log('categorys', categorys);
-}
-
 /** Inserts the data from the JSON into the summary, into the board*/
 function loadTasks() {
-    definesAllSummaryIds();
-    definesAllBoardIds();
     clearAllDivs();
     loadSummary();
     tasks.forEach((task, index) => loadBoard(task, index));
@@ -65,68 +46,6 @@ function changeImg() {
 
 function doNotClose(event) {
     event.stopPropagation();
-}
-
-function editUser() {
-    let user = returnActiveUser();
-    openAddContactOrEdit();
-    let addContactTitel = document.getElementById('addContactTitel');
-    let addContactSlogan = document.getElementById('addContactSlogan');
-    let addContactImg = document.getElementById('addContactImg');
-    let addContactButtons = document.getElementById('addContactButtons');
-    let addContactName = document.getElementById('addContactName');
-    let addContactMail = document.getElementById('addContactMail');
-    let addContactTel = document.getElementById('addContactTel');
-    updateEditUser(user, addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel);
-}
-
-function updateEditUser(user, addContactTitel, addContactSlogan, addContactImg, addContactButtons, addContactName, addContactMail, addContactTel) {
-    addContactTitel.innerHTML = 'Edit User';
-    addContactSlogan.classList.add('hide');
-    addContactImg.style = 'display: flex;';
-    addContactMail.style = 'display: flex;';
-    addContactTel.style = 'display: flex;';
-    if (user.img === 'noImg') addContactImg.innerHTML = firstLetter(user.name);
-    else addContactImg.innerHTML = `<img src="${user.img}">`;
-    addContactButtons.innerHTML = editUserButtonsHTML();
-    fillEditUserInputs(user, addContactName, addContactMail, addContactTel);
-}
-
-function editUserButtonsHTML() {
-    return /* html */ `
-    <button type="button" class=" whiteButton" onclick="closeAddContact()">Cancel</button>
-    <button type="button" class="button" onclick="saveChangesUser()">Save</button>`;
-}
-
-function fillEditUserInputs(user, addContactName, addContactMail, addContactTel) {
-    addContactName.value = `${user.name}`;
-    addContactMail.value = `${user.mail}`;
-    addContactTel.value = `${user.password}`;
-    addContactTel.placeholder = 'Password';
-}
-
-async function saveChangesUser() {
-    updateUser();
-    closeAddContact();
-    banner('User succesfully edited', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
-    await backend.setItem('users', JSON.stringify(users));
-}
-
-function updateUser() {
-    let user = returnActiveUser();
-    let addContactName = document.getElementById('addContactName');
-    let addContactMail = document.getElementById('addContactMail');
-    let addContactTel = document.getElementById('addContactTel');
-    user.name = addContactName.value;
-    user.mail = addContactMail.value;
-    user.password = addContactTel.value;
-}
-
-function returnActiveUser() {
-    let userNew = [];
-    users.forEach((user) => user.name.includes(activeUser.name) && userNew.push(user));
-    userNew = userNew[0];
-    return userNew;
 }
 
 function banner(string, style, containerID, timeout) {
@@ -154,7 +73,7 @@ function arrClean(arr, errorText, containerID) {
 }
 
 /**
- * @param string
+ * @param {string} string - any string
  * @returns string capitalized
  * @example
  * // The function returns "Name".
@@ -165,7 +84,7 @@ function capitalizeFirstLetter(string) {
 }
 
 /**
- * @param string
+ * @param {string} string - any string
  * @returns string only first letter capitalized
  * @example
  * // The function returns "N".
@@ -175,30 +94,41 @@ function firstLetter(string) {
     return string.charAt(0).toUpperCase();
 }
 
-function definesAllSummaryIds() {
+// function definesAllSummaryIds() {
+//     let tasksInBoard = document.getElementById('tasksInBoard');
+//     let tasksInProgress = document.getElementById('tasksInProgress');
+//     let awaitingFeedbackSummary = document.getElementById('awaitingFeedbackSummary');
+//     let todoSummary = document.getElementById('todoSummary');
+//     let doneSummary = document.getElementById('doneSummary');
+//     let goodMorningName = document.getElementById('goodMorningName');
+//     let summaryDate = document.getElementById('summaryDate');
+//     let summaryDay = document.getElementById('summaryDay');
+// }
+
+// function definesAllBoardIds() {
+//     let todo = document.getElementById('todo');
+//     let inProgress = document.getElementById('inProgress');
+//     let awaitingFeedback = document.getElementById('awaitingFeedback');
+//     let done = document.getElementById('done');
+// }
+
+function clearAllDivs() {
     let tasksInBoard = document.getElementById('tasksInBoard');
     let tasksInProgress = document.getElementById('tasksInProgress');
     let awaitingFeedbackSummary = document.getElementById('awaitingFeedbackSummary');
     let todoSummary = document.getElementById('todoSummary');
     let doneSummary = document.getElementById('doneSummary');
-    let goodMorningName = document.getElementById('goodMorningName');
-    let summaryDate = document.getElementById('summaryDate');
-    let summaryDay = document.getElementById('summaryDay');
-}
 
-function definesAllBoardIds() {
-    let todo = document.getElementById('todo');
-    let inProgress = document.getElementById('inProgress');
-    let awaitingFeedback = document.getElementById('awaitingFeedback');
-    let done = document.getElementById('done');
-}
-
-function clearAllDivs() {
     tasksInBoard.innerHTML = ``;
     tasksInProgress.innerHTML = ``;
     awaitingFeedbackSummary.innerHTML = ``;
     todoSummary.innerHTML = ``;
     doneSummary.innerHTML = ``;
+
+    let todo = document.getElementById('todo');
+    let inProgress = document.getElementById('inProgress');
+    let awaitingFeedback = document.getElementById('awaitingFeedback');
+    let done = document.getElementById('done');
 
     todo.innerHTML = ``;
     inProgress.innerHTML = ``;
@@ -206,6 +136,7 @@ function clearAllDivs() {
     done.innerHTML = ``;
 }
 
+/** empties all containers (todo, inProgress, awaitingFeedback, done) */
 function clearBoard() {
     let todo = document.getElementById('todo');
     let inProgress = document.getElementById('inProgress');
@@ -217,6 +148,10 @@ function clearBoard() {
     done.innerHTML = ``;
 }
 
+/**
+ * @param {number} i - the id of the task
+ * @returns {JSON} - the selected task
+ */
 function returnSelectedTask(i) {
     let id = [i];
     let task = tasks.filter((itm) => {
@@ -226,6 +161,7 @@ function returnSelectedTask(i) {
     return task;
 }
 
+/** opens the say hello banner */
 function sayHello() {
     let container = document.getElementById('categoryAlreadyExistsContainer');
     container.innerHTML += `Good Morning ${activeUser.name}. It's ${monthL} ${today.getDate()}, ${today.getFullYear()}. Have a nice Day.`;
@@ -234,15 +170,23 @@ function sayHello() {
     setTimeout(() => container.classList.add('hide'), 10000);
 }
 
+/** close the say hello banner */
 function closeSayHello() {
     let container = document.getElementById('categoryAlreadyExistsContainer');
     container.classList.add('hide');
 }
 
+/**
+ * switch the category 
+ * @param {number} number - the number of the respective menu item
+ */
 function switchCategorys(number) {
     new SwitchCategorys(number);
 }
 
+/**
+ * @returns {HTMLElement} - the add task HTML snippet
+ */
 function addTaskHTML() {
     return /* html */ `
 <h1 id="addTaskh1">Add Task</h1>
@@ -300,4 +244,22 @@ function addTaskHTML() {
         </div>
     </div>
 </form>`;
+}
+
+/**
+ * clear this elements
+ * @param {HTMLElement} el
+ */
+function clearValue(el) {
+    el.value = '';
+}
+
+/**
+ * 
+ * @param {string} string1 
+ * @param {string} string2 
+ * @returns {boolean} - true = same | false = different 
+ */
+function sameString(string1, string2) {
+    return string1 === string2;
 }

@@ -1,19 +1,20 @@
 let forgotPasswortUser = [];
 
-/** Checks the entered values. If the values ​​belong to a user, it registers them? */
+/** Checks the values entered. If the values belong to a user, they are logged in */
 async function login() {
     await backend.deleteItem('activeUser');
     let user = checkEnteredValues();
     if (user) {
         await backend.setItem('activeUser', JSON.stringify(user));
         window.location.href = `index.html?user=${user['name']}`;
-    } else {
+    } else { //error
         let msgBox = document.getElementById('msgBox');
         msgBox.innerHTML = 'Incorrect username or password.';
         password.style = 'background: #ff000047;';
     }
 }
 
+/** Checks the values entered. If the values belong to a user, return it */
 function checkEnteredValues() {
     let mail = document.getElementById('mail');
     let mailLow = mail.value.toLowerCase(); // so that the e-mail is not case-sensitive
@@ -22,6 +23,7 @@ function checkEnteredValues() {
     return user;
 }
 
+/** login as a guest */
 async function guestLogin() {
     await backend.setItem(
         'activeUser',
@@ -54,11 +56,13 @@ function loadMSG() {
     msg && (msgBox.innerHTML = msg);
 }
 
+/** del activeUser and go back to login.html */
 async function logOut() {
     await backend.setItem('activeUser', JSON.stringify([]));
     window.location.href = 'login.html';
 }
 
+/** show the forgetPassword window */
 function showForgetPassword() {
     let loginContainer = document.getElementById('loginContainer');
     let forgotPasswort = document.getElementById('forgotPasswort');
@@ -66,6 +70,7 @@ function showForgetPassword() {
     forgotPasswort.classList.remove('hide');
 }
 
+/** if the mail belongs to a user, forward to reset passwort else open mail not found */
 function forgotPasswort() {
     let forgotPasswortMail = document.getElementById('forgotPasswortMail');
     forgotPasswortUser = returnForgotPasswortUser(forgotPasswortMail);
@@ -73,19 +78,26 @@ function forgotPasswort() {
     else openEmailNotFound(forgotPasswortMail);
 }
 
+/**
+ * if the mail belongs to a user, return this user
+ * @param {HTMLElement} forgotPasswortMail 
+ * @returns {JSON} - the user with this mail
+ */
 function returnForgotPasswortUser(forgotPasswortMail) {
+    debugger
     let userNew = [];
     users.forEach((user) => user.mail.toLowerCase().includes(forgotPasswortMail.value.toLowerCase()) && userNew.push(user));
-    userNew = userNew[0];
-    return userNew;
+    return userNew[0];
 }
 
+/** show 'E-Mail not found!' if the mail is not found */
 function openEmailNotFound(forgotPasswortMail) {
     let forgotPasswortString = document.getElementById('forgotPasswortString');
     forgotPasswortMail.style = 'background: #ff000047;';
     forgotPasswortString.innerHTML = `E-Mail not found!`;
 }
 
+/** open the reset passwort window */
 function openResetPasswort() {
     let forgotPasswort = document.getElementById('forgotPasswort');
     let resetPasswort = document.getElementById('resetPasswort');
@@ -93,6 +105,7 @@ function openResetPasswort() {
     resetPasswort.classList.remove('hide');
 }
 
+/** if the passwords are different change it, else openNotSamePasswort*/
 function resetPasswort() {
     let resetPassword1 = document.getElementById('resetPassword1');
     let resetPassword2 = document.getElementById('resetPassword2');
@@ -100,10 +113,7 @@ function resetPasswort() {
     else openNotSamePasswort(resetPassword1, resetPassword2);
 }
 
-function sameString(string1, string2) {
-    return string1 === string2;
-}
-
+/** show 'It's not the same passwort!' */
 function openNotSamePasswort(resetPassword1, resetPassword2) {
     let resetPasswortString = document.getElementById('resetPasswortString');
     resetPassword1.style = 'background: #ff000047;';
@@ -111,6 +121,7 @@ function openNotSamePasswort(resetPassword1, resetPassword2) {
     resetPasswortString.innerHTML = `It's not the same passwort!`;
 }
 
+/** set the new passwort and go back to login */
 async function changePasswort(newPasswort) {
     forgotPasswortUser.password = newPasswort.value;
     forgotPasswortUser = [];
@@ -118,6 +129,7 @@ async function changePasswort(newPasswort) {
     openLogin();
 }
 
+/** show banner and go back to login */
 function openLogin() {
     banner('You reset your passwort!', 'background: var(--leftGrey);', 'categoryAlreadyExistsContainer', 1250);
     setTimeout(() => (window.location.href = 'login.html?msg=You reset your passwort!'), 500);

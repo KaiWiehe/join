@@ -1,3 +1,4 @@
+/** fill the summary counters and the clock */
 function loadSummary() {
     fillSummaryCounters();
 
@@ -6,6 +7,7 @@ function loadSummary() {
     summaryDay.innerHTML = `${today.getDate()}`;
 }
 
+/** fill the counters */
 function fillSummaryCounters() {
     let todoSummaryCounter = 0;
     let tasksInProgressCounter = 0;
@@ -21,6 +23,7 @@ function fillSummaryCounters() {
     updateSummaryCounters(todoSummaryCounter, tasksInProgressCounter, awaitingFeedbackCounter, doneSummaryCounter);
 }
 
+/** fill the counters in the html */
 function updateSummaryCounters(todoSummaryCounter, tasksInProgressCounter, awaitingFeedbackCounter, doneSummaryCounter) {
     tasksInBoard.innerHTML = `${tasks.length}`;
     todoSummary.innerHTML = `${todoSummaryCounter}`;

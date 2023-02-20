@@ -13,6 +13,12 @@ async function addUser() {
     window.location.href = 'login.html?msg=You have successfully registered!';
 }
 
+/**
+ * empties the elements
+ * @param {HTMLElement} registerName 
+ * @param {HTMLElement} registerMail 
+ * @param {HTMLElement} registerPassword 
+ */
 function clearAddUserValue(registerName, registerMail, registerPassword) {
     registerName.value = '';
     registerMail.value = '';
