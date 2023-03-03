@@ -7,6 +7,7 @@ function showAddTask() {
     boardAddTask.innerHTML = addTaskHTML();
     updateAssignedTo();
     loadCategorys();
+    new AddTaskKeyboardControl();
 }
 
 /** hide the add task window in the board  */

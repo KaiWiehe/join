@@ -1,6 +1,6 @@
 /** sets the url to the backend and loads the info into the variables*/
 async function downloadBackend() {
-    setURL('https://kai-wiehe.de/smallest_backend_ever');
+    setURL('https://join.kai-wiehe.de/smallest_backend_ever');
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
     tasks = JSON.parse(backend.getItem('tasks')) || [];

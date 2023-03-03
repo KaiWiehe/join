@@ -60,6 +60,7 @@ class SwitchCategorys {
         subtasks = [];
         loadSubTasks();
         loadCategorys();
+        new AddTaskKeyboardControl();
     }
 
     /**

@@ -112,6 +112,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .urgencyContainer .whiteButton {
     gap: 0.5rem;
     border: 2px solid #dfdede;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    height: 3rem;
 }
 
 .urgencyHigh {
@@ -145,6 +149,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 1rem;
     position: absolute;
     right: 1rem;
+    transition: 125ms all;
 }
 
 .subtask img:hover {
@@ -168,6 +173,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 1.5rem;
     cursor: pointer;
     filter: invert(0.6);
+    transition: 125ms all;
 }
 
 .subtaskButton:hover {

@@ -181,6 +181,9 @@
     .joinlogo {
         display: none !important;
     }
+    .top {
+        overflow-x: unset !important;
+    }
     .left .top ul {
         flex-direction: unset !important;
         justify-content: space-around !important;

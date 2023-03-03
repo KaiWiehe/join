@@ -94,24 +94,6 @@ function firstLetter(string) {
     return string.charAt(0).toUpperCase();
 }
 
-// function definesAllSummaryIds() {
-//     let tasksInBoard = document.getElementById('tasksInBoard');
-//     let tasksInProgress = document.getElementById('tasksInProgress');
-//     let awaitingFeedbackSummary = document.getElementById('awaitingFeedbackSummary');
-//     let todoSummary = document.getElementById('todoSummary');
-//     let doneSummary = document.getElementById('doneSummary');
-//     let goodMorningName = document.getElementById('goodMorningName');
-//     let summaryDate = document.getElementById('summaryDate');
-//     let summaryDay = document.getElementById('summaryDay');
-// }
-
-// function definesAllBoardIds() {
-//     let todo = document.getElementById('todo');
-//     let inProgress = document.getElementById('inProgress');
-//     let awaitingFeedback = document.getElementById('awaitingFeedback');
-//     let done = document.getElementById('done');
-// }
-
 function clearAllDivs() {
     let tasksInBoard = document.getElementById('tasksInBoard');
     let tasksInProgress = document.getElementById('tasksInProgress');
@@ -190,19 +172,19 @@ function switchCategorys(number) {
 function addTaskHTML() {
     return /* html */ `
 <h1 id="addTaskh1">Add Task</h1>
-<form class="addTaskForm" onsubmit="createTask(); return false;">
+<form class="addTaskForm" id="addTaskForm" onsubmit="return false;" >
     <div class="addTaskLeft">
         <div class=" formCullum">
             <h2>Title</h2>
-            <input required id="titelInputField" class="inputField" type="text" placeholder="Enter a Titel">
+            <input  required id="titelInputField" class="inputField el" type="text" placeholder="Enter a Titel">
         </div>
         <div class=" formCullum">
             <h2>Description</h2>
-            <textarea minlength="4" required id="descriptionInputField" class="descriptionArea" placeholder="Enter a &#13;Description..."></textarea>
+            <textarea  minlength="4" required id="descriptionInputField" class="descriptionArea el" placeholder="Enter a &#13;Description..."></textarea>
         </div>
         <div class=" formCullum categorySelect">
             <h2>Category</h2>
-            <select required id="categorySelect" class="inputField">
+            <select required id="categorySelect" class="inputField el">
                 <option value="" disabled selected hidden>Select task category</option>
                 <option value="Managment">Managment</option>
                 <option value="Design">Design</option>
@@ -211,36 +193,36 @@ function addTaskHTML() {
                 <option value="Marketing">Marketing</option>
                 <option value="Media">Media</option>
             </select>
-            <img class=" addCategoryButton" onclick="openAddCategory()" src="assets/img/plusBlack.png">
+            <img class="addCategoryButton" onclick="openAddCategory()" src="assets/img/plusBlack.png">
         </div>
         <div class="collum formCullum assignedTo">
             <h2>ASSIGNED TO</h2>
-            <select required id="assignedToSelect" class="inputField">
+            <select required id="assignedToSelect" class="inputField el">
             </select>
         </div>
     </div>
     <div class="addTaskRight">
         <div class="collum formCullum">
             <h2>Date</h2>
-            <input required id="dateInputField" class="inputField" placeholder="Day/Month/Year" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+            <input required id="dateInputField" class="inputField el" placeholder="Day/Month/Year" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
         </div>
         <div class=" formCullum">
             <h2>Urgency</h2>
             <div class="urgencyContainer flex">
-                <div onclick="clickUrgencyButton(0)" id="urgencyButtonHigh" class="whiteButton">High <img id="urgencyImgHigh" src="assets/img/prioHigh.png"></div>
-                <div onclick="clickUrgencyButton(1)" id="urgencyButtonMiddle" class="whiteButton">Middle <img id="urgencyImgMiddle" src="assets/img/prioMiddle.png"></div>
-                <div onclick="clickUrgencyButton(2)" id="urgencyButtonLow" class="whiteButton">Low <img id="urgencyImgLow" src="assets/img/prioLow.png"></div>
+                <button type="button" onclick="clickUrgencyButton(0)" id="urgencyButtonHigh" class="whiteButton el">High <img id="urgencyImgHigh" src="assets/img/prioHigh.png"></button>
+                <button type="button" onclick="clickUrgencyButton(1)" id="urgencyButtonMiddle" class="whiteButton el">Middle <img id="urgencyImgMiddle" src="assets/img/prioMiddle.png"></button>
+                <button type="button" onclick="clickUrgencyButton(2)" id="urgencyButtonLow" class="whiteButton el">Low <img id="urgencyImgLow" src="assets/img/prioLow.png"></button>
             </div>
         </div>
         <div class=" formCullum subtasks">
             <h2>Subtasks</h2>
-            <input id="subtaskInputField" class="inputField" type="text" placeholder="Enter a Subtask">
+            <input id="subtaskInputField" class="inputField el" type="text" placeholder="Enter a Subtask">
             <img class="subtaskButton" onclick="addSubtask()" src="assets/img/plusBlack.png">
             <div class="subtasksContainer" id="subtasksContainer"></div>
         </div>
         <div class="addTaskButtonContainer" id="addTaskButtonContainer">
-            <button type="button" onclick="hideAddTask()" class="whiteButton">Cancel</button>
-            <button type="submit" class="button">Create Task</button>
+            <button type="button" onclick="hideAddTask()" class="whiteButton el">Cancel</button>
+            <button type="button" onclick="createTask()" class="button el">Create Task</button>
         </div>
     </div>
 </form>`;

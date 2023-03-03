@@ -66,8 +66,13 @@ img {
     align-items: center;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
     background: var(--bgPrimaryBlue);
+}
+
+.button:focus-visible {
+    outline: unset;
 }
 
 h1 {
@@ -88,11 +93,16 @@ h1 {
     font-weight: 700;
 }
 
-.whiteButton:hover {
+.whiteButton:hover,
+.whiteButton:focus {
     color: var(--fontColorBlue);
     border: 1px solid var(--fontColorBlue);
     box-shadow: 1px 0px 25px -10px #323232;
     scale: 1.01;
+}
+
+.whiteButton:focus-visible {
+    outline: unset;
 }
 
 .right {
