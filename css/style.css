@@ -16,6 +16,7 @@
 html {
     height: 100vh;
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
 body {
@@ -152,4 +153,17 @@ h1 {
 
 .highlightActiveMenu:hover {
     transform: scale(1) !important;
+}
+
+@media (max-width: 650px) {
+    .headersImprint {
+        font-size: 7vw !important;
+        margin: 1rem 0 0 0 !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .headersImprint {
+        font-size: 6vw !important;
+    }
 }

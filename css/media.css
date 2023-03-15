@@ -114,9 +114,6 @@
     .summaryHeader h1 {
         margin: 1rem 0 1rem 4rem !important;
     }
-    header span {
-        margin: 0 0 0 2rem !important;
-    }
     .cube {
         margin: 0 0 2rem 2rem !important;
     }
@@ -168,6 +165,12 @@
     /* header span {
         font-size: 0.75rem;
     } */
+    header span {
+        margin: 0 0 0 2rem !important;
+    }
+    header div {
+        margin: 0 -1rem 0 0;
+    }
     .contactAlreadyExistsContainer {
         font-size: 1.5rem !important;
     }
@@ -196,6 +199,9 @@
     }
     .userImg {
         display: none !important;
+    }
+    .aboutUs {
+        margin: 0 2rem 0 2rem !important;
     }
     .right {
         width: 100% !important;
@@ -292,7 +298,7 @@
     .help,
     .aboutUs {
         overflow-x: scroll;
-        height: calc((100vh - 6rem) - 10vh) !important;
+        height: calc((100vh - 6rem) - 4vh) !important;
     }
     .addTaskForm {
         margin: 0 0 0 0 !important;
