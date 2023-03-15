@@ -183,10 +183,12 @@
     }
     .top {
         overflow-x: unset !important;
+        height: 100%;
     }
     .left .top ul {
         flex-direction: unset !important;
         justify-content: space-around !important;
+        height: 100%;
     }
     .left .top ul li {
         flex-direction: column !important;
@@ -405,7 +407,7 @@
         left: 14rem !important;
     }
     .addTask {
-        max-height: 65vh !important;
+        max-height: 80vh !important;
     }
     li img {
         width: 2rem !important;
@@ -725,9 +727,9 @@
         padding: 0 !important;
         margin: 0 !important;
     }
-    .boardAddTaskcontainer .addTaskButtonContainer {
-        position: unset;
-        justify-content: unset;
+    .addTaskButtonContainer {
+        position: unset !important;
+        justify-content: unset !important;
     }
     .arrowUp {
         display: block !important;

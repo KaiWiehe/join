@@ -222,7 +222,7 @@ function addTaskHTML() {
         </div>
         <div class="addTaskButtonContainer" id="addTaskButtonContainer">
             <button type="button" onclick="hideAddTask()" class="whiteButton el">Cancel</button>
-            <button type="button" onclick="createTask()" class="button el">Create Task</button>
+            <button type="button" onclick="createTask()" class="button el" id="createTaskButton">Create Task</button>
         </div>
     </div>
 </form>`;
