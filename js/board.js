@@ -121,10 +121,12 @@ function openCardHTML(task, i) {
                 <p class="cardBigP"><b>Due date:</b>${task.date}</p>
                 <p class="cardBigP"><b>Priority:</b>${task.urgency} <img id="urgencyIcon" class="urgencyIcon" src="${task.urgencyImg}"></p>
                 <div class="flex" style="align-items: center;"><p  class="flex assignedToP" style="margin: 0;"><b>Assigned to: </b>${task.AssignedTo}${task.img}</p></div>
-                <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
-                <button onclick="editTask(${task.id}, ${i})" class="editImg button"><img src="assets/img/editTaskIcon.png" alt=""></button>
-                <button onclick="nextProcess(${task.id})" class="editImg button arrowUp"><img id="arrowDown" src="assets/img/arrowDown.svg" alt=""></button>
-                <button onclick="lastProcess(${task.id})" class="editImg button arrowDown"><img id="arrowUp" src="assets/img/arrowUp.svg" alt=""></button>
+                <div class="cardBigButtons">
+                    <img onclick="del(${i})" class="trashImg" src="assets/img/trash.svg">
+                    <button onclick="editTask(${task.id}, ${i})" class="editImg button"><img src="assets/img/editTaskIcon.png" alt=""></button>
+                    <button onclick="nextProcess(${task.id})" class="editImg button arrowUp"><img id="arrowDown" src="assets/img/arrowDown.svg" alt=""></button>
+                    <button onclick="lastProcess(${task.id})" class="editImg button arrowDown"><img id="arrowUp" src="assets/img/arrowUp.svg" alt=""></button>
+                </div>
             </div>
         </div>
     </div>`;

@@ -7,7 +7,7 @@
 
 .boardContainer {
     margin: 0rem 2rem 0rem 2rem;
-    height: calc(100vh - 4rem);
+    height: calc(100svh - 4rem);
 }
 
 .boardInput {
@@ -18,6 +18,7 @@
     border: 2px solid #dfdede;
     border-radius: 0.5rem;
     margin: 0 1rem 0 0;
+    font-size: 1rem;
 }
 
 .boardInput:focus-visible {
@@ -42,7 +43,7 @@
 .board {
     display: flex;
     justify-content: space-around;
-    height: calc(100vh - 14rem);
+    height: calc(100svh - 14rem);
 }
 
 .category {
@@ -85,7 +86,7 @@
     text-align: left;
     box-shadow: 0px 0px 12px -5px #969696;
     overflow-x: scroll;
-    max-height: 75vh;
+    max-height: 75svh;
 }
 
 .cardCategory {
@@ -145,7 +146,7 @@
     border-radius: 2rem;
     position: absolute;
     overflow-x: scroll;
-    max-height: 75vh;
+    max-height: 75svh;
     z-index: 2;
 }
 
@@ -266,15 +267,9 @@
 
 .cardBig .trashImg {
     width: 3rem;
-    position: absolute;
-    right: 3rem;
-    bottom: 5.5rem;
 }
 
 .editImg {
-    position: absolute;
-    right: 3rem;
-    bottom: 2rem;
     width: 3rem;
     height: 3rem;
 }
@@ -362,4 +357,13 @@
 
 .arrowUp img {
     filter: invert(1);
+}
+
+.cardBigButtons {
+    bottom: 2rem;
+    background: white;
+    display: flex;
+    gap: 1rem;
+    position: absolute;
+    width: 90%;
 }

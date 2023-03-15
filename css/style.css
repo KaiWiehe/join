@@ -14,13 +14,13 @@
 }
 
 html {
-    height: 100vh;
+    height: 100ssvh;
     scroll-behavior: smooth;
     overflow: hidden;
 }
 
 body {
-    min-height: 100vh;
+    height: 100ssvh;
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -112,7 +112,7 @@ h1 {
     /* border-radius: 0 1.5rem 1.5rem 0;
     border: 0.25rem solid var(--border);
     border-left: 0; */
-    height: 100vh
+    height: 100svh
 }
 
 .borderBottom {
@@ -125,7 +125,7 @@ h1 {
 
 .help {
     overflow-x: scroll;
-    height: calc(100vh - 6rem);
+    height: calc(100svh - 6rem);
 }
 
 .help::-webkit-scrollbar {

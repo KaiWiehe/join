@@ -1,817 +1,816 @@
-@media (max-width: 1350px) {
-    .goodMorning {
-        font-size: 2rem !important;
+    @media (max-width: 1350px) {
+        .goodMorning {
+            font-size: 2rem !important;
+        }
+        .goodMorning b {
+            font-size: 3rem !important;
+        }
     }
-    .goodMorning b {
-        font-size: 3rem !important;
+    
+    @media (max-width: 1220px) {
+        .cube {
+            width: 8rem !important;
+            height: 8rem !important;
+        }
+        .rectangle {
+            width: calc(24rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(10rem + 4rem) !important;
+        }
     }
-}
-
-@media (max-width: 1220px) {
-    .cube {
-        width: 8rem !important;
-        height: 8rem !important;
+    
+    @media (max-width: 1100px) {
+        .goodMorning {
+            display: none;
+        }
+        .cube {
+            width: 10rem !important;
+            height: 10rem !important;
+        }
+        .rectangle {
+            width: calc(30rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(13rem + 4rem) !important;
+        }
+        .addContact {
+            flex-direction: column !important;
+        }
+        .addContactLeft {
+            height: auto !important;
+            width: auto !important;
+            border-radius: 2rem 2rem 0 0 !important;
+        }
+        .addContactRight {
+            border-radius: 0 0 2rem 2rem !important;
+            padding: 2rem 2rem 2rem 0 !important;
+        }
     }
-    .rectangle {
-        width: calc(24rem + 8rem) !important;
+    
+    @media (max-width: 900px) {
+        .contactAlreadyExistsContainer {
+            font-size: 2rem !important;
+        }
+        .cube {
+            width: 8rem !important;
+            height: 8rem !important;
+        }
+        .rectangle {
+            width: calc(24rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(10rem + 4rem) !important;
+        }
+        .cubeNumber {
+            font-size: 2rem !important;
+        }
+        .cube span {
+            font-size: 0.75rem;
+        }
+        .left .top ul li {
+            font-size: 0.75rem;
+        }
     }
-    .rectangle2 {
-        width: calc(10rem + 4rem) !important;
+    
+    @media (max-width: 800px) {
+        h1 {
+            font-size: 2rem !important;
+        }
+        .summaryHeader span {
+            font-size: 1rem !important;
+        }
+        .cube {
+            width: 7rem !important;
+            height: 7rem !important;
+        }
+        .rectangle {
+            width: calc(21rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(8.5rem + 4rem) !important;
+        }
+        .cubeNumber {
+            font-size: 2rem !important;
+        }
+        .cube span {
+            font-size: 0.75rem;
+        }
+        .left .top ul li {
+            padding: 1rem 1rem 1rem 1rem !important;
+        }
     }
-}
-
-@media (max-width: 1100px) {
-    .goodMorning {
-        display: none;
-    }
-    .cube {
-        width: 10rem !important;
-        height: 10rem !important;
-    }
-    .rectangle {
-        width: calc(30rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(13rem + 4rem) !important;
-    }
-    .addContact {
-        flex-direction: column !important;
-    }
-    .addContactLeft {
-        height: auto !important;
-        width: auto !important;
-        border-radius: 2rem 2rem 0 0 !important;
-    }
-    .addContactRight {
-        border-radius: 0 0 2rem 2rem !important;
-        padding: 2rem 2rem 2rem 0 !important;
-    }
-}
-
-@media (max-width: 900px) {
-    .contactAlreadyExistsContainer {
-        font-size: 2rem !important;
-    }
-    .cube {
-        width: 8rem !important;
-        height: 8rem !important;
-    }
-    .rectangle {
-        width: calc(24rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(10rem + 4rem) !important;
-    }
-    .cubeNumber {
-        font-size: 2rem !important;
-    }
-    .cube span {
-        font-size: 0.75rem;
-    }
-    .left .top ul li {
-        font-size: 0.75rem;
-    }
-}
-
-@media (max-width: 800px) {
-    h1 {
-        font-size: 2rem !important;
-    }
-    .summaryHeader span {
-        font-size: 1rem !important;
-    }
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(21rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(8.5rem + 4rem) !important;
-    }
-    .cubeNumber {
-        font-size: 2rem !important;
-    }
-    .cube span {
-        font-size: 0.75rem;
-    }
-    .left .top ul li {
-        padding: 1rem 1rem 1rem 1rem !important;
-    }
-}
-
-@media (max-width: 700px) {
-    /* .right {
+    
+    @media (max-width: 700px) {
+        /* .right {
                         width: 75% !important;
                     }
                     .left {
                         width: 25% !important;
                     } */
-    h1 {
-        margin: 1rem 0 1rem 2rem !important;
+        h1 {
+            margin: 1rem 0 1rem 2rem !important;
+        }
+        .summaryHeader h1 {
+            margin: 1rem 0 1rem 4rem !important;
+        }
+        .cube {
+            margin: 0 0 2rem 2rem !important;
+        }
+        .rectangle {
+            width: 29rem !important;
+        }
+        .rectangle2 {
+            width: 29rem !important;
+        }
+        .showContact {
+            width: 75%;
+        }
+        #addTaskh1 {
+            margin: 1rem 0 1rem 0rem !important;
+        }
+        .loginContainer h1 {
+            margin: 1rem auto 0 auto !important;
+        }
     }
-    .summaryHeader h1 {
-        margin: 1rem 0 1rem 4rem !important;
+    
+    @media (max-height: 550px) {
+        .register .loginForm input {
+            margin: 0.5rem !important;
+            height: 2rem !important;
+        }
+        .imgSelect {
+            margin: 0.5rem !important;
+            height: 2rem !important;
+        }
+        #register {
+            align-items: center !important;
+        }
+        .loginContainer h1 {
+            margin: 1rem auto 0 auto !important;
+        }
+        .cube {
+            width: 4rem !important;
+            height: 4rem !important;
+        }
+        .rectangle {
+            width: calc(24rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(10rem + 4rem) !important;
+        }
     }
-    .cube {
-        margin: 0 0 2rem 2rem !important;
-    }
-    .rectangle {
-        width: 29rem !important;
-    }
-    .rectangle2 {
-        width: 29rem !important;
-    }
-    .showContact {
-        width: 75%;
-    }
-    #addTaskh1 {
-        margin: 1rem 0 1rem 0rem !important;
-    }
-    .loginContainer h1 {
-        margin: 1rem auto 0 auto !important;
-    }
-}
-
-@media (max-height: 550px) {
-    .register .loginForm input {
-        margin: 0.5rem !important;
-        height: 2rem !important;
-    }
-    .imgSelect {
-        margin: 0.5rem !important;
-        height: 2rem !important;
-    }
-    #register {
-        align-items: center !important;
-    }
-    .loginContainer h1 {
-        margin: 1rem auto 0 auto !important;
-    }
-    .cube {
-        width: 4rem !important;
-        height: 4rem !important;
-    }
-    .rectangle {
-        width: calc(24rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(10rem + 4rem) !important;
-    }
-}
-
-@media (max-width: 650px) {
-    /* header span {
+    
+    @media (max-width: 650px) {
+        /* header span {
         font-size: 0.75rem;
     } */
-    header span {
-        margin: 0 0 0 2rem !important;
-    }
-    header div {
-        margin: 0 -1rem 0 0;
-    }
-    .contactAlreadyExistsContainer {
-        font-size: 1.5rem !important;
-    }
-    body {
-        flex-direction: column-reverse;
-    }
-    .left {
-        width: 100% !important;
-        height: 11vh !important;
-    }
-    .joinlogo {
-        display: none !important;
-    }
-    .top {
-        overflow-x: unset !important;
-        height: 100%;
-    }
-    .left .top ul {
-        flex-direction: unset !important;
-        justify-content: space-around !important;
-        height: 100%;
-    }
-    .left .top ul li {
-        flex-direction: column !important;
-        border-left: 0 !important;
-    }
-    .userImg {
-        display: none !important;
-    }
-    .aboutUs {
-        margin: 0 2rem 0 2rem !important;
-    }
-    .right {
-        width: 100% !important;
-        height: 90vh !important;
-    }
-    .mobileHide {
-        display: none !important;
-    }
-    .mobileShow {
-        display: block !important;
-    }
-    .left .top ul li:hover {
-        border-left: 0 !important;
-        transform: unset !important;
-    }
-    .bottomRight {
-        display: flex;
-        justify-content: center;
-        height: calc((100vh - 4rem) - 10vh);
-    }
-    #summary {
-        margin: 0 2rem 0 0;
-    }
-    .cube {
-        width: 9rem !important;
-        height: 9rem !important;
-    }
-    .rectangle {
-        width: calc(23rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(10.5rem + 4rem) !important;
-    }
-    .boardHeader {
-        margin: 1rem 0 0 0;
-    }
-    .addTask {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 1rem 0 0 0 !important;
-    }
-    .contacts {
-        width: 100%;
-    }
-    .contactsContainer {
-        height: calc((100vh - 4rem) - 10vh) !important;
-    }
-    .addContactButton {
-        bottom: 9vh !important;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        right: unset !important;
-    }
-    .showContact {
-        height: calc((100vh - 4rem) - 18vh);
-        width: 100% !important;
-        overflow-x: scroll;
-    }
-    .showContact::-webkit-scrollbar {
-        width: 0 !important/* Damit die scrollbar verschwindet */
-    }
-    .showContactTop {
-        margin: 3rem 2rem 0 1rem !important;
-    }
-    .showContactTop h3 {
-        font-size: 2rem !important;
-        padding: 0 0.5rem 0 0 !important;
-    }
-    .showContactTop span {
-        padding: 0 0 0 0.5rem !important;
-        font-size: 1rem !important;
-    }
-    .closeImgContacts {
-        top: 0rem !important;
-    }
-    .showContactBottom .boardProfileImg {
-        width: 4rem !important;
-        height: 4rem !important;
-    }
-    .showContact .nameAndImg {
-        margin: 1rem 1rem 0 1rem !important;
-    }
-    .contactInfo {
-        margin: 2rem 0 0 1rem !important;
-    }
-    .contactInfos {
-        margin: 2rem 0 0 1rem !important;
-    }
-    .closeImgContacts {
-        right: 2rem !important;
-    }
-    .help,
-    .aboutUs {
-        overflow-x: scroll;
-        height: calc((100vh - 6rem) - 4vh) !important;
-    }
-    .addTaskForm {
-        margin: 0 0 0 0 !important;
-    }
-    .formCullum {
-        width: 16rem !important;
-    }
-    .addTaskLeft .formCullum input.inputField {
-        width: 15rem;
-    }
-    .addTaskLeft .descriptionArea {
-        width: 15rem;
-    }
-    .addTaskLeft .inputField {
-        width: 16rem;
-    }
-    .addCategoryButton {
-        top: 0rem !important;
-        right: 6.5rem !important;
-    }
-    #dateInputField,
-    #subtaskInputField {
-        width: 15rem;
-    }
-    .urgencyContainer {
-        display: grid !important;
-        height: 11rem;
-        gap: unset !important;
-    }
-    .urgencyContainer .whiteButton {
-        width: 14rem;
-    }
-    .subtaskButton {
-        top: 3.3rem !important;
-    }
-    .subtasksContainer {
-        width: 17rem !important;
-    }
-    .subtask {
-        width: 14rem;
-    }
-    .board {
-        height: calc(100vh - 15rem) !important;
-    }
-    .addContactRight .noImg {
-        margin: 1rem;
-    }
-    .addContactRight form {
-        margin: 0 0 0 0 !important;
-    }
-    .addContactRight form input {
-        width: 10rem !important;
-    }
-    #forgotPasswort {
-        width: 22rem !important;
-    }
-    #forgotPasswort h1 {
-        width: 15rem !important;
-    }
-    .msgBox {
-        top: -20rem !important;
-    }
-    .cardBig {
-        width: 100% !important;
-    }
-    .cardBig .card {
-        padding: 2rem 2rem 6rem 2rem !important;
-    }
-    .cardBig .trashImg {
-        left: 2rem !important;
-        bottom: 2rem !important;
-    }
-    .editImg {
-        left: 6rem;
-    }
-    .cardBig span {
-        font-size: 1rem !important;
-    }
-    .cardBig h3 {
-        font-size: 1.5rem !important;
-    }
-    .cardBig p {
-        font-size: 1rem !important;
-    }
-    .cardBig h4 {
-        margin: 0 !important;
-    }
-    .cardBigP {
-        margin: 0.5rem 0 !important;
-    }
-    .closeImgCardBig {
-        display: block !important;
-    }
-    #summary {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    body {
-        overflow: hidden;
-    }
-    .left .top ul li span {
-        display: none;
-    }
-    .arrowDown {
-        bottom: 2rem !important;
-        left: 10rem !important;
-    }
-    .arrowUp {
-        bottom: 2rem !important;
-        left: 14rem !important;
-    }
-    .addTask {
-        max-height: 80vh !important;
-    }
-    li img {
-        width: 2rem !important;
-        height: 2rem !important;
-        padding: 0 !important;
-    }
-}
-
-@media (max-width: 415px) {
-    .addContactRight {
-        padding: 2rem 1rem 2rem 0 !important;
-    }
-    .addContactRight .noImg {
-        width: 4rem !important;
-        height: 4rem !important;
-    }
-    .noImg img {
-        width: 4rem !important;
-        height: 4rem !important;
-    }
-}
-
-@media (max-width: 550px) {
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(17rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(7.5rem + 4rem) !important;
-    }
-    .headerSpan {
-        display: none;
-    }
-    header {
-        align-items: center !important;
-    }
-    .headerImgMobile {
-        display: block !important;
-    }
-}
-
-@media (max-width: 420px) {
-    .cube {
-        width: 5rem !important;
-        height: 5rem !important;
-    }
-    .rectangle {
-        width: calc(11rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(4.5rem + 4rem) !important;
-    }
-}
-
-@media (max-width: 850px) {
-    .loginContainer {
-        width: 20rem !important;
-    }
-    .loginForm input {
-        width: 17rem !important;
-    }
-    .rememberMeClickbox input {
-        width: 1rem !important;
-    }
-    .mail {
-        background-position: 15rem !important;
-    }
-    .pass {
-        background-position: 15rem !important;
-    }
-    .imgSelect {
-        padding: 0 1.5rem 0 0.5rem !important;
-        width: 18rem !important;
-    }
-    #forgotPasswort h1 {
-        width: 15rem !important;
-    }
-}
-
-@media (max-height: 400px) {
-    #resetPasswort .loginButtons button {
-        margin: 0rem 0rem 1rem 0rem;
-    }
-    #resetPasswort .loginForm input {
-        margin: 0.5rem;
-    }
-}
-
-@media (max-height: 450px) {
-    .loginContainer h1 {
-        margin: 1rem auto 0 auto!important;
-    }
-}
-
-@media (max-height: 600px) and (max-width: 1150px) {
-    .registerNewUser {
-        flex-direction: column-reverse;
-        gap: 1rem;
-    }
-}
-
-@media (max-height: 600px) and (max-width: 950px) {
-    .registerNewUser {
-        right: 0rem !important;
-    }
-}
-
-@media (max-height: 800px) and (max-width: 700px) {
-    .joinlogoDarkAnimation {
-        z-index: 2;
-        background: rgb(246, 247, 248);
-        animation: joinLogoDarkMobile2 1000ms cubic-bezier(0.6, -0.05, 0.35, 1.29) alternate forwards !important;
-    }
-}
-
-@media (max-height: 620px) and (max-width: 500px) {
-    .register .joinlogoDark {
-        display: none;
-    }
-}
-
-@media (max-height: 600px) and (max-width: 850px) {
-    .register .loginContainer {
-        margin: 0 !important;
-    }
-}
-
-@media (max-height: 550px) and (max-width: 650px) {
-    .summaryHeader {
-        display: none !important;
-    }
-}
-
-@media (max-height: 400px) {
-    .rememberMeForgotMyPasswort {
-        margin: 0 1rem !important;
-    }
-}
-
-@media (max-height: 850px) {
-    .cube {
-        width: 8rem !important;
-        height: 8rem !important;
-    }
-    .rectangle {
-        width: calc(24rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(10rem + 4rem) !important;
-    }
-}
-
-@media (max-height: 750px) {
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-        margin: 0 0 1rem 4rem !important;
-    }
-    .rectangle {
-        width: calc(21rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(8.5rem + 4rem) !important;
-    }
-    .cubeNumber {
-        font-size: 2rem !important;
-    }
-    .cube span {
-        font-size: 0.75rem;
-    }
-    .goodMorning {
-        font-size: 2rem !important;
-        line-height: 3rem !important;
-    }
-    .goodMorning b {
-        font-size: 3rem !important;
-    }
-}
-
-@media (max-height: 700px) {
-    .userImg img {
-        display: none !important;
-    }
-}
-
-@media (max-height: 800px) {
-    .addTask {
-        overflow-x: scroll !important;
-        height: calc(100vh - 7rem) !important;
-    }
-}
-
-@media (max-height: 600px) {
-    h1 {
-        font-size: 2rem !important;
-    }
-    .summaryHeader span {
-        font-size: 1rem !important;
-    }
-    .summaryHeader {
-        margin: 0 0 -1rem 0 !important;
-    }
-    .joinlogo {
-        margin: 2rem 0 2rem 0 !important;
-    }
-}
-
-@media (max-height: 850px) and (min-width: 900px) {
-    .cube {
-        width: 7rem !important;
-        height: 7rem !important;
-    }
-    .rectangle {
-        width: calc(21rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(8.5rem + 4rem) !important;
-    }
-}
-
-@media (max-height: 700px) and (min-width: 900px) {
-    .cube {
-        width: 5rem !important;
-        height: 5rem !important;
-    }
-    .rectangle {
-        width: calc(15rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(5.5rem + 4rem) !important;
-    }
-    .userImg {
-        display: none !important;
-    }
-    .cubeNumber {
-        font-size: 2rem !important;
-    }
-    .cube span {
-        font-size: 0.75rem;
-    }
-}
-
-@media ( max-width:550px) {
-    .cube {
-        width: 5rem !important;
-        height: 5rem !important;
-        margin: 0 0 1rem 2rem !important;
-    }
-    .rectangle {
-        width: 19rem !important;
-    }
-    .rectangle2 {
-        width: 8.5rem !important;
-    }
-}
-
-@media (max-height: 750px) and (max-width: 800px) {
-    .userImg {
-        display: none !important;
-    }
-}
-
-@media (max-height: 750px) and (max-width: 420px) {
-    .cube {
-        width: 5rem !important;
-        height: 5rem !important;
-    }
-    .rectangle {
-        width: calc(11rem + 8rem) !important;
-    }
-    .rectangle2 {
-        width: calc(4.5rem + 4rem) !important;
-    }
-}
-
-@media (max-width: 1250px) {
-    .board {
-        flex-direction: column;
-        overflow-x: scroll;
-        justify-content: unset !important;
-    }
-    .board::-webkit-scrollbar {
-        width: 0 !important/* Damit die scrollbar verschwindet */
-    }
-    .category {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        height: max-content !important;
-    }
-    /* .todo {
+        header span {
+            margin: 0 0 0 2rem !important;
+        }
+        header div {
+            margin: 0 -1rem 0 0;
+        }
+        .contactAlreadyExistsContainer {
+            font-size: 1.5rem !important;
+        }
+        body {
+            flex-direction: column-reverse;
+        }
+        .left {
+            width: 100% !important;
+            height: 11svh !important;
+        }
+        .joinlogo {
+            display: none !important;
+        }
+        .top {
+            overflow-x: unset !important;
+            height: 100%;
+        }
+        .left .top ul {
+            flex-direction: unset !important;
+            justify-content: space-around !important;
+            height: 100%;
+        }
+        .left .top ul li {
+            flex-direction: column !important;
+            border-left: 0 !important;
+        }
+        .userImg {
+            display: none !important;
+        }
+        .aboutUs {
+            margin: 0 2rem 0 2rem !important;
+        }
+        .right {
+            width: 100% !important;
+            height: 90svh !important;
+        }
+        .mobileHide {
+            display: none !important;
+        }
+        .mobileShow {
+            display: block !important;
+        }
+        .left .top ul li:hover {
+            border-left: 0 !important;
+            transform: unset !important;
+        }
+        .bottomRight {
+            display: flex;
+            justify-content: center;
+            height: calc((100svh - 4rem) - 10svh);
+        }
+        #summary {
+            margin: 0 2rem 0 0;
+        }
+        .cube {
+            width: 9rem !important;
+            height: 9rem !important;
+        }
+        .rectangle {
+            width: calc(23rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(10.5rem + 4rem) !important;
+        }
+        .boardHeader {
+            margin: 1rem 0 0 0;
+        }
+        .addTask {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1rem 0 0 0 !important;
+        }
+        .contacts {
+            width: 100%;
+        }
+        .contactsContainer {
+            height: calc((100svh - 4rem) - 10svh) !important;
+        }
+        .addContactButton {
+            bottom: 9svh !important;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            right: unset !important;
+        }
+        .showContact {
+            height: calc((100svh - 4rem) - 18svh);
+            width: 100% !important;
+            overflow-x: scroll;
+        }
+        .showContact::-webkit-scrollbar {
+            width: 0 !important/* Damit die scrollbar verschwindet */
+        }
+        .showContactTop {
+            margin: 3rem 2rem 0 1rem !important;
+        }
+        .showContactTop h3 {
+            font-size: 2rem !important;
+            padding: 0 0.5rem 0 0 !important;
+        }
+        .showContactTop span {
+            padding: 0 0 0 0.5rem !important;
+            font-size: 1rem !important;
+        }
+        .closeImgContacts {
+            top: 0rem !important;
+        }
+        .showContactBottom .boardProfileImg {
+            width: 4rem !important;
+            height: 4rem !important;
+        }
+        .showContact .nameAndImg {
+            margin: 1rem 1rem 0 1rem !important;
+        }
+        .contactInfo {
+            margin: 2rem 0 0 1rem !important;
+        }
+        .contactInfos {
+            margin: 2rem 0 0 1rem !important;
+        }
+        .closeImgContacts {
+            right: 2rem !important;
+        }
+        .help,
+        .aboutUs {
+            overflow-x: scroll;
+        }
+        .addTaskForm {
+            margin: 0 0 0 0 !important;
+        }
+        .formCullum {
+            width: 16rem !important;
+        }
+        .addTaskLeft .formCullum input.inputField {
+            width: 15rem;
+        }
+        .addTaskLeft .descriptionArea {
+            width: 15rem;
+        }
+        .addTaskLeft .inputField {
+            width: 16rem;
+        }
+        .addCategoryButton {
+            top: 0rem !important;
+            right: 6.5rem !important;
+        }
+        #dateInputField,
+        #subtaskInputField {
+            width: 15rem;
+        }
+        .urgencyContainer {
+            display: grid !important;
+            height: 11rem;
+            gap: unset !important;
+        }
+        .urgencyContainer .whiteButton {
+            width: 14rem;
+        }
+        .subtaskButton {
+            top: 3.3rem !important;
+        }
+        .subtasksContainer {
+            width: 17rem !important;
+        }
+        .subtask {
+            width: 14rem;
+        }
+        .board {
+            height: calc(100svh - 15rem) !important;
+        }
+        .addContactRight .noImg {
+            margin: 1rem;
+        }
+        .addContactRight form {
+            margin: 0 0 0 0 !important;
+        }
+        .addContactRight form input {
+            width: 10rem !important;
+        }
+        #forgotPasswort {
+            width: 22rem !important;
+        }
+        #forgotPasswort h1 {
+            width: 15rem !important;
+        }
+        .msgBox {
+            top: -20rem !important;
+        }
+        .cardBig {
+            width: 100% !important;
+        }
+        .cardBig .card {
+            padding: 2rem 2rem 6rem 2rem !important;
+        }
+        .cardBig .trashImg {
+            left: 2rem !important;
+            bottom: 2rem !important;
+        }
+        .editImg {
+            left: 6rem;
+        }
+        .cardBig span {
+            font-size: 1rem !important;
+        }
+        .cardBig h3 {
+            font-size: 1.5rem !important;
+        }
+        .cardBig p {
+            font-size: 1rem !important;
+        }
+        .cardBig h4 {
+            margin: 0 !important;
+        }
+        .cardBigP {
+            margin: 0.5rem 0 !important;
+        }
+        .closeImgCardBig {
+            display: block !important;
+        }
+        #summary {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        body {
+            overflow: hidden;
+        }
+        .left .top ul li span {
+            display: none;
+        }
+        .arrowDown {
+            bottom: 2rem !important;
+            left: 10rem !important;
+        }
+        .arrowUp {
+            bottom: 2rem !important;
+            left: 14rem !important;
+        }
+        .addTask {
+            max-height: 80svh !important;
+        }
+        li img {
+            width: 2rem !important;
+            height: 2rem !important;
+            padding: 0 !important;
+        }
+    }
+    
+    @media (max-width: 415px) {
+        .addContactRight {
+            padding: 2rem 1rem 2rem 0 !important;
+        }
+        .addContactRight .noImg {
+            width: 4rem !important;
+            height: 4rem !important;
+        }
+        .noImg img {
+            width: 4rem !important;
+            height: 4rem !important;
+        }
+    }
+    
+    @media (max-width: 550px) {
+        .cube {
+            width: 7rem !important;
+            height: 7rem !important;
+        }
+        .rectangle {
+            width: calc(17rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(7.5rem + 4rem) !important;
+        }
+        .headerSpan {
+            display: none;
+        }
+        header {
+            align-items: center !important;
+        }
+        .headerImgMobile {
+            display: block !important;
+        }
+    }
+    
+    @media (max-width: 420px) {
+        .cube {
+            width: 5rem !important;
+            height: 5rem !important;
+        }
+        .rectangle {
+            width: calc(11rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(4.5rem + 4rem) !important;
+        }
+    }
+    
+    @media (max-width: 850px) {
+        .loginContainer {
+            width: 20rem !important;
+        }
+        .loginForm input {
+            width: 17rem !important;
+        }
+        .rememberMeClickbox input {
+            width: 1rem !important;
+        }
+        .mail {
+            background-position: 15rem !important;
+        }
+        .pass {
+            background-position: 15rem !important;
+        }
+        .imgSelect {
+            padding: 0 1.5rem 0 0.5rem !important;
+            width: 18rem !important;
+        }
+        #forgotPasswort h1 {
+            width: 15rem !important;
+        }
+    }
+    
+    @media (max-height: 400px) {
+        #resetPasswort .loginButtons button {
+            margin: 0rem 0rem 1rem 0rem;
+        }
+        #resetPasswort .loginForm input {
+            margin: 0.5rem;
+        }
+    }
+    
+    @media (max-height: 450px) {
+        .loginContainer h1 {
+            margin: 1rem auto 0 auto!important;
+        }
+    }
+    
+    @media (max-height: 600px) and (max-width: 1150px) {
+        .registerNewUser {
+            flex-direction: column-reverse;
+            gap: 1rem;
+        }
+    }
+    
+    @media (max-height: 600px) and (max-width: 950px) {
+        .registerNewUser {
+            right: 0rem !important;
+        }
+    }
+    
+    @media (max-height: 800px) and (max-width: 700px) {
+        .joinlogoDarkAnimation {
+            z-index: 2;
+            background: rgb(246, 247, 248);
+            animation: joinLogoDarkMobile2 1000ms cubic-bezier(0.6, -0.05, 0.35, 1.29) alternate forwards !important;
+        }
+    }
+    
+    @media (max-height: 620px) and (max-width: 500px) {
+        .register .joinlogoDark {
+            display: none;
+        }
+    }
+    
+    @media (max-height: 600px) and (max-width: 850px) {
+        .register .loginContainer {
+            margin: 0 !important;
+        }
+    }
+    
+    @media (max-height: 550px) and (max-width: 650px) {
+        .summaryHeader {
+            display: none !important;
+        }
+    }
+    
+    @media (max-height: 400px) {
+        .rememberMeForgotMyPasswort {
+            margin: 0 1rem !important;
+        }
+    }
+    
+    @media (max-height: 850px) {
+        .cube {
+            width: 8rem !important;
+            height: 8rem !important;
+        }
+        .rectangle {
+            width: calc(24rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(10rem + 4rem) !important;
+        }
+    }
+    
+    @media (max-height: 750px) {
+        .cube {
+            width: 7rem !important;
+            height: 7rem !important;
+            margin: 0 0 1rem 4rem !important;
+        }
+        .rectangle {
+            width: calc(21rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(8.5rem + 4rem) !important;
+        }
+        .cubeNumber {
+            font-size: 2rem !important;
+        }
+        .cube span {
+            font-size: 0.75rem;
+        }
+        .goodMorning {
+            font-size: 2rem !important;
+            line-height: 3rem !important;
+        }
+        .goodMorning b {
+            font-size: 3rem !important;
+        }
+    }
+    
+    @media (max-height: 700px) {
+        .userImg img {
+            display: none !important;
+        }
+    }
+    
+    @media (max-height: 800px) {
+        .addTask {
+            overflow-x: scroll !important;
+            height: calc(100svh - 7rem) !important;
+        }
+    }
+    
+    @media (max-height: 600px) {
+        h1 {
+            font-size: 2rem !important;
+        }
+        .summaryHeader span {
+            font-size: 1rem !important;
+        }
+        .summaryHeader {
+            margin: 0 0 -1rem 0 !important;
+        }
+        .joinlogo {
+            margin: 2rem 0 2rem 0 !important;
+        }
+    }
+    
+    @media (max-height: 850px) and (min-width: 900px) {
+        .cube {
+            width: 7rem !important;
+            height: 7rem !important;
+        }
+        .rectangle {
+            width: calc(21rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(8.5rem + 4rem) !important;
+        }
+    }
+    
+    @media (max-height: 700px) and (min-width: 900px) {
+        .cube {
+            width: 5rem !important;
+            height: 5rem !important;
+        }
+        .rectangle {
+            width: calc(15rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(5.5rem + 4rem) !important;
+        }
+        .userImg {
+            display: none !important;
+        }
+        .cubeNumber {
+            font-size: 2rem !important;
+        }
+        .cube span {
+            font-size: 0.75rem;
+        }
+    }
+    
+    @media ( max-width:550px) {
+        .cube {
+            width: 5rem !important;
+            height: 5rem !important;
+            margin: 0 0 1rem 2rem !important;
+        }
+        .rectangle {
+            width: 19rem !important;
+        }
+        .rectangle2 {
+            width: 8.5rem !important;
+        }
+    }
+    
+    @media (max-height: 750px) and (max-width: 800px) {
+        .userImg {
+            display: none !important;
+        }
+    }
+    
+    @media (max-height: 750px) and (max-width: 420px) {
+        .cube {
+            width: 5rem !important;
+            height: 5rem !important;
+        }
+        .rectangle {
+            width: calc(11rem + 8rem) !important;
+        }
+        .rectangle2 {
+            width: calc(4.5rem + 4rem) !important;
+        }
+    }
+    
+    @media (max-width: 1250px) {
+        .board {
+            flex-direction: column;
+            overflow-x: scroll;
+            justify-content: unset !important;
+        }
+        .board::-webkit-scrollbar {
+            width: 0 !important/* Damit die scrollbar verschwindet */
+        }
+        .category {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            height: max-content !important;
+        }
+        /* .todo {
         margin: 60rem 0 0 0;
     } */
-    .cardContainer {
-        width: 30rem !important;
-        min-height: 10rem;
+        .cardContainer {
+            width: 30rem !important;
+            min-height: 10rem;
+        }
+        .board div h2 {
+            font-size: 2rem !important;
+            margin: 1rem 0 1rem 0 !important;
+        }
+        .addTask {
+            overflow-x: scroll !important;
+            max-height: 85svh;
+        }
+        .addTask::-webkit-scrollbar {
+            width: 0 !important/* Damit die scrollbar verschwindet */
+        }
+        .addTaskForm {
+            flex-direction: column !important;
+        }
+        .addTaskLeft {
+            border-right: 0 !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .addTaskButtonContainer {
+            position: unset !important;
+            justify-content: unset !important;
+        }
+        .arrowUp {
+            display: block !important;
+        }
+        .arrowDown {
+            display: block !important;
+        }
     }
-    .board div h2 {
-        font-size: 2rem !important;
-        margin: 1rem 0 1rem 0 !important;
+    
+    @media (max-width: 980px) {
+        .showContact {
+            display: none;
+            width: 80%;
+            position: absolute;
+            background: white;
+        }
+        .contactsContainer {
+            width: 100% !important;
+        }
+        .closeImgContacts {
+            display: block !important;
+        }
     }
-    .addTask {
-        overflow-x: scroll !important;
-        max-height: 85vh;
+    
+    @media (max-width: 500px) {
+        .registerNewUser {
+            top: 85% !important;
+            right: unset !important;
+            transform: translate(0, -50%) !important;
+        }
+        .joinlogoDarkAnimation {
+            animation: joinLogoDarkMobile 1000ms cubic-bezier(0.6, -0.05, 0.35, 1.29) alternate forwards !important;
+        }
+        .register .joinlogoDark {
+            width: 4rem !important;
+            top: 1rem;
+            left: 1rem;
+        }
+        #register {
+            align-items: flex-end;
+        }
+        .cardContainer {
+            width: 15rem !important;
+        }
+        .boardInput {
+            position: absolute;
+            top: 5.25rem !important;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 15rem !important;
+        }
+        .boardHeader {
+            position: relative;
+        }
+        .todo {
+            margin: 3rem 0 0 0;
+        }
+        .left .top ul li {
+            padding: 1rem 1rem 0 1rem !important;
+            text-align: center;
+        }
     }
-    .addTask::-webkit-scrollbar {
-        width: 0 !important/* Damit die scrollbar verschwindet */
+    
+    @media (max-width: 850px) and (min-height: 550px) {
+        .register .loginContainer {
+            margin: 0 0 2rem 0 !important;
+        }
     }
-    .addTaskForm {
-        flex-direction: column !important;
+    
+    @media (max-width: 850px) {
+        .register .joinlogoDark {
+            width: 4rem !important;
+            top: 1rem;
+            left: 1rem;
+        }
+        #register {
+            align-items: flex-end;
+        }
     }
-    .addTaskLeft {
-        border-right: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-    .addTaskButtonContainer {
-        position: unset !important;
-        justify-content: unset !important;
-    }
-    .arrowUp {
-        display: block !important;
-    }
-    .arrowDown {
-        display: block !important;
-    }
-}
-
-@media (max-width: 980px) {
-    .showContact {
-        display: none;
-        width: 80%;
-        position: absolute;
-        background: white;
-    }
-    .contactsContainer {
-        width: 100% !important;
-    }
-    .closeImgContacts {
-        display: block !important;
-    }
-}
-
-@media (max-width: 500px) {
-    .registerNewUser {
-        top: 85% !important;
-        right: unset !important;
-        transform: translate(0, -50%) !important;
-    }
-    .joinlogoDarkAnimation {
-        animation: joinLogoDarkMobile 1000ms cubic-bezier(0.6, -0.05, 0.35, 1.29) alternate forwards !important;
-    }
-    .register .joinlogoDark {
-        width: 4rem !important;
-        top: 1rem;
-        left: 1rem;
-    }
-    #register {
-        align-items: flex-end;
-    }
-    .cardContainer {
-        width: 15rem !important;
-    }
-    .boardInput {
-        position: absolute;
-        top: 5.25rem !important;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 15rem !important;
-    }
-    .boardHeader {
-        position: relative;
-    }
-    .todo {
-        margin: 3rem 0 0 0;
-    }
-    .left .top ul li {
-        padding: 1rem 1rem 0 1rem !important;
-        text-align: center;
-    }
-}
-
-@media (max-width: 850px) and (min-height: 550px) {
-    .register .loginContainer {
-        margin: 0 0 2rem 0 !important;
-    }
-}
-
-@media (max-width: 850px) {
-    .register .joinlogoDark {
-        width: 4rem !important;
-        top: 1rem;
-        left: 1rem;
-    }
-    #register {
-        align-items: flex-end;
-    }
-}

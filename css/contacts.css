@@ -1,12 +1,12 @@
 .contacts {
-    height: calc(100vh - 4rem);
+    height: calc(100svh - 4rem);
     /* position: relative; */
     display: flex;
 }
 
 .contactsContainer {
     background: var(--white);
-    height: calc(100vh - 4rem);
+    height: calc(100svh - 4rem);
     width: 25rem;
     overflow-y: scroll;
     box-shadow: inset 0px 0px 0.5rem lightgrey;
@@ -152,7 +152,7 @@
 .showContact {
     overflow-x: scroll;
     margin: 0 0 2rem 0;
-    max-height: calc(100vh - 4rem);
+    max-height: calc(100svh - 4rem);
 }
 
 .showContact::-webkit-scrollbar {

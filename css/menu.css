@@ -9,13 +9,14 @@
 }
 
 .left {
+    z-index: 2;
     background: var(--leftGrey);
     width: 20%;
     /* border-radius: 1.5rem 0 0 1.5rem; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100vh;
+    height: 100svh;
 }
 
 .joinlogo {

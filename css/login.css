@@ -4,10 +4,10 @@
     justify-content: center;
     align-items: center;
     position: absolute;
-    /* top: 0; */
-    /* right: 0; */
+    top: 0;
+    right: 0;
     left: 0;
-    height: 100vh;
+    height: 100svh;
     width: 100%;
     z-index: 1;
     background: rgb(246, 247, 248);
@@ -52,7 +52,6 @@
     top: 3rem;
     left: 4rem;
     width: 7rem;
-    border-radius: 0.5rem;
 }
 
 .joinlogoDarkAnimation {
