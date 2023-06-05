@@ -77,7 +77,7 @@ function arrClean(arr, errorText, containerID) {
  * @returns string capitalized
  * @example
  * // The function returns "Name".
- * console.log(capitalizeFirstLetter(name))
+ * //console.log(capitalizeFirstLetter(name))
  */
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -88,7 +88,7 @@ function capitalizeFirstLetter(string) {
  * @returns string only first letter capitalized
  * @example
  * // The function returns "N".
- * console.log(capitalizeFirstLetter(name))
+ * //console.log(capitalizeFirstLetter(name))
  */
 function firstLetter(string) {
     return string.charAt(0).toUpperCase();

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kai's Join</title>
+
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/img/favIcon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favIcon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favIcon/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/favIcon/site.webmanifest">
+    <link rel="mask-icon" href="assets/img/favIcon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/summary.css">
+    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="css/addTask.css">
+    <link rel="stylesheet" href="css/help.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/aboutUs.css">
+
+    <script src="models/addTaskKeyboardControl.class.js"></script>
+    <script src="models/switchCategorys.class.js"></script>
+    <script src="script.js"></script>
+    <script src="js/downloadBackend.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/editUser.js"></script>
+    <script src="js/addTask.js"></script>
+    <script src="js/addCategory.js"></script>
+    <script src="js/editTask.js"></script>
+    <script src="js/subtask.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/boardDragAndDrop.js"></script>
+    <script src="js/addTaskBoard.js"></script>
+    <script src="js/include.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/summary.js"></script>
+
+    <script src="./mini_backend.js"></script>
+
+</head>
+
+<body onload="init()">
+    <div class="left" w3-include-html="includes/menu.html"></div>
+
+    <div class="right">
+        <header w3-include-html="includes/header.html"></header>
+        <div class="bottomRight">
+            <div id="boardAddTaskcontainer" class="boardAddTaskcontainer hide" onclick="hideAddTask()">
+                <div class="boardAddTask " onclick="doNotClose(event)">
+                    <img id="hideAddTaskButton" src="assets/img/X.png" alt="X" class="closeButton" onclick="hideAddTask()">
+                    <div id="boardAddTask"></div>
+                </div>
+            </div>
+            <div id="summary" w3-include-html="includes/summary.html"></div>
+            <div id="board" class="boardContainer hide" w3-include-html="includes/board.html"></div>
+            <div id="addTask" class="addTask hide"></div>
+            <div id="help" class="help hide" w3-include-html="includes/help.html"></div>
+            <div id="aboutUs" class="aboutUs hide" w3-include-html="includes/aboutUs.html"></div>
+            <div id="contacts" class="contacts hide" w3-include-html="includes/contacts.html">
+            </div>
+            <div onclick="closeAddContact()" class="addContactContainer hide" id="addContactContainer" w3-include-html="includes/addContactContainer.html"></div>
+            <div class="contactAlreadyExistsContainer hide" id="categoryAlreadyExistsContainer">
+                <img onclick="closeSayHello()" class="closeImgSayHello" id="closeImgSayHello" src="assets/img/X.png" alt="X">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

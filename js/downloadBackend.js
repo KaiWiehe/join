@@ -8,9 +8,9 @@ async function downloadBackend() {
     taskIdCounter = JSON.parse(backend.getItem('taskIdCounter')) || [];
     contacts = JSON.parse(backend.getItem('contacts')) || [];
     categorys = JSON.parse(backend.getItem('categorys')) || [];
-    console.log('users', users);
-    console.log('tasks', tasks);
-    console.log('activeUser', activeUser);
-    console.log('contacts', contacts);
-    console.log('categorys', categorys);
+    //console.log('users', users);
+    //console.log('tasks', tasks);
+    //console.log('activeUser', activeUser);
+    //console.log('contacts', contacts);
+    //console.log('categorys', categorys);
 }

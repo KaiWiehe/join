@@ -19,7 +19,7 @@ class AddTaskKeyboardControl {
     startInterval() {
         setInterval(() => {
             this.addEventListener()
-            console.log(this.tab, this.shift);
+                //console.log(this.tab, this.shift);
         }, 60 / 1000);
     }
 
