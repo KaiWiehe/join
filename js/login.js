@@ -84,7 +84,6 @@ function forgotPasswort() {
  * @returns {JSON} - the user with this mail
  */
 function returnForgotPasswortUser(forgotPasswortMail) {
-    debugger
     let userNew = [];
     users.forEach((user) => user.mail.toLowerCase().includes(forgotPasswortMail.value.toLowerCase()) && userNew.push(user));
     return userNew[0];
