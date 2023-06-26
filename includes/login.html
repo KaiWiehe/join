@@ -1,4 +1,4 @@
-<img src="assets/img/joinlogoDark.png" alt="joinlogoDark" class="joinlogoDark joinlogoDarkAnimation">
+<img src="assets/img/joinlogoDark.png" alt="joinlogoDark" class="joinlogoDark joinlogoDarkAnimation" />
 <div class="registerNewUser">
     <p>Not a Join User?</p>
     <button onclick="register()" class="button">Sign up</button>
@@ -6,11 +6,11 @@
 <div class="loginContainer" id="loginContainer">
     <h1>Log in</h1>
     <form class="loginForm" onsubmit="login(); return false;">
-        <input id="mail" class="inputField mail" required type="email" placeholder="E-Mail">
-        <input id="password" class="inputField pass" required type="password" placeholder="Password">
+        <input id="mail" class="inputField mail" required type="email" placeholder="E-Mail" />
+        <input id="password" class="inputField pass" required type="password" placeholder="Password" />
         <div class="rememberMeForgotMyPasswort">
             <div class="rememberMeClickbox">
-                <input type="checkbox" name="rememberMe">
+                <input type="checkbox" id="rememberMe" />
                 <label for="rememberMe">Remember me</label>
             </div>
             <a onclick="showForgetPassword()">Forgot my password</a>
@@ -24,12 +24,11 @@
 </div>
 
 <div class="loginContainer hide" id="forgotPasswort">
-    <img class="arrowBack" src="assets/img/arrowBack.png" alt="arrowBack" onclick="backToLogin()">
+    <img class="arrowBack" src="assets/img/arrowBack.png" alt="arrowBack" onclick="backToLogin()" />
     <h1>I forgot my password</h1>
-    <span id="forgotPasswortString">Don't worry! We will send you an email with the instructions to
-        reset you password.</span>
+    <span id="forgotPasswortString">Don't worry! We will send you an email with the instructions to reset you password.</span>
     <form class="loginForm" onsubmit="forgotPasswort(); return false;">
-        <input id="forgotPasswortMail" class="inputField mail" required type="email" placeholder="E-Mail">
+        <input id="forgotPasswortMail" class="inputField mail" required type="email" placeholder="E-Mail" />
         <div class="loginButtons">
             <button class="button">Send me the email</button>
         </div>
@@ -37,12 +36,12 @@
 </div>
 
 <div class="loginContainer hide" id="resetPasswort">
-    <img class="arrowBack" src="assets/img/arrowBack.png" alt="arrowBack" onclick="backToLogin()">
+    <img class="arrowBack" src="assets/img/arrowBack.png" alt="arrowBack" onclick="backToLogin()" />
     <h1>Reset your Password</h1>
     <span id="resetPasswortString">Change your account password</span>
     <form class="loginForm" onsubmit="resetPasswort(); return false;">
-        <input id="resetPassword1" class="inputField pass" required type="password" placeholder="New Password">
-        <input id="resetPassword2" class="inputField pass" required type="password" placeholder="Confirm Password">
+        <input id="resetPassword1" class="inputField pass" required type="password" placeholder="New Password" />
+        <input id="resetPassword2" class="inputField pass" required type="password" placeholder="Confirm Password" />
         <div class="loginButtons">
             <button class="button">Continue</button>
         </div>
